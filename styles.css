@@ -1,99 +1,48 @@
-/* Reset */
-body, h1, h2, p, ul, li, a {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
-
-/* Body and Layout */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #4a90e2, #ffffff); /* Default gradient */
+  transition: background 0.5s ease; /* Smooth transition */
 }
 
-/* Header */
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  justify-content: center;
 }
 
-header .logo {
-    font-size: 24px;
-    font-weight: bold;
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
 }
 
-header nav ul {
-    display: flex;
+.card.revealed {
+  transform: rotateY(0);
+  background-color: #ff5722;
 }
 
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: #fff;
-    font-size: 16px;
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 50px;
-    background: #0078D7;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.hero button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background: #fff;
-    color: #0078D7;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.hero button:hover {
-    background: #ddd;
-}
-
-/* Content Sections */
-.content {
-    padding: 20px;
-    text-align: center;
-    background: white;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.content h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #333;
-    color: #fff;
-    margin-top: 20px;
+#player-turn {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+  color: #333; 
 }
