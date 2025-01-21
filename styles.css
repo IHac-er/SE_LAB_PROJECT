@@ -1,48 +1,133 @@
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #0f0f0f;
+  color: #ff4d4d;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #171717;
+}
+
+.navbar img {
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ff4d4d;
+  font-size: 16px;
+}
+
+.signup-button {
+  background-color: #ff4d4d;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hero and Video Container */
+.hero-video-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  flex: 1;
+  text-align: left; /* Align text to the left */
+  padding-right: 20px; /* Add spacing between text and video */
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.try-it {
+  background-color: #ff4d4d;
+  border: none;
+  padding: 15px 30px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Video Section */
+.video-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container video {
+  width: 100%; /* Adjust width as needed */
+  max-width: 500px; /* Prevent video from getting too large */
+  border-radius: 10px;
+}
+
+/* Programming Languages Section */
+.languages-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.languages {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.languages img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.languages img:hover {
+  transform: scale(1.2);
+}
+
+/* Footer */
+.footer {
+  background-color: #181818;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  text-align: center;
+}
+
+.footer .section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, #4a90e2, #ffffff); /* Default gradient */
-  transition: background 0.5s ease; /* Smooth transition */
-}
-
-
-#game-board {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
   gap: 10px;
-  justify-content: center;
 }
 
-.card {
-  width: 100px;
-  height: 100px;
-  background-color: #4caf50;
-  color: white;
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  user-select: none;
-  transform: rotateY(180deg);
-  transition: transform 0.5s;
-}
-
-.card.revealed {
-  transform: rotateY(0);
-  background-color: #ff5722;
-}
-
-#player-turn {
-  font-size: 20px;
-  margin-bottom: 20px;
-  text-align: justify;
-  color: #333; 
+.footer a {
+  text-decoration: none;
+  color: #ff4d4d;
+  font-size: 14px;
 }
