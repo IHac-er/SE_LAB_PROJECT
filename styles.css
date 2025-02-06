@@ -13,17 +13,19 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #171717;
+  background-color: #fffbfb;
 }
 
 .navbar img {
-  height: 50px;
+  height: 55px;
+  margin-left: 53px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-right: 40px;
 }
 
 .nav-links a {
@@ -40,6 +42,14 @@ body {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-button:hover {
+  background-color: #ff1a1a; /* Change the background color on hover */
+  color: #ffffff; /* Optional: Change the text color */
+  transform: scale(1.1); /* Optional: Slightly enlarge the button */
+  box-shadow: 0px 4px 10px rgba(255, 77, 77, 0.5); /* Add a shadow effect */
 }
 
 /* Hero and Video Container */
@@ -53,8 +63,9 @@ body {
 /* Hero Section */
 .hero-section {
   flex: 1;
-  text-align: left; /* Align text to the left */
-  padding-right: 20px; /* Add spacing between text and video */
+  text-align: left; /* Keep the text aligned to the left */
+  padding-right: 20px; /* Keep this to separate the text from the video */
+  margin-left: 70px; /* Move the entire text section to the right */
 }
 
 .hero-section h1 {
@@ -71,6 +82,14 @@ body {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.try-it:hover {
+  background-color: #ff1a1a; /* Change the background color on hover */
+  color: #ffffff; /* Optional: Change the text color */
+  transform: scale(1.1); /* Optional: Slightly enlarge the button */
+  box-shadow: 0px 4px 10px rgba(255, 77, 77, 0.5); /* Add a shadow effect */
 }
 
 /* Video Section */
@@ -78,11 +97,11 @@ body {
   flex: 1;
   display: flex;
   justify-content: center;
+  padding-top: 50px;
 }
 
 .video-container video {
-  width: 100%; /* Adjust width as needed */
-  max-width: 500px; /* Prevent video from getting too large */
+  width: 90%; /* Adjust width as needed *//* Prevent video from getting too large */
   border-radius: 10px;
 }
 
@@ -112,15 +131,15 @@ body {
 
 /* Footer */
 .footer {
-  background-color: #181818;
+  background-color: #fff7f7;
   padding: 20px;
   display: flex;
   justify-content: space-around;
-  color: white;
+  color: rgb(27, 27, 27);
   text-align: center;
 }
 
-.footer .section {
+.footer .section {  
   display: flex;
   flex-direction: column;
   gap: 10px;
