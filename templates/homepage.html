@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeOdyssey</title>
-    <link rel="icon" type="image/png" href="Images & Videos/icon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage_style.css') }}">
 </head>
 
 <body>
     <div class="navbar">
-        <img src="Images & Videos/codeodyssey.png" alt="Website Logo">
+        <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="Website Logo">
         <div class="nav-links">
             <button class="signup-button" onclick="redirectToLogin()">Log In</button>
         </div>
@@ -23,7 +23,7 @@
       </div>
       <div class="video-container">
           <video autoplay loop muted>
-              <source src="Images & Videos/Demo_Video.mp4" type="video/mp4">
+              <source src="{{ url_for('static', filename='images/Demo_Video.mp4') }}" type="video/mp4">
               Your browser does not support the video tag.
           </video>
       </div>
@@ -33,19 +33,19 @@
         <h2>Programming Languages</h2>
         <div class="languages">
             <a href="Python/python.html" target="_blank">
-                <img src="Images & Videos/python.png" alt="Python">
+                <img src="{{ url_for('static', filename='images/python.png') }}" alt="Python">
             </a>
             <a href="C/c.html" target="_blank">
-                <img src="Images & Videos/C.png" alt="C">
+                <img src="{{ url_for('static', filename='images/C.png') }}" alt="C">
             </a>
             <a href="HTML/htmlpage.html" target="_blank">
-                <img src="Images & Videos/HTML.png" alt="HTML">
+                <img src="{{ url_for('static', filename='images/HTML.png') }}" alt="HTML">
             </a>
             <a href="CSS/csspage.html" target="_blank">
-                <img src="Images & Videos/CSS.png" alt="CSS">
+                <img src="{{ url_for('static', filename='images/CSS.png') }}" alt="CSS">
             </a>
             <a href="C++/cpp.html" target="_blank">
-                <img src="Images & Videos/CPP.png" alt="C++">
+                <img src="{{ url_for('static', filename='images/CPP.png') }}" alt="C++">
             </a>
         </div>
     </div>
@@ -61,15 +61,15 @@
         </div>
         <div class="section">
             <h3>Socials</h3>
-            <a href="CSS/csspage.html" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Facebook</a>
             <a href="https://x.com/codeodysseyzone" target="_blank">X</a>
             <a href="https://www.instagram.com/code.odyssey/" target="_blank">Instagram</a>
-            <a href="CSS/csspage.html" target="_blank">Discord</a>
+            <a href="#" target="_blank">Discord</a>
             <a href="https://youtube.com/@codeodyssey-g2m?si=1-UpRk2wSKG9okaa" target="_blank">Youtube</a>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='js/homepage_script.js') }}"></script>
 </body>
 
 </html>
