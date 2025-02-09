@@ -11,21 +11,21 @@
 	<div class="container" id="container">
 		<!-- SIGN UP FORM -->
 		<div class="form-container sign-up-container">
-			<form id="signupForm">
+			<form id="signupForm" action="/signup" method="POST">
 				<h1>Create Account</h1>
-				<input type="text" id="signupName" placeholder="Name" required />
-				<input type="email" id="signupEmail" placeholder="Email" required />
-				<input type="password" id="signupPassword" placeholder="Password" required />
+				<input type="text" name="name" placeholder="Your Full Name" required />
+				<input type="email" name="email" placeholder="example@example.com" required />
+				<input type="password" name="password" placeholder="A Strong Password" required />
 				<button type="submit">Sign Up</button>
 			</form>
 		</div>
 
 		<!-- SIGN IN FORM -->
 		<div class="form-container sign-in-container">
-			<form id="loginForm">
+			<form id="loginForm" action="/login" method="POST">
 				<h1>Sign in</h1>
-				<input type="email" id="loginEmail" placeholder="Email" required />
-				<input type="password" id="loginPassword" placeholder="Password" required />
+				<input type="email" name="email" placeholder="example@example.com" required />
+				<input type="password" name="password" placeholder="Your Password" required />
 				<a href="#">Forgot your password?</a>
 				<button type="submit">Sign In</button>
 			</form>
