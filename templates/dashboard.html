@@ -7,10 +7,58 @@
     <title>User Dashboard</title>
 </head>
 <body>
-
-    <h1>Welcome, {{ username }}!</h1>
-    <p>This is your dashboard where you can manage your account.</p>
-    <a href="/logout">Logout</a>
-
-</body>
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="logo">CodeOdessey</h2>
+        <nav>
+          <ul>
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Assignments</a></li>
+            <li><a href="#">Progress</a></li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </nav>
+      </aside>
+  
+      <!-- Main Content -->
+      <main class="main-content">
+        <header>
+          <h1>Welcome to Your Dashboard</h1>
+        </header>
+  
+        <section class="cards">
+          <div class="card">
+            <h3>Active Courses</h3>
+            <p>0 Courses</p>
+          </div>
+          <div class="card">
+            <h3>Completed Courses</h3>
+            <p>0 Courses</p>
+          </div>
+          <div class="card">
+            <h3>Upcoming Assignments</h3>
+            <p>0 Due Soon</p>
+          </div>
+        </section>
+  
+        <section class="progress-section">
+          <h2>Progress Overview</h2>
+          <div class="progress-bar-container">
+            <label>Course 1</label>
+            <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+          </div>
+          <div class="progress-bar-container">
+            <label>Course 2</label>
+            <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+          </div>
+          <div class="progress-bar-container">
+            <label>Course 3</label>
+            <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>  
 </html>

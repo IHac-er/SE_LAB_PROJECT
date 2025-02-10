@@ -13,7 +13,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #fffbfb;
+  background-color: #000000;
 }
 
 .navbar img {
@@ -92,61 +92,77 @@ body {
   box-shadow: 0px 4px 10px rgba(255, 77, 77, 0.5); /* Add a shadow effect */
 }
 
-/* Video Section */
-.video-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-}
 
-.video-container video {
-  width: 90%; /* Adjust width as needed *//* Prevent video from getting too large */
-  border-radius: 10px;
-}
-
-/* Programming Languages Section */
-.languages-section {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.languages {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.languages img {
-  width: 80px;
-  height: 80px;
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-
-.languages img:hover {
-  transform: scale(1.2);
-}
-
-/* Footer */
+/* Footer Container */
 .footer {
-  background-color: #fff7f7;
-  padding: 20px;
-  display: flex;
-  justify-content: space-around;
-  color: rgb(27, 27, 27);
+  background-color: #000000;
+  width: 60%; /* Reduce width to make it smaller */
+  margin: 40px auto; /* Center it horizontally */
+  padding: 30px 5%;
+  border-radius: 12px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.footer .section {  
+/* Footer Layout */
+.footer-container {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
-.footer a {
-  text-decoration: none;
-  color: #ff4d4d;
-  font-size: 14px;
+/* Footer Sections */
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
 }
+
+.footer-section h3 {
+  color: #6a5acd;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-section a {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.footer-section a:hover {
+  color: #ff4d4d;
+}
+
+/* Footer Social Media */
+.footer-social {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-logo {
+  max-width: 230px; /* Increase the logo size */
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  font-size: 18px;
+  color: #333;
+}
+
+.social-icons a:hover {
+  color: #ff4d4d;
+}
+
+/* Footer Copyright */
+.footer-copyright {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+}
+
