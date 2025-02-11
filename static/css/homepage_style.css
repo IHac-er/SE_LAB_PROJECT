@@ -41,7 +41,6 @@ body {
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -55,22 +54,36 @@ body {
 /* Hero and Video Container */
 .hero-video-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px 20px;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  height: 100vh; /* Full viewport height */
+  text-align: center; /* Centers text inside */
 }
 
 /* Hero Section */
 .hero-section {
-  flex: 1;
-  text-align: left; /* Keep the text aligned to the left */
-  padding-right: 20px; /* Keep this to separate the text from the video */
-  margin-left: 70px; /* Move the entire text section to the right */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-subtext {
+  font-size: 16px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .hero-section h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.block-text {
+  display: block; /* Makes "Journey" move below "Coding" */
 }
 
 .try-it {
@@ -81,8 +94,8 @@ body {
   font-size: 1rem;
   font-weight: bold;
   border-radius: 5px;
-  cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .try-it:hover {

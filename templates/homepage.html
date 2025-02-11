@@ -16,10 +16,32 @@
                 url("{{ url_for('static', filename='images/homepage_background.jpg') }}") 
                 no-repeat center center fixed;
             background-size: cover;
+            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
         }  
 
         .hero-section h1 {
             font-family: 'Press Start 2P';
+        }
+
+        .try-it {
+            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
+        }
+
+        .signup-button {
+            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
+        }
+
+        .footer-section a:hover {
+            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
+        }
+
+        .social-icons a:hover {
+            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
+        }
+
+        .hero-subtext {
+            font-family: 'Press Start 2P';
+            color: red;
         }
     </style>
 </head>
@@ -34,8 +56,9 @@
 
     <div class="hero-video-container">
       <div class="hero-section">
-          <h1>Coding Journey</h1>
-          <button class="try-it" onclick="redirectToLogin()">Try It Now</button>
+            <span class="hero-subtext">START YOUR</span>
+            <h1><span class="block-text">Coding</span> <span class="block-text">Journey</span></h1>
+            <button class="try-it" onclick="redirectToLogin()">Try It Now</button>
       </div>
     </div>
 
