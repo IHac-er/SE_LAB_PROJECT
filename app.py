@@ -71,5 +71,29 @@ def login_user():
     else:
         return "Invalid Credentials. Try Again."
 
+@app.route('/python')
+def python():
+    return render_template('languages/python.html')
+
+@app.route('/C')
+def C():
+    return render_template('languages/C.html')
+
+@app.route('/Cpp')
+def Cpp():
+    return render_template('languages/Cpp.html')
+
+@app.route('/HTML')
+def HTML():
+    return render_template('languages/HTML.html')
+
+@app.route('/CSS')
+def CSS():
+    return render_template('languages/CSS.html')
+
+@app.route('/404')
+def ER404():
+    return render_template('404.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

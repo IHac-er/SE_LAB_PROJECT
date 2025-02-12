@@ -1,12 +1,27 @@
-function showTime() {
-	document.getElementById('currentTime').innerHTML = new Date().toUTCString();
-}
-showTime();
-setInterval(function () {
-	showTime();
-}, 1000);
-// Example JS for handling interactions (optional)
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Dashboard loaded successfully!");
-});
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    section.classList.remove('active');
+  });
 
+  document.getElementById(sectionId).classList.add('active');
+}
+
+function toggleDropdown() {
+  const dropdown = document.getElementById('dropdownMenu');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+function saveChanges() {
+  alert('Profile changes saved successfully!');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const chartBars = document.querySelectorAll('.chart-bar');
+  chartBars.forEach(bar => {
+    const completion = bar.getAttribute('data-completion');
+    setTimeout(() => {
+      bar.style.width = completion;
+    }, 500);
+  });
+});

@@ -8,40 +8,33 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage_style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7f601788e4.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 
     <style>
-        body {
-            background: 
-                linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, black 100%), 
-                url("{{ url_for('static', filename='images/homepage_background.jpg') }}") 
-                no-repeat center center fixed;
+        .hero-video-container {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 35%, #0f0f0f 100%), 
+            url("{{ url_for('static', filename='images/homepage_background.jpg') }}") no-repeat center center fixed;
             background-size: cover;
-            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
-        }  
+            height: 100vh;
+            width: 100%;
+        }
 
         .hero-section h1 {
             font-family: 'Press Start 2P';
         }
 
-        .try-it {
-            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
-        }
-
-        .signup-button {
-            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
-        }
-
-        .footer-section a:hover {
-            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
-        }
-
-        .social-icons a:hover {
-            cursor: url("{{ url_for('static', filename='images/cursor.png') }}"), auto;
-        }
-
         .hero-subtext {
             font-family: 'Press Start 2P';
             color: red;
+        }
+
+        .typing-text {
+            font-family: 'Press Start 2P';
+            font-size: medium;
+        }
+
+        .third-section h2 {
+            font-family: 'Press Start 2P';
         }
     </style>
 </head>
@@ -50,6 +43,10 @@
     <div class="navbar">
         <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="Website Logo">
         <div class="nav-links">
+            <a href="#about-section">About</a>
+            <a href="#languages-section">Languages</a>
+            <a href="#features-section">Features</a>
+            <a href="/404">Help & Contact</a>
             <button class="signup-button" onclick="redirectToLogin()">Sign up</button>
         </div>
     </div>
@@ -62,41 +59,140 @@
       </div>
     </div>
 
+    <!-- New Section with Typing Animation, Text Container, and Buttons -->
+    <section class="skills-section" id="languages-section">
+        <h2 class="typing-text"></h2>
+        <div class="text-container">
+            <p>Learn to Code with Fun Interactive Games and Courses</p>
+        </div>
+        
+        <div class="button-container">
+            <button class="category-button" data-category="1">Python</button>
+            <button class="category-button" data-category="2">C</button>
+            <button class="category-button" data-category="3">C++</button>
+            <button class="category-button" data-category="4">HTML</button>
+            <button class="category-button" data-category="5">CSS</button>
+        </div>
+        
+        <div class="card-container">
+            <div class="card" data-category="1">
+                <img src="{{ url_for('static', filename='images/python.png') }}" alt="Python">
+                <p>Python is a high-level, interpreted programming language known for its simplicity and readability. It supports multiple paradigms, including procedural, object-oriented, and functional programming. With a vast standard library and extensive community support, Python is widely used for web development, data science, AI, automation, and more. Its clean syntax and ease of learning make it a popular choice for beginners and professionals alike.</p>
+                <button class="explore-button" onclick="redirectToPython()">Explore More</button>
+            </div>
+            <div class="card" data-category="2" style="display: none;">
+                <img src="{{ url_for('static', filename='images/C.png') }}" alt="C">
+                <p>C is a powerful, low-level programming language known for its efficiency and flexibility. It provides direct access to memory and hardware, making it ideal for system programming, embedded systems, and performance-critical applications. C follows a structured approach, supports pointers, and allows manual memory management, giving developers fine control over system resources. It serves as the foundation for many modern languages like C++, Java, and Python.</p>
+                <button class="explore-button" onclick="redirectToC()">Explore More</button>
+            </div>
+            <div class="card" data-category="3" style="display: none;">
+                <img src="{{ url_for('static', filename='images/CPP.png') }}" alt="C++">
+                <p>C++ is a high-performance, general-purpose programming language that extends C with object-oriented, generic, and functional programming features. It offers fine control over system resources while supporting abstractions like classes, inheritance, and polymorphism. C++ is widely used in game development, competitive programming, system software, and applications requiring high efficiency, such as operating systems and real-time simulations.</p>
+                <button class="explore-button" onclick="redirectToCpp()">Explore More</button>
+            </div>
+            <div class="card" data-category="4" style="display: none;">
+                <img src="{{ url_for('static', filename='images/HTML.png') }}" alt="HTML">
+                <p>HTML (HyperText Markup Language) is the standard language for creating and structuring web pages. It uses elements and tags to define content such as headings, paragraphs, images, links, and forms. HTML works alongside CSS for styling and JavaScript for interactivity, forming the backbone of web development.</p>
+                <button class="explore-button" onclick="redirectToHtml()">Explore More</button>
+            </div>
+            <div class="card" data-category="5" style="display: none;">
+                <img src="{{ url_for('static', filename='images/CSS.png') }}" alt="CSS">
+                <p>CSS (Cascading Style Sheets) is a styling language used to control the appearance of HTML elements on a webpage. It allows developers to define layouts, colors, fonts, animations, and responsiveness. CSS can be applied inline, internally, or externally, and it works alongside HTML and JavaScript to create visually appealing and dynamic web pages.</p>
+                <button class="explore-button" onclick="redirectToCss()">Explore More</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="third-section" id="features-section">
+        <div class="learning">
+            <img src="{{ url_for('static', filename='images/illustration1.png') }}" alt="Learning">
+            <div class="content">
+                <h2>Level up your learning</h2>
+                <p>Gain XP and collect badges as you complete bite-sized lessons in Python, HTML, JavaScript, and more. Our beginner-friendly curriculum makes learning to code as motivating as completing your next quest.</p>
+            </div>
+        </div>
+    
+        <div class="coding-practice">
+            <div class="content">
+                <h2>Personalize Learning Experience</h2>
+                <p>Tailor the learning journey to each student’s needs. With personalized content and pacing, every child can learn at their own speed and level.</p>
+            </div>
+            <img src="{{ url_for('static', filename='images/illustration2.png') }}" alt="Practice">
+        </div>
+    
+        <div class="portfolio">
+            <img src="{{ url_for('static', filename='images/illustration3.gif') }}" alt="Portfolio">
+            <div class="content">
+                <h2>Game Based Learning</h2>
+                <p>Engage students with interactive games that make coding fun and immersive. These games are designed to keep kids motivated while teaching essential coding concepts.</p>
+            </div>
+        </div>
+    
+        <div class="community">
+            <div class="content">
+                <h2>Standards-Aligned Content</h2>
+                <p>Rely on content that meets international standards and is certified by universities. Our curriculum ensures that students receive a quality education that’s recognized globally.</p>
+            </div>
+            <div class="chat-messages">
+                <div class="chat-box">"I've been learning Python and want to make a game!"</div>
+                <div class="chat-box reply">"Sure! Let's get started"</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about-us-section" id="about-section">
+        <div class="about-content">
+            <h2>About CodeOdyssey</h2>
+            <p>
+                At <strong>CodeOdyssey</strong>, our mission is to make learning to code fun, interactive, and accessible for everyone. 
+                We believe that coding is an essential skill for the future, and our goal is to empower learners of all ages 
+                with engaging courses, interactive exercises, and a supportive community.
+            </p>
+            <p>
+                Whether you're a beginner starting your journey or an experienced programmer looking to sharpen your skills, 
+                CodeOdyssey offers structured learning paths, game-based challenges, and real-world projects to help you 
+                achieve your coding goals.
+            </p>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Company</h3>
-                <a href="#">About</a>
-                <a href="#">Help Center</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Careers</a>
-                <a href="#">Blog</a>
-                <a href="#">Podcast</a>
+                <a href="/404">About</a>
+                <a href="/404">Help Center</a>
+                <a href="/404">Contact Us</a>
+
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
-                <a href="#">Live Online Classes</a>
-                <a href="#">Library Solutions</a>
-                <a href="#">Partner Solutions</a>
-                <a href="#">Teaching Solutions</a>
-                <a href="#">Success Stories</a>
+                <h3>Learn</h3>
+                <a href="/python">Python</a>
+                <a href="/C">C</a>
+                <a href="/Cpp">C++</a>
+                <a href="/HTML">HTML</a>
+                <a href="/CSS">CSS</a>
             </div>
+        </div>
+
+        <div class="footer-section contact">
+            <h3 class="footer-title">Contact</h3>
+            <p>Email: codeodyssey@gmail.com</p>
+            <p>Phone: +91 1234567897</p>
         </div>
     
         <div class="footer-social">
             <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="Logo" class="footer-logo">
             <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="/404"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://x.com/codeodysseyzone"><i class="fab fa-x-twitter"></i></a>
                 <a href="https://www.instagram.com/code.odyssey/"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="/404"><i class="fab fa-discord"></i></a>
                 <a href="https://youtube.com/@codeodyssey-g2m?si=1-UpRk2wSKG9okaa"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     
-        <p class="footer-copyright">
-            © 2024 CodeOdyssey. All Rights Reserved.
-        </p>
+        <p class="footer-copyright">© 2024 CodeOdyssey. All Rights Reserved.</p>    
     </footer>
     
 
