@@ -138,6 +138,10 @@ nav a:hover {
   display: block;
 }
 
+.form-group {
+  color: black;
+}
+
 form {
   background: #f3eded;
   padding: 20px;

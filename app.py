@@ -19,8 +19,8 @@ def homepage():
 
 @app.route('/dashboard')
 def dashboard():
-    if 'user' in session:
-        return render_template('dashboard.html', username=session['user'])
+    if 'name' in session and 'email' in session:
+        return render_template('dashboard.html', name=session['name'], email=session['email'])
     return redirect('/login')  
 
 @app.route('/login')
@@ -29,7 +29,8 @@ def login():
 
 @app.route('/logout')
 def logout():
-    session.pop('user', None)
+    session.pop('name', None)  # Remove name
+    session.pop('email', None)  # Remove email
     return redirect('/')
 
 @app.route('/signup', methods=['POST'])
@@ -66,7 +67,8 @@ def login_user():
     db.close()
 
     if user:
-        session['user'] = user[1]  # Store username in session
+        session['name'] = user[1]
+        session['email'] = user[2]  # Store username in session
         return redirect('/dashboard')  # Redirect to homepage
     else:
         return "Invalid Credentials. Try Again."
