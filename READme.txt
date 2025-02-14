@@ -1,4 +1,4 @@
-*My Website*
+_*My Website*_
 
 This is a Flask-based website that includes user authentication with MySQL, session handling, and a dashboard displaying user details. The website is designed as a local proof-of-concept and does not require an external server.
 
