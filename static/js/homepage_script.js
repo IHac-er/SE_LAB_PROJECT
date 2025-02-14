@@ -1,5 +1,9 @@
-function redirectToLogin() {
-    window.location.href = "/login";
+function redirectToLogin(signUp = false) {
+    if (signUp) {
+        window.location.href = "/login?signup=true";
+    } else {
+        window.location.href = "/login";
+    }
 }
 
 function redirectToPython() {

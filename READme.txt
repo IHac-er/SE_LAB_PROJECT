@@ -45,7 +45,7 @@ _NOTE_: Please update the app.py file with your MySQL password.
 
 1. Open the project directory
 
-2. Open terminal in that direcotry and run "python app.py"
+2. Open terminal in that directory and run "python app.py"
 
 3. Open browser and go to "http://127.0.0.1:5000/"
 

@@ -23,7 +23,6 @@
         <a href="#profile" onclick="showSection('profile')">My Profile</a>
         <a href="#progress" onclick="showSection('progress')">Course Progress</a>
         <button class="dropdown-btn" onclick="toggleDropdown()">Language ▼</button>
-        <button onclick="window.location.href='/logout'" style="background-color: red; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px; margin-top: 10px;">Logout</button>
         <div class="dropdown-content" id="dropdownMenu">
           <a href="/python">Python</a>
           <a href="/C">C</a>
@@ -51,7 +50,6 @@
             <label for="email">Email Address:</label>
             <input type="email" id="email" value="{{ email }}" required />
           </div>
-          <button type="button" onclick="saveChanges()">Save Changes</button>
         </form>
       </section>
 

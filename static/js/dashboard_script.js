@@ -12,10 +12,6 @@ function toggleDropdown() {
   dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
 
-function saveChanges() {
-  alert('Profile changes saved successfully!');
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   const chartBars = document.querySelectorAll('.chart-bar');
   chartBars.forEach(bar => {
