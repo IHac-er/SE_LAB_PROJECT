@@ -17,8 +17,8 @@ This is a Flask-based website that includes user authentication with MySQL, sess
 
 1. Before running the project, ensure you have the following installed:
 2. Python 3.x
-3. Flask (for backend functionality)
-4. MySQL Server (to store user data)
+3. Flask - Python Module (for backend functionality)
+4. MySQL Database (to store user data)
 5. MySQL Connector (to connect Python with MySQL)
 
 Run the following command to install required Python packages:
@@ -34,6 +34,13 @@ USE codeodessey;
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL
 );

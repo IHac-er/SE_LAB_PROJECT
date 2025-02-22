@@ -39,6 +39,9 @@ def register_user():
     email = request.form['email']
     password = request.form['password']
 
+    if "codeodyssey" in email:
+        return "Invalid Email. Try Again"
+
     try:
         db = get_db_connection()
         cursor = db.cursor()
@@ -56,10 +59,18 @@ def register_user():
 def login_user():
     email = request.form['email']
     password = request.form['password']
-
+    
     db = get_db_connection()
     cursor = db.cursor()
-    query = "SELECT * FROM users WHERE email = %s AND password = %s"
+
+    # Check if email contains "codeodyssey"
+    if "codeodyssey" in email:
+        query = "SELECT * FROM admin WHERE email = %s AND password = %s"
+        admin_redirect = "/admin_login"
+    else:
+        query = "SELECT * FROM users WHERE email = %s AND password = %s"
+        admin_redirect = "/dashboard"
+
     values = (email, password)
     cursor.execute(query, values)
     user = cursor.fetchone()
@@ -68,8 +79,8 @@ def login_user():
 
     if user:
         session['name'] = user[1]
-        session['email'] = user[2]  # Store username in session
-        return redirect('/dashboard')  # Redirect to homepage
+        session['email'] = user[2]
+        return redirect(admin_redirect)  # Redirect based on role
     else:
         return "Invalid Credentials. Try Again."
 
@@ -96,6 +107,10 @@ def CSS():
 @app.route('/404')
 def ER404():
     return render_template('404.html')
+
+@app.route('/admin_login')
+def admin_login():
+    return render_template('admin.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
