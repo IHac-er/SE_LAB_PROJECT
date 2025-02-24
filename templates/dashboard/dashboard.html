@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeOdyssey | Home</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard/dashboard_style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/dashboard/dashboard_script.js') }}"></script>
+
+    <style>
+        .welcome-box h1 {
+            font-family: 'Press Start 2P';
+            font-size: x-large;
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="{{ url_for('static', filename='images/CodeOdyssey.png') }}" alt="Logo" class="logo">
+        <div class="nav-links">
+            <div class="dropdown">
+                <span class="nav-item">Learn</span>
+                <div class="dropdown-content">
+                    <a href="#">Python</a>
+                    <a href="#">JavaScript</a>
+                    <a href="#">C++</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <span class="nav-item">Practice</span>
+                <div class="dropdown-content">
+                    <a href="#">Challenges</a>
+                    <a href="#">Projects</a>
+                </div>
+            </div>
+        </div>
+        <button id="profileBtn" class="profile-btn">
+            <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="User Avatar">
+        </button>
+        <div id="profileDropdown" class="profile-dropdown">
+            <a href="#">View Profile</a>
+            <a href="#">Settings</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container">
+        <div class="welcome-box">
+            <img src="{{ url_for('static', filename='images/welcome_image.png') }}" alt="Welcome Image">
+            <h1>Welcome to CodeOdyssey!</h1>
+            <p>Your coding journey awaits – but first, let's find something to learn.</p>
+            <button class="get-started">Get Started</button>
+        </div>
+
+        <div class="profile-box">
+            <div class="profile-header">
+                <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="Avatar" class="profile-img">
+                <div class="profile-info">
+                    <h2>{{ session['name'] }}</h2>
+                    <p>Level 1</p>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <span class="icon">⭐</span>
+                    <div class='stat-text'>
+                        <p class="stat-value"><strong>0</strong></p>
+                        <p class="stat-label">Total XP</p>
+                    </div>
+                </div>
+                
+                <div class="stat">
+                    <span class="icon">🥉</span>
+                    <div class='stat-text'>
+                        <p class="stat-value"><strong>Bronze</strong></p>
+                        <p class="stat-label">Rank</p>
+                    </div>
+                </div>
+                
+                <div class="stat">
+                    <span class="icon">📛</span>
+                    <div class='stat-text'>
+                        <p class="stat-value"><strong>0</strong></p>
+                        <p class="stat-label">Badges</p>
+                    </div>
+                </div>
+                
+                <div class="stat">
+                    <span class="icon">🔥</span>
+                    <div class='stat-text'>
+                        <p class="stat-value"><strong>0</strong></p>
+                        <p class="stat-label">Day Streak</p>
+                    </div>
+                </div>
+            </div>
+            <button class="view-profile">View Profile</button>
+        </div>
+
+    </div>
+</body>
+</html>

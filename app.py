@@ -20,7 +20,7 @@ def homepage():
 @app.route('/dashboard')
 def dashboard():
     if 'name' in session and 'email' in session:
-        return render_template('dashboard.html', name=session['name'], email=session['email'])
+        return render_template('dashboard/dashboard.html', name=session['name'], email=session['email'])
     return redirect('/login')  
 
 @app.route('/login')
@@ -110,7 +110,7 @@ def ER404():
 
 @app.route('/admin_login')
 def admin_login():
-    return render_template('admin.html')
+    return render_template('dashboard/admin.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
