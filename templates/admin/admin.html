@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="admin_style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/admin_style.css') }}">
 </head>
 <body>
     <div class="sidebar">
         <h2>Admin Panel</h2>
         <ul>
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Users</a></li>
+            <li><a href="#">Manage Users</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="#" id="logout">Logout</a></li>
+            <li><a href="/logout" id="logout">Logout</a></li>
         </ul>
     </div>
 
     <div class="main-content">
-        <h1>Welcome, Admin!</h1>
+        <h1>Welcome, {{ session['name'] }}</h1>
         <p>This is your admin panel where you can manage users, view statistics, and configure settings.</p>
     </div>
 
-    <script src="admin_script.js"></script>
+    <script src="{{ url_for('static', filename='js/admin/admin_scipt.js') }}"></script>
 </body>
 </html>
