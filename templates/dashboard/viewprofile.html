@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard/viewprofile_style.css') }}">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Profile</h2>
+        <div class="profile-info">
+            <p><strong>Name:</strong> <span id="user-name">{{ session['name'] }}</span></p>
+            <p><strong>Email:</strong> <span id="user-email">{{ session['email'] }}</span></p>
+        </div>
+        
+        <button id="change-password-btn">Change Password</button>
+        <button id="delete-account-btn" class="danger">Delete Account</button>
+        
+        <div id="password-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Change Password</h3>
+                <form id="change-password-form">
+                    <label>Old Password:</label>
+                    <input type="password" id="old-password" required>
+                    
+                    <label>New Password:</label>
+                    <input type="password" id="new-password" required>
+                    
+                    <label>Confirm Password:</label>
+                    <input type="password" id="confirm-password" required>
+
+                    <button type="submit">Update Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard/viewprofile_script.js') }}"></script>
+</body>
+</html>
