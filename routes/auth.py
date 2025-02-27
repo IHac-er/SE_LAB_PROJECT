@@ -34,9 +34,15 @@ def register_user():
     try:
         db = get_db_connection()
         cursor = db.cursor()
+
         query = "INSERT INTO users (name, email, password) VALUES (%s, %s, %s)"
         values = (name, email, password)
         cursor.execute(query, values)
+
+        query_user_details = "INSERT INTO user_details (email) VALUES (%s)"
+        values_user_details = (email,)
+        cursor.execute(query_user_details, values_user_details)
+
         db.commit()
         cursor.close()
         db.close()
@@ -55,20 +61,46 @@ def login_user():
     # Check if email contains "codeodyssey"
     if "codeodyssey" in email:
         query = "SELECT * FROM admin WHERE email = %s AND password = %s"
-        admin_redirect = "/admin_login"
+
+        values = (email, password)
+        cursor.execute(query, values)
+        user = cursor.fetchone()
+        cursor.close()
+        db.close()
+
+        if user:
+            session['name'] = user[0]
+            session['email'] = user[1]
+            return redirect("/admin_login")
+        else:
+            return "Invalid Credentials. Try Again."
+        
     else:
         query = "SELECT * FROM users WHERE email = %s AND password = %s"
-        admin_redirect = "/dashboard"
 
-    values = (email, password)
-    cursor.execute(query, values)
-    user = cursor.fetchone()
-    cursor.close()
-    db.close()
+        values = (email, password)
+        cursor.execute(query, values)
+        user = cursor.fetchone()
 
-    if user:
-        session['name'] = user[1]
-        session['email'] = user[2]
-        return redirect(admin_redirect)  # Redirect based on role
-    else:
-        return "Invalid Credentials. Try Again."
+        if user:
+            session['name'] = user[0]
+            session['email'] = user[1]
+        else:
+            return "Invalid Credentials. Try Again."
+        
+        query = "SELECT * FROM user_details WHERE email = %s"
+
+        values = (email,)
+        cursor.execute(query, values)
+        user = cursor.fetchone()
+        cursor.close()
+        db.close()
+
+        session['bio'] = user[1]
+        session['xp'] = user[2]
+        session['rank'] = user[3]
+        session['badges'] = user[4]
+        session['streak'] = user[5]
+
+        return redirect("/dashboard")
+    

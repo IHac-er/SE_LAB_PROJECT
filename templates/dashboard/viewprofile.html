@@ -8,32 +8,23 @@
 </head>
 <body>
     <div class="profile-container">
-        <h2>Profile</h2>
-        <div class="profile-info">
-            <p><strong>Name:</strong> <span id="user-name">{{ session['name'] }}</span></p>
-            <p><strong>Email:</strong> <span id="user-email">{{ session['email'] }}</span></p>
-        </div>
-        
-        <button id="change-password-btn">Change Password</button>
-        <button id="delete-account-btn" class="danger">Delete Account</button>
-        
-        <div id="password-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3>Change Password</h3>
-                <form id="change-password-form">
-                    <label>Old Password:</label>
-                    <input type="password" id="old-password" required>
-                    
-                    <label>New Password:</label>
-                    <input type="password" id="new-password" required>
-                    
-                    <label>Confirm Password:</label>
-                    <input type="password" id="confirm-password" required>
+        <!-- Left Box: Editable Form -->
+        <div class="profile-form">
+            <h2>Edit Profile</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="{{ session['name'] }}" placeholder="Enter your name">
 
-                    <button type="submit">Update Password</button>
-                </form>
-            </div>
+            <label for="bio">Bio:</label>
+            <textarea id="bio" placeholder="Enter your bio">{{ session['bio'] }}</textarea>
+
+            <button id="save-btn" onclick="editprofile()">Save</button>
+        </div>
+
+        <!-- Right Box: Avatar & Details -->
+        <div class="profile-card">
+            <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="User Avatar" id="avatar">
+            <h3 id="display-name">{{ session['name'] }}</h3>
+            <p id="display-email">{{ session['email'] }}</p>
         </div>
     </div>
 

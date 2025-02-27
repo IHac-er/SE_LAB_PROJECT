@@ -16,3 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+function redirectToProfile() {
+    window.location.href = '/view-profile';
+}

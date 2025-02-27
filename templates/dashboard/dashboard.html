@@ -70,7 +70,7 @@
                 <div class="stat">
                     <span class="icon">⭐</span>
                     <div class='stat-text'>
-                        <p class="stat-value"><strong>0</strong></p>
+                        <p class="stat-value"><strong>{{ session['xp'] }}</strong></p>
                         <p class="stat-label">Total XP</p>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 <div class="stat">
                     <span class="icon">🥉</span>
                     <div class='stat-text'>
-                        <p class="stat-value"><strong>Bronze</strong></p>
+                        <p class="stat-value"><strong>{{ session['rank'] }}</strong></p>
                         <p class="stat-label">Rank</p>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <div class="stat">
                     <span class="icon">📛</span>
                     <div class='stat-text'>
-                        <p class="stat-value"><strong>0</strong></p>
+                        <p class="stat-value"><strong>{{ session['badges'] }}</strong></p>
                         <p class="stat-label">Badges</p>
                     </div>
                 </div>
@@ -94,12 +94,12 @@
                 <div class="stat">
                     <span class="icon">🔥</span>
                     <div class='stat-text'>
-                        <p class="stat-value"><strong>0</strong></p>
+                        <p class="stat-value"><strong>{{ session['streak'] }}</strong></p>
                         <p class="stat-label">Day Streak</p>
                     </div>
                 </div>
             </div>
-            <button class="view-profile">View Profile</button>
+            <button class="view-profile" onclick="redirectToProfile()">View Profile</button>
         </div>
 
     </div>
