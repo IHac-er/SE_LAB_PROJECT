@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard/settings_style.css') }}">
+</head>
+<body>
+    <div class="settings-container">
+        <h2>Settings</h2>
+        <button id="edit-account" onclick="editAccount()">Edit Account</button>
+        <button id="reset-progress" onclick="resetProgress()">Reset Account Progress</button>
+        <button id="delete-account" class="danger" onclick="deleteAccount()">Delete Account</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard/settings_script.js') }}"></script>
+</body>
+</html>

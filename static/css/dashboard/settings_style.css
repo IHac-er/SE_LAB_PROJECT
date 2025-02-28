@@ -1,0 +1,54 @@
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.settings-container {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px red;
+    text-align: center;
+    width: 300px;
+}
+
+h2 {
+    color: red;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#edit-account {
+    background-color: #444;
+    color: white;
+}
+
+#reset-progress {
+    background-color: red;
+    color: white;
+}
+
+#delete-account {
+    background-color: darkred;
+    color: white;
+}
