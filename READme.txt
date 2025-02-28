@@ -43,6 +43,15 @@ CREATE TABLE admin (
     password VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE user_details (
+    email varchar(255) NOT NULL PRIMARY KEY,
+    bio varchar(255) DEFAULT NULL,
+    xp int DEFAULT 0,
+    user_rank varchar(255) DEFAULT 'bronze',
+    badges int DEFAULT 0,
+    day_streak int DEFAULT 0
+);
+
 _NOTE_: Please update the app.py file with your MySQL password. 
 
 
