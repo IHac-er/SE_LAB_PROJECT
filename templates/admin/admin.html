@@ -20,8 +20,24 @@
     <div class="main-content">
         <h1>Welcome, {{ session['name'] }}</h1>
         <p>This is your admin panel where you can manage users, view statistics, and configure settings.</p>
+
+        <div id="manage-users">
+            <h2>Manage Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="user-list">
+                    <!-- Users will be inserted dynamically here -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/admin/admin_scipt.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin/admin_script.js') }}"></script>
 </body>
 </html>

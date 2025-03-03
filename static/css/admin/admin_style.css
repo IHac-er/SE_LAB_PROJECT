@@ -49,3 +49,32 @@ body {
 h1 {
     color: #333;
 }
+
+#manage-users table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#manage-users th, #manage-users td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#manage-users th {
+    background: #222;
+    color: white;
+}
+
+.edit-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: darkred;
+}
