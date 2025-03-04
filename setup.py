@@ -37,7 +37,7 @@ def setup_database_and_tables():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS user_details (
         email varchar(255) NOT NULL PRIMARY KEY,
-        bio varchar(255) DEFAULT NULL,
+        bio varchar(255) DEFAULT '',
         xp int DEFAULT 0,
         user_rank varchar(255) DEFAULT 'bronze',
         badges int DEFAULT 0,
