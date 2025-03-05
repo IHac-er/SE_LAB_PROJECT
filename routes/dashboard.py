@@ -1,17 +1,8 @@
 from flask import *
 import mysql.connector
+from .db import get_db_connection
 
 dashboard_bp = Blueprint('dashboard', __name__)
-
-
-# Database connection function
-def get_db_connection():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="password@123",
-        database="codeodessey"
-    )
 
 @dashboard_bp.route('/dashboard')
 def dashboard():

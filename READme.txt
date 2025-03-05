@@ -52,7 +52,7 @@ CREATE TABLE user_details (
     day_streak int DEFAULT 0
 );
 
-_NOTE_: Please update the app.py file with your MySQL password. 
+_NOTE_: Please update the 'routes' folder with your MySQL password. 
 
 
 *Running the Website:*

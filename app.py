@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 import mysql.connector
+import os
 
 from routes.languages import languages_bp
 from routes.auth import auth_bp
@@ -23,4 +24,7 @@ def ER404():
     return render_template('404.html')
 
 if __name__ == "__main__":
+    url = "http://127.0.0.1:5000/"
+    os.system(f'start chrome "{url}"')
+    
     app.run(host="0.0.0.0", port=5000, debug=True)

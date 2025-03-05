@@ -1,16 +1,8 @@
 from flask import *
-import mysql.connector
+from .db import get_db_connection
+import mysql.connector 
 
 auth_bp = Blueprint('auth', __name__)
-
-# Database connection function
-def get_db_connection():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="password@123",
-        database="codeodessey"
-    )
 
 @auth_bp.route('/login')
 def login():
