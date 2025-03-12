@@ -8,11 +8,42 @@
 </head>
 <body>
     <div class="settings-container">
-        <h2>Settings</h2>
-        <button id="edit-account" onclick="editAccount()">Edit Account</button>
-        <button id="reset-progress" onclick="resetProgress()">Reset Account Progress</button>
-        <button id="delete-account" class="danger" onclick="deleteAccount()">Delete Account</button>
+        <h2>⚙️ Settings</h2>
+
+        <div class="section">
+            <h3>Account</h3>
+            <button onclick="editAccount()">Edit Account</button>
+            <button onclick="openChangePassword()">Change Password</button>
+        </div>
+
+        <div class="section">
+            <h3>Danger Zone</h3>
+            <button class="danger" onclick="resetProgress()">Reset Progress</button>
+            <button class="danger" onclick="deleteAccount()">Delete Account</button>
+        </div>
     </div>
+
+    <!-- Change Password Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <h3>Change Password</h3>
+            
+            <label for="oldPassword">Old Password</label>
+            <input type="password" id="oldPassword">
+            
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword">
+            
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword">
+            
+            <div class="modal-btn-container">
+                <button class="modal-btn" onclick="changePassword()">Submit</button>
+                <button class="modal-btn close-btn" onclick="closeChangePassword()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
 
     <script src="{{ url_for('static', filename='js/dashboard/settings_script.js') }}"></script>
 </body>

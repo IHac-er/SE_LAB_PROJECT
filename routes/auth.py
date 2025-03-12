@@ -21,7 +21,7 @@ def register_user():
     password = request.form['password']
 
     if "codeodyssey" in email:
-        return "Invalid Email. Try Again"
+        return jsonify(success=False, message="Invalid Email. Try Again!")
 
     try:
         db = get_db_connection()
@@ -65,7 +65,7 @@ def login_user():
             session['email'] = user[1]
             return redirect("/admin_login")
         else:
-            return "Invalid Credentials. Try Again."
+            return jsonify(success=False, message="Invalid Credentials. Try Again!")
         
     else:
         query = "SELECT * FROM users WHERE email = %s AND password = %s"
@@ -78,7 +78,7 @@ def login_user():
             session['name'] = user[0]
             session['email'] = user[1]
         else:
-            return "Invalid Credentials. Try Again."
+            return jsonify(success=False, message="Invalid Credentials. Try Again!")
         
         query = "SELECT * FROM user_details WHERE email = %s"
 

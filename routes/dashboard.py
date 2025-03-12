@@ -68,7 +68,7 @@ def reset_progress():
     try:
         reset_query = """
             UPDATE user_details
-            SET bio = '', xp = 0, user_rank = 'bronze', badges = 0, day_streak = 0
+            SET xp = 0, user_rank = 'bronze', badges = 0, day_streak = 0
             WHERE email = %s
         """
         cursor.execute(reset_query, (email,))
@@ -112,5 +112,41 @@ def delete_account():
         return "Database error", 500
 
     finally:
+        cursor.close()
+        db.close()
+
+@dashboard_bp.route('/change-password', methods=['POST'])
+def change_password():
+    email = session.get('email')
+    if not email:
+        return jsonify({"success": False, "message": "Unauthorized"}), 401
+    
+    data = request.get_json()
+    new_password = data.get("newPassword")
+    old_password = data.get("oldPassword")
+
+    db = get_db_connection()
+    cursor = db.cursor()
+
+    try: 
+        cursor.execute("select password from users where email = %s",(email,))
+        user = cursor.fetchone()
+
+        if user[0] != old_password:
+            return jsonify({"success": False, "message": "Old Password Incorrect!"})
+        
+        query = "update users set password = %s where email = %s"
+        values = (new_password, email)
+
+        cursor.execute(query, values)
+        db.commit()
+
+        return jsonify({"success": True, "message": "Password Changed Successfully!"}), 200
+    
+    except mysql.connector.Error as err: 
+        print(f"Error changing password: {err}")
+        return jsonify({"success": False, "message": "Database Error!"}), 401
+    
+    finally: 
         cursor.close()
         db.close()
