@@ -1,0 +1,85 @@
+/* Dark Theme Setup */
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Hangman Section */
+.hangman {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hangman Stand */
+.stand {
+    stroke: white;
+    stroke-width: 4;
+}
+
+/* Hangman Parts (Initially Hidden) */
+.hangman-part {
+    stroke: white;
+    stroke-width: 4;
+    display: none;
+}
+
+/* Game Section */
+.game {
+    flex: 1;
+    text-align: left;
+}
+
+.question {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.question-text {
+    font-size: 18px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Input and Button */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 2px solid white;
+    background-color: #222;
+    color: white;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

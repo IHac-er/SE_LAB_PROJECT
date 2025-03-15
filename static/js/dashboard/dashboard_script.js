@@ -20,3 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function redirectToProfile() {
     window.location.href = '/view-profile';
 }
+
+function redirectTogames() {
+    window.location.href = "/games-page";
+}
