@@ -22,12 +22,6 @@ def settings():
         return render_template('dashboard/settings.html')
     return redirect('dashboard')
 
-@dashboard_bp.route('/games-page')
-def game_page():
-    if 'email' in session:
-        return render_template('games/python/hangman_py.html')
-    return redirect('dashboard')
-
 @dashboard_bp.route('/edit-profile', methods=['POST'])
 def edit_profile():
     data = request.get_json()

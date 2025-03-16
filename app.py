@@ -6,6 +6,7 @@ from routes.languages import languages_bp
 from routes.auth import auth_bp
 from routes.dashboard import dashboard_bp
 from routes.admin import admin_bp
+from routes.games import games_bp
 
 app = Flask(__name__)
 app.secret_key = "codeodessey"  # Required for session management
@@ -14,6 +15,7 @@ app.register_blueprint(languages_bp)
 app.register_blueprint(auth_bp)
 app.register_blueprint(dashboard_bp)
 app.register_blueprint(admin_bp)
+app.register_blueprint(games_bp)
 
 @app.route('/')
 def homepage():

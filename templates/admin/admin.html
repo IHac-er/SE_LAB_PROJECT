@@ -13,15 +13,18 @@
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Manage Users</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="/logout" id="logout">Logout</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
     </div>
 
     <div class="main-content">
-        <h1>Welcome, {{ session['name'] }}</h1>
-        <p>This is your admin panel where you can manage users, view statistics, and configure settings.</p>
-
-        <div id="manage-users">
+        <div id="dashboard" class="content-section">
+            <h1>Welcome, {{ session['name'] }}</h1>
+            <p>This is your admin panel where you can manage users, view statistics, and configure settings.</p>
+            <p>More dashboard features will be added here...</p>
+        </div>
+    
+        <div id="manage-users" class="content-section" style="display: none;">
             <h2>Manage Users</h2>
             <table>
                 <thead>
@@ -36,7 +39,13 @@
                 </tbody>
             </table>
         </div>
+    
+        <div id="settings" class="content-section" style="display: none;">
+            <h2>Settings</h2>
+            <p>Settings section content will go here...</p>
+        </div>
     </div>
+     
 
     <script src="{{ url_for('static', filename='js/admin/admin_script.js') }}"></script>
 </body>

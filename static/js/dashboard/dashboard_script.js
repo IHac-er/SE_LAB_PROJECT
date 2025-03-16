@@ -17,10 +17,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".category-button");
+    const cards = document.querySelectorAll(".card");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const category = button.getAttribute("data-category");
+
+            // Hide all cards
+            cards.forEach(card => {
+                card.style.display = "none";
+            });
+
+            // Show only the relevant category cards
+            document.querySelectorAll(`.card[data-category="${category}"]`).forEach(card => {
+                card.style.display = "block";
+            });
+        });
+    });
+
+    // Show Python cards by default on page load
+    document.querySelector('.category-button[data-category="python"]').click();
+});
+
 function redirectToProfile() {
     window.location.href = '/view-profile';
-}
-
-function redirectTogames() {
-    window.location.href = "/games-page";
 }

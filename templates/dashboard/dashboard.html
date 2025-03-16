@@ -23,21 +23,8 @@
     <nav class="navbar">
         <img src="{{ url_for('static', filename='images/CodeOdyssey.png') }}" alt="Logo" class="logo">
         <div class="nav-links">
-            <div class="dropdown">
-                <span class="nav-item">Learn</span>
-                <div class="dropdown-content">
-                    <a href="#">Python</a>
-                    <a href="#">JavaScript</a>
-                    <a href="#">C++</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <span class="nav-item">Practice</span>
-                <div class="dropdown-content">
-                    <a href="#">Challenges</a>
-                    <a href="#">Projects</a>
-                </div>
-            </div>
+            <a href="#learn-section">Learn</a>
+            <a href="#pratice-section">Practice</a>
         </div>
         <button id="profileBtn" class="profile-btn">
             <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="User Avatar">
@@ -55,7 +42,6 @@
             <img src="{{ url_for('static', filename='images/welcome_image.png') }}" alt="Welcome Image">
             <h1>Welcome to CodeOdyssey!</h1>
             <p>Your coding journey awaits – but first, let's find something to learn.</p>
-            <button class="get-started">Get Started</button>
         </div>
 
         <div class="profile-box">
@@ -101,10 +87,140 @@
             </div>
             <button class="view-profile" onclick="redirectToProfile()">View Profile</button>
         </div>
+    </div>
 
-        <div>
-            <button class="view-profile" onclick="redirectTogames()">Games</button>
+    <!-- Learn Section -->
+    <div class="explore-section" id="learn-section">
+        <h2>Learn</h2>
+        <div class="explore-cards">
+            <a href="/python" class="explore-card">
+                <img src="{{ url_for('static', filename='images/python.png') }}" alt="Python">
+                <p>Python</p>
+            </a>
+            <a href="/C" class="explore-card">
+                <img src="{{ url_for('static', filename='images/C.png') }}" alt="C">
+                <p>C</p>
+            </a>
+            <a href="/Cpp" class="explore-card">
+                <img src="{{ url_for('static', filename='images/Cpp.png') }}" alt="C++">
+                <p>C++</p>
+            </a>
+            <a href="/HTML" class="explore-card">
+                <img src="{{ url_for('static', filename='images/HTML.png') }}" alt="HTML">
+                <p>HTML</p>
+            </a>
+            <a href="/CSS" class="explore-card">
+                <img src="{{ url_for('static', filename='images/CSS.png') }}" alt="CSS">
+                <p>CSS</p>
+            </a>
         </div>
     </div>
+
+    <!-- Pratice section-->
+    <section class="pratice-section" id="pratice-section">
+        <h2>Practice</h2>
+        
+        <!-- Filter Buttons -->
+        <div class="button-container">
+            <button class="category-button" data-category="python">Python</button>
+            <button class="category-button" data-category="c">C</button>
+            <button class="category-button" data-category="cpp">C++</button>
+            <button class="category-button" data-category="html">HTML</button>
+            <button class="category-button" data-category="css">CSS</button>
+        </div>
+
+        <!-- Cards Container -->
+        <div class="cards-container">
+            <!-- Python Cards -->
+            <a href="/py-hangman" class="card" data-category="python">
+                <img src="{{ url_for('static', filename='images/Hangman.png') }}" alt="Python Card 1">
+                <p>Hangman</p>
+            </a>
+            <a href="#" class="card" data-category="python">
+                <img src="{{ url_for('static', filename='images/python2.png') }}" alt="Python Card 2">
+                <p>Demo</p>
+            </a>
+
+            <!-- C Cards -->
+            <a href="#" class="card" data-category="c">
+                <img src="{{ url_for('static', filename='images/c1.png') }}" alt="C Card 1">
+                <p>Demo</p>
+            </a>
+            <a href="#" class="card" data-category="c">
+                <img src="{{ url_for('static', filename='images/c2.png') }}" alt="C Card 2">
+                <p>Demo</p>
+            </a>
+
+            <!-- C++ Cards -->
+            <a href="#" class="card" data-category="cpp">
+                <img src="{{ url_for('static', filename='images/cpp1.png') }}" alt="C++ Card 1">
+                <p>Demo</p>
+            </a>
+            <a href="#" class="card" data-category="cpp">
+                <img src="{{ url_for('static', filename='images/cpp2.png') }}" alt="C++ Card 2">
+                <p>Demo</p>
+            </a>
+
+            <!-- HTML Cards -->
+            <a href="#" class="card" data-category="html">
+                <img src="{{ url_for('static', filename='images/html1.png') }}" alt="HTML Card 1">
+                <p>Demo</p>
+            </a>
+            <a href="#" class="card" data-category="html">
+                <img src="{{ url_for('static', filename='images/html2.png') }}" alt="HTML Card 2">
+                <p>Demo</p>
+            </a>
+
+            <!-- CSS Cards -->
+            <a href="#" class="card" data-category="css">
+                <img src="{{ url_for('static', filename='images/css1.png') }}" alt="CSS Card 1">
+                <p>Demo</p>
+            </a>
+            <a href="#" class="card" data-category="css">
+                <img src="{{ url_for('static', filename='images/css2.png') }}" alt="CSS Card 2">
+                <p>Demo</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="/404">About</a>
+                <a href="/404">Help Center</a>
+                <a href="/404">Contact Us</a>
+
+            </div>
+            <div class="footer-section">
+                <h3>Learn</h3>
+                <a href="/python">Python</a>
+                <a href="/C">C</a>
+                <a href="/Cpp">C++</a>
+                <a href="/HTML">HTML</a>
+                <a href="/CSS">CSS</a>
+            </div>
+        </div>
+
+        <div class="footer-section contact">
+            <h3 class="footer-title">Contact</h3>
+            <p>Email: codeodysseyzone@gmail.com</p>
+            <p>Phone: +91 1234567897</p>
+        </div>
+    
+        <div class="footer-social">
+            <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="Logo" class="footer-logo">
+            <div class="social-icons">
+                <a href="/404"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://x.com/codeodysseyzone"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/code.odyssey/"><i class="fab fa-instagram"></i></a>
+                <a href="/404"><i class="fab fa-discord"></i></a>
+                <a href="https://youtube.com/@codeodyssey-g2m?si=1-UpRk2wSKG9okaa"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    
+        <p class="footer-copyright">© 2024 CodeOdyssey. All Rights Reserved.</p>    
+    </footer>
 </body>
 </html>
