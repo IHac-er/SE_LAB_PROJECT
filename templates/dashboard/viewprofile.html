@@ -3,30 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Profile Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard/viewprofile_style.css') }}">
 </head>
 <body>
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="Company Logo">
+        <button id="edit-profile-btn" class="edit-profile-btn">Edit Profile</button>
+        <button id="back-btn" class="back-btn" onclick="redirect()">Back</button>
+    </div>
+    
     <div class="profile-container">
-        <!-- Left Box: Editable Form -->
-        <div class="profile-form">
-            <h2>Edit Profile</h2>
-            <label for="name">Name:</label>
-            <input type="text" id="name" value="{{ session['name'] }}" placeholder="Enter your name">
-
-            <label for="bio">Bio:</label>
-            <textarea id="bio" placeholder="Enter your bio">{{ session['bio'] }}</textarea>
-
-            <button id="save-btn" onclick="editprofile()">Save</button>
+        <div class="banner">
+            <img src="/static/images/banner.jpg" alt="Profilepage Banner">
+            <div class="profile-overlay">
+                <div class="profile-section">
+                    <div class="avatar-container">
+                        <img id="profile-pic" src="{{ url_for('static', filename='images/avatar.png') }}" alt="Profile Picture" onclick="openAvatarModal()">
+                    </div>
+                    
+                    <div class="user-id">
+                        <p id="user-id">{{ session['name'] }}</p>
+                    </div>
+                    <div class="user-id">
+                        <p id="user-email">{{ session['email'] }}</p>
+                    </div>
+                    <p class="bio-level"> 🏆Level 1 🏆</p>   
+                </div>
+            </div>
         </div>
-
-        <!-- Right Box: Avatar & Details -->
-        <div class="profile-card">
-            <img src="{{ url_for('static', filename='images/avatar.png') }}" alt="User Avatar" id="avatar">
-            <h3 id="display-name">{{ session['name'] }}</h3>
-            <p id="display-email">{{ session['email'] }}</p>
+        
+        <div class="bio-section">
+            <h3 class="bio-title">Bio</h3>
+            <div class="bio-box">
+                <p id="bio-text">{{ session['bio'] if session['bio'] else 'No bio available' }}</p>
+            </div>
+        </div>
+        
+        <div class="stats-section">
+            <h3>Stats</h3>
+            <div class="stats-box">
+                <p>Rank: <strong>{{ session['rank'] }}</strong></p>
+                <p>Total XP: <strong>{{ session['xp'] }}</strong></p>
+                <p>Daily Streak: <strong>{{ session['streak'] }}</strong></p>
+                <p>Badges: <strong>{{ session['badges'] }}</strong></p>
+            </div>
         </div>
     </div>
+
+    <!-- Avatar Selection Modal -->
+    <div id="avatar-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Select Your Avatar</h3>
+            <div class="avatar-options">
+                <img src="{{ url_for('static', filename='images/avatar1.jpg') }}" class="avatar-option" onclick="changeAvatar(this.src)">
+                <img src="{{ url_for('static', filename='images/avatar2.jpg') }}" class="avatar-option" onclick="changeAvatar(this.src)">
+                <img src="{{ url_for('static', filename='images/avatar3.jpg') }}" class="avatar-option" onclick="changeAvatar(this.src)">
+            </div>
+            <button onclick="closeAvatarModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeEditProfileModal()">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="edit-profile-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ session['name'] }}" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ session['email'] }}" readonly>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio">{{ session['bio'] if session['bio'] else '' }}</textarea>
+
+                <button type="submit" class="submit-btn" onclick="saveProfile()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="/about">About</a>
+                <a href="/help">Help Center</a>
+            </div>
+            <div class="footer-section">
+                <h3>Learn</h3>
+                <a href="/python">Python</a>
+                <a href="/C">C</a>
+                <a href="/Cpp">C++</a>
+                <a href="/HTML">HTML</a>
+                <a href="/CSS">CSS</a>
+            </div>
+        </div>
+
+        <div class="footer-section contact">
+            <h3 class="footer-title">Contact</h3>
+            <p>Email: codeodysseyzone@gmail.com</p>
+            <p>Phone: +91 1234567897</p>
+        </div>
+    
+        <div class="footer-social">
+            <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="Logo" class="footer-logo">
+        </div>
+    
+        <p class="footer-copyright">© 2024 CodeOdyssey. All Rights Reserved.</p>    
+    </footer>
 
     <script src="{{ url_for('static', filename='js/dashboard/viewprofile_script.js') }}"></script>
 </body>

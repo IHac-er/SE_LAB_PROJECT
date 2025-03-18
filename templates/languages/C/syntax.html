@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Syntax</title> 
+</head>
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+    
+<body>
+    <header class="navbar">
+        <h1>C Syntax</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='intro') }}">Previous: Introduction</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='datatypes') }}">Next: Data Types</a></li>
+              </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Introduction to C Syntax</h2>
+        <p>C follows a structured syntax, requiring proper declarations, functions, and statements for execution.</p>
+    </section>
+
+    <section>
+        <h2>Basic Structure of a C Program</h2>
+        <p>A simple C program consists of:</p>
+        <ul>
+            <li>Preprocessor Directives</li>
+            <li>Main Function</li>
+            <li>Variable Declarations</li>
+            <li>Statements & Expressions</li>
+            <li>Return Statement</li>
+        </ul>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Main function
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Preprocessor Directives</h2>
+        <p>Preprocessor directives like `#include` are processed before compilation.</p>
+        <pre><code>#include &lt;stdio.h&gt;  // Includes the standard input-output library</code></pre>
+    </section>
+
+    <section>
+        <h2>Variables and Data Types</h2>
+        <p>Variables store data, and C supports multiple data types.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 25;
+    float pi = 3.14;
+    char grade = 'A';
+
+    printf("Age: %d\n", age);
+    printf("Pi: %.2f\n", pi);
+    printf("Grade: %c\n", grade);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Operators in C</h2>
+        <p>C provides various operators for performing operations.</p>
+        <ul>
+            <li><strong>Arithmetic Operators:</strong> +, -, *, /, %</li>
+            <li><strong>Relational Operators:</strong> ==, !=, >, <, >=, <=</li>
+            <li><strong>Logical Operators:</strong> &&, ||, !</li>
+            <li><strong>Bitwise Operators:</strong> &, |, ^, ~, <<, >></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Control Statements</h2>
+        <p>Control statements manage program flow.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 10;
+
+    if (num > 0) {
+        printf("Positive number\n");
+    } else {
+        printf("Negative number\n");
+    }
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Looping Statements</h2>
+        <p>Loops execute a block of code multiple times.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        printf("%d\n", i);
+    }
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Functions in C</h2>
+        <p>Functions allow modular programming.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Function declaration
+void greet();
+
+int main() {
+    greet(); // Function call
+    return 0;
+}
+
+// Function definition
+void greet() {
+    printf("Hello from function!\n");
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Input and Output</h2>
+        <p>C uses `printf` for output and `scanf` for input.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("You entered: %d\n", num);
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

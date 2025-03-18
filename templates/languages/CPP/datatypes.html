@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Data Types</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Data Types</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='syntax') }}">Previous: Syntax</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='operators') }}">Next: Operators</a></li>
+</ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Data Types in C++</h2>
+        <p>C++ supports various data types to store different kinds of values.</p>
+    </section>
+
+    <section>
+        <h2>Primary Data Types</h2>
+        <p>These are the fundamental data types in C++:</p>
+        <table border="1">
+            <tr>
+                <th>Data Type</th>
+                <th>Size</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td><strong>int</strong></td>
+                <td>4 bytes</td>
+                <td><code>int num = 10;</code></td>
+            </tr>
+            <tr>
+                <td><strong>float</strong></td>
+                <td>4 bytes</td>
+                <td><code>float pi = 3.14;</code></td>
+            </tr>
+            <tr>
+                <td><strong>double</strong></td>
+                <td>8 bytes</td>
+                <td><code>double precise = 3.141592;</code></td>
+            </tr>
+            <tr>
+                <td><strong>char</strong></td>
+                <td>1 byte</td>
+                <td><code>char letter = 'A';</code></td>
+            </tr>
+            <tr>
+                <td><strong>bool</strong></td>
+                <td>1 byte</td>
+                <td><code>bool isTrue = true;</code></td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Derived Data Types</h2>
+        <p>Derived types are based on primary data types.</p>
+        <ul>
+            <li><strong>Arrays:</strong> <code>int numbers[5] = {1, 2, 3, 4, 5};</code></li>
+            <li><strong>Pointers:</strong> <code>int *ptr;</code></li>
+            <li><strong>References:</strong> <code>int &ref = num;</code></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>User-Defined Data Types</h2>
+        <p>C++ also supports user-defined types like:</p>
+        <ul>
+            <li><strong>Structures:</strong> <code>struct Car { string brand; int year; };</code></li>
+            <li><strong>Classes:</strong> <code>class Car { public: string brand; int year; };</code></li>
+            <li><strong>Enumerations:</strong> <code>enum Color { RED, GREEN, BLUE };</code></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example Program</h2>
+        <p>Here's a simple program demonstrating different data types:</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int num = 10;
+    float pi = 3.14;
+    char letter = 'A';
+    bool isTrue = true;
+    
+    cout << "Integer: " << num << endl;
+    cout << "Float: " << pi << endl;
+    cout << "Character: " << letter << endl;
+    cout << "Boolean: " << isTrue << endl;
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

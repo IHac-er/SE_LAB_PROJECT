@@ -57,6 +57,7 @@ async function checkAnswer() {
 
         if (actualOutput === expectedOutput) {
             currentQuestionIndex++;
+            alert("Test Case Passed! ✅")
             loadQuestion();
         } else {
             drawHangman();

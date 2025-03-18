@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Media Queries</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Learning</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='flexbox') }}">Previous: Flexbox</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='grid') }}">Next: Grid</a></li>
+                       </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Media Queries</h2>
+        <p>Media Queries allow the application of CSS rules based on device characteristics such as width, height, resolution, and orientation.</p>
+    </section>
+
+    <section>
+        <h3>What are Media Queries?</h3>
+        <p>Media queries are used to create responsive designs by applying styles conditionally based on the user's device properties.</p>
+        
+        <h4>Basic Syntax</h4>
+        <pre><code>@media (condition) {
+    /* CSS rules here */
+}</code></pre>
+    </section>
+
+    <section>
+        <h3>Common Media Query Examples</h3>
+
+        <h4>1. Adjusting Styles for Small Screens</h4>
+        <p>Applies styles when the screen width is 600px or less.</p>
+        <pre><code>@media (max-width: 600px) {
+    body {
+        background-color: lightgray;
+    }
+}</code></pre>
+
+        <h4>2. Applying Styles for Tablets</h4>
+        <p>Targets devices with widths between 600px and 1024px.</p>
+        <pre><code>@media (min-width: 600px) and (max-width: 1024px) {
+    body {
+        background-color: lightblue;
+    }
+}</code></pre>
+
+        <h4>3. Changing Layout for Large Screens</h4>
+        <p>Applies styles when the screen width is larger than 1024px.</p>
+        <pre><code>@media (min-width: 1025px) {
+    body {
+        background-color: white;
+    }
+}</code></pre>
+
+        <h4>4. Orientation-Based Media Queries</h4>
+        <p>Styles applied when the device is in landscape mode.</p>
+        <pre><code>@media (orientation: landscape) {
+    body {
+        background-color: yellow;
+    }
+}</code></pre>
+
+        <h4>5. Retina Display Queries</h4>
+        <p>Applies styles for high-resolution (Retina) screens.</p>
+        <pre><code>@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+    body {
+        background-color: pink;
+    }
+}</code></pre>
+    </section>
+
+    <section>
+        <h3>Combining Multiple Conditions</h3>
+        <p>Multiple conditions can be combined using logical operators.</p>
+
+        <h4>Example: Dark Mode for Mobiles</h4>
+        <pre><code>@media (max-width: 768px) and (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

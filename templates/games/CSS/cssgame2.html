@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Garden Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightgreen;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4a3f35;
+        }
+
+        #game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #garden {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            grid-template-rows: repeat(5, 60px);
+            gap: 5px;
+            margin: 20px auto;
+            background-color: #654321;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .cell {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #8B5A2B;
+            background-color: #7c4a2d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carrot {
+            font-size: 30px;
+        }
+
+        .watered::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(135, 206, 250, 0.6); /* Sky blue water effect */
+            top: 0;
+            left: 0;
+            animation: waterFill 1s ease-in-out;
+        }
+
+        @keyframes waterFill {
+            from { height: 0%; }
+            to { height: 100%; }
+        }
+
+        #question-container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            width: 60%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        textarea {
+            width: 90%;
+            height: 80px;
+            margin: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff9800;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🌱 CSS Grid Garden </h1>
+    <p>Answer the CSS question correctly to water the carrots!</p>
+
+    <div id="game-container">
+        <div id="question-container">
+            <p><strong>Level <span id="level">1</span>:</strong> <span id="question-text"></span></p>
+            <textarea id="cssAnswer" placeholder="Write your CSS selector here..."></textarea>
+            <br>
+            <button onclick="checkAnswer()">Submit Answer</button>
+        </div>
+
+        <div id="garden"></div>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const gridSize = 5;
+        const carrotPositions = [[0, 1], [2, 3], [4, 2]];
+        let currentLevel = 1;
+        const questions = [
+            { question: "How do you select all elements with the class 'carrot' in CSS?", answer: ".carrot" },
+            { question: "What selector targets all 'p' elements inside a div?", answer: "div p" },
+            { question: "How do you select elements with an id of 'game-container' in CSS?", answer: "#game-container" },
+            { question: "What selector applies styles to all elements?", answer: "*" },
+            { question: "How do you select all elements with both 'class1' and 'class2'?", answer: ".class1.class2" }
+        ];
+
+        function createGarden() {
+            const garden = document.getElementById('garden');
+            garden.innerHTML = '';
+
+            for (let r = 0; r < gridSize; r++) {
+                for (let c = 0; c < gridSize; c++) {
+                    let cell = document.createElement('div');
+                    cell.classList.add('cell');
+                    cell.dataset.row = r + 1;
+                    cell.dataset.col = c + 1;
+
+                    if (carrotPositions.some(pos => pos[0] === r && pos[1] === c)) {
+                        cell.classList.add('carrot');
+                        cell.innerHTML = "🥕";
+                    }
+
+                    garden.appendChild(cell);
+                }
+            }
+        }
+
+        function checkAnswer() {
+            let answer = document.getElementById('cssAnswer').value.trim();
+            if (answer === questions[currentLevel - 1].answer) {
+                waterCarrots();
+                document.getElementById('message').innerText = `✅ Correct! Proceeding to level ${currentLevel + 1}`;
+                
+                setTimeout(() => {
+                    if (currentLevel < 5) {
+                        currentLevel++;
+                        loadLevel();
+                    } else {
+                        document.getElementById('message').innerText = "🎉 You completed all levels! Well done!";
+                    }
+                }, 2000);
+            } else {
+                document.getElementById('message').innerText = "❌ Incorrect! Try again.";
+            }
+        }
+
+        function waterCarrots() {
+            let carrotCells = document.querySelectorAll('.carrot');
+            carrotCells.forEach(cell => cell.classList.add('watered'));
+        }
+
+        function loadLevel() {
+            document.getElementById('level').innerText = currentLevel;
+            document.getElementById('question-text').innerText = questions[currentLevel - 1].question;
+            document.getElementById('cssAnswer').value = '';
+            document.getElementById('message').innerText = '';
+        }
+
+        createGarden();
+        loadLevel();
+    </script>
+
+</body>
+</html>

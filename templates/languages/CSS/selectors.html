@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>CSS Learning Hub</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='selectors') }}">Previous: CSS Selectors</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='pseudo-classes') }}">Next: CSS Pseudo-Classes</a></li>
+                      </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Selectors</h2>
+        <p>Learn how to target HTML elements using CSS selectors.</p>
+    </section>
+
+    <main>
+        <section>
+            <h3>What are CSS Selectors?</h3>
+            <p>CSS selectors define the elements to which CSS rules apply.</p>
+        </section>
+
+        <section>
+            <h3>Basic Selectors</h3>
+            <ul>
+                <li><b>Element Selector:</b> Targets elements by tag name.</li>
+                <li><b>ID Selector (#id):</b> Targets an element with a specific ID.</li>
+                <li><b>Class Selector (.class):</b> Targets elements with a specific class.</li>
+                <li><b>Universal Selector (*):</b> Targets all elements.</li>
+            </ul>
+            <pre><code>
+/* Example */
+p {
+    color: blue;
+}
+
+#unique {
+    font-size: 20px;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>Group Selectors</h3>
+            <p>Multiple selectors can be grouped together using a comma:</p>
+            <pre><code>
+h1, h2, p {
+    color: white;
+}
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>Combinators</h3>
+            <ul>
+                <li><b>Descendant Selector (A B):</b> Targets B inside A.</li>
+                <li><b>Child Selector (A > B):</b> Targets direct children B inside A.</li>
+                <li><b>Adjacent Sibling (A + B):</b> Targets the next sibling B of A.</li>
+                <li><b>General Sibling (A ~ B):</b> Targets all siblings B of A.</li>
+            </ul>
+            <pre><code>
+/* Example */
+div p {
+    color: green;
+}
+
+div > p {
+    font-weight: bold;
+}
+
+h1 + p {
+    font-style: italic;
+}
+
+h1 ~ p {
+    text-decoration: underline;
+}
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>Pseudo-Classes and Pseudo-Elements</h3>
+            <p>Pseudo-classes and pseudo-elements allow advanced styling.</p>
+            <pre><code>
+/* Pseudo-Class */
+a:hover {
+    color: red;
+}
+
+/* Pseudo-Element */
+p::first-letter {
+    font-size: 2em;
+}
+            </code></pre>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

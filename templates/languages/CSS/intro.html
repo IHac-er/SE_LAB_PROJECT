@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to CSS</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <nav class="navbar">
+        <h1>CSS Learning</h1>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+            <li><a href="{{ url_for('languages.load_topic', language='css', topic='syntax') }}">Previous</a></li>
+            <li><a href="{{ url_for('languages.load_topic', language='css', topic='selectors') }}">Next</a></li>
+                 </ul>
+    </nav>
+
+    <section class="hero-section">
+        <h2>Introduction to CSS</h2>
+        <p>Understanding the fundamentals of Cascading Style Sheets (CSS).</p>
+    </section>
+
+    <section>
+        <h3>What is CSS?</h3>
+        <p>CSS (Cascading Style Sheets) is a stylesheet language used to control the presentation of web pages. It allows you to define styles such as colors, layouts, fonts, and spacing.</p>
+    </section>
+
+    <section>
+        <h3>Why Use CSS?</h3>
+        <ul>
+            <li>Enhances the appearance of web pages.</li>
+            <li>Separates content from design.</li>
+            <li>Improves website performance and user experience.</li>
+            <li>Allows for responsive and adaptive design.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>How CSS Works</h3>
+        <p>CSS is applied to HTML elements using different methods:</p>
+        <ul>
+            <li><b>Inline CSS</b>: Applied directly to an HTML element using the <code>style</code> attribute.</li>
+            <li><b>Internal CSS</b>: Defined inside a <code>&lt;style&gt;</code> tag in the HTML file.</li>
+            <li><b>External CSS</b>: Stored in a separate <code>.css</code> file and linked using the <code>&lt;link&gt;</code> tag.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Example: Basic CSS</h3>
+        <p>The following example changes the background color and text color of an HTML page.</p>
+        <pre><code>
+/* styles.css */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+        </code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

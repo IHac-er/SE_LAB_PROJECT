@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo-Classes</title> 
+</head> 
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Learning</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='selectors') }}">Previous: CSS Selectors</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='pseudo-elements') }}">Next: CSS Pseudo-Elements</a></li>
+                     </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Pseudo-Classes</h2>
+        <p>Pseudo-classes define the special state of an element based on user interaction or document structure.</p>
+    </section>
+
+    <section>
+        <h3>What are Pseudo-Classes?</h3>
+        <p>Pseudo-classes are keywords added to selectors that define a special state of the selected elements. They allow styling elements dynamically without adding extra classes or JavaScript.</p>
+
+        <h4>Basic Syntax</h4>
+        <pre><code>selector:pseudo-class {
+    /* CSS properties */
+}</code></pre>
+    </section>
+
+    <section>
+        <h3>Common Pseudo-Classes</h3>
+
+        <h4>1. Hover Effect</h4>
+        <p>Changes the background color of a button when hovered over.</p>
+        <pre><code>button:hover {
+    background-color: yellow;
+}</code></pre>
+
+        <h4>2. Focus State</h4>
+        <p>Highlights an input field when it is focused.</p>
+        <pre><code>input:focus {
+    border: 2px solid blue;
+}</code></pre>
+
+        <h4>3. Active State</h4>
+        <p>Changes the appearance of a link when it is being clicked.</p>
+        <pre><code>a:active {
+    color: red;
+}</code></pre>
+
+        <h4>4. First Child and Last Child</h4>
+        <p>Applies styles to the first and last list item.</p>
+        <pre><code>li:first-child {
+    font-weight: bold;
+}
+
+li:last-child {
+    font-style: italic;
+}</code></pre>
+
+        <h4>5. nth-child Selector</h4>
+        <p>Targets the third child in a list.</p>
+        <pre><code>li:nth-child(3) {
+    color: green;
+}</code></pre>
+
+        <h4>6. Checked State</h4>
+        <p>Styles checkboxes when selected.</p>
+        <pre><code>input[type="checkbox"]:checked {
+    outline: 2px solid green;
+}</code></pre>
+
+        <h4>7. Disabled and Enabled States</h4>
+        <p>Styles buttons based on their disabled state.</p>
+        <pre><code>button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}</code></pre>
+    </section>
+
+    <section>
+        <h3>Combining Multiple Pseudo-Classes</h3>
+        <p>You can use multiple pseudo-classes together for advanced styling.</p>
+
+        <h4>Example: Styling every odd list item except the first one</h4>
+        <pre><code>li:nth-child(odd):not(:first-child) {
+    background-color: lightgray;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

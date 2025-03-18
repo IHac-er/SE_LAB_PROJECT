@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Management in C</title>
+</head>
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+    
+<body>
+    <header class="navbar">
+        <h1>Memory Management in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='filehandling') }}">Previous: File Handling</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='preprocessor') }}">Next: Preprocessor Directives</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What is Memory Management in C?</h2>
+        <p>Memory management in C involves allocating and deallocating memory manually using built-in functions.</p>
+    </section>
+
+    <section>
+        <h2>Types of Memory in C</h2>
+        <ul>
+            <li><strong>Stack:</strong> Stores local variables and function calls.</li>
+            <li><strong>Heap:</strong> Used for dynamic memory allocation.</li>
+            <li><strong>Data Segment:</strong> Stores global and static variables.</li>
+            <li><strong>Code Segment:</strong> Stores the compiled program instructions.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Dynamic Memory Allocation Functions</h2>
+        <ul>
+            <li><code>malloc()</code> - Allocates memory without initialization.</li>
+            <li><code>calloc()</code> - Allocates and initializes memory to zero.</li>
+            <li><code>realloc()</code> - Resizes previously allocated memory.</li>
+            <li><code>free()</code> - Deallocates previously allocated memory.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Using malloc()</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *ptr;
+    ptr = (int*) malloc(5 * sizeof(int)); // Allocating memory for 5 integers
+
+    if (ptr == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        ptr[i] = i + 1;
+        printf("%d ", ptr[i]);
+    }
+
+    free(ptr); // Free allocated memory
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Using calloc()</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *ptr;
+    ptr = (int*) calloc(5, sizeof(int)); // Allocates memory for 5 integers, initialized to 0
+
+    if (ptr == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", ptr[i]); // Prints all zeros
+    }
+
+    free(ptr); // Free allocated memory
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Using realloc()</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *ptr;
+    ptr = (int*) malloc(2 * sizeof(int)); // Allocating memory for 2 integers
+
+    if (ptr == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    ptr[0] = 10;
+    ptr[1] = 20;
+
+    ptr = (int*) realloc(ptr, 4 * sizeof(int)); // Resizing to 4 integers
+
+    ptr[2] = 30;
+    ptr[3] = 40;
+
+    for (int i = 0; i < 4; i++) {
+        printf("%d ", ptr[i]);
+    }
+
+    free(ptr); // Free allocated memory
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Memory Leak and How to Prevent It</h2>
+        <p>A memory leak occurs when dynamically allocated memory is not freed properly.</p>
+        <ul>
+            <li>Always use <code>free()</code> after using <code>malloc()</code>, <code>calloc()</code>, or <code>realloc()</code>.</li>
+            <li>Set pointers to NULL after freeing memory to avoid dangling pointers.</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

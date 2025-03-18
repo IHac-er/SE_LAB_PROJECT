@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Frameworks</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Learning</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='grid') }}">Previous: CSS Grid</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='flexbox') }}">Next: Flexbox</a></li>
+                      </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Frameworks</h2>
+        <p>Learn about CSS frameworks that simplify styling and layout.</p>
+    </section>
+
+    <section>
+        <h3>What are CSS Frameworks?</h3>
+        <p>CSS frameworks provide pre-written styles, layouts, and components to make web development faster and more efficient.</p>
+
+        <h4>Advantages of CSS Frameworks:</h4>
+        <ul>
+            <li>Speeds up development.</li>
+            <li>Provides responsive layouts.</li>
+            <li>Ensures consistency in design.</li>
+            <li>Includes pre-designed UI components.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Popular CSS Frameworks</h3>
+
+        <h4>1. Bootstrap</h4>
+        <p>Bootstrap is the most popular CSS framework that provides a responsive grid system, components, and utilities.</p>
+        <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"&gt;</code></pre>
+
+        <h4>2. Tailwind CSS</h4>
+        <p>Tailwind CSS is a utility-first framework that allows customization and rapid development.</p>
+        <pre><code>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</code></pre>
+
+        <h4>3. Bulma</h4>
+        <p>Bulma is a modern framework that provides a flexible grid system and lightweight styles.</p>
+        <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css"&gt;</code></pre>
+
+        <h4>4. Foundation</h4>
+        <p>Foundation by Zurb is a responsive framework with a flexible grid and accessibility features.</p>
+        <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites/dist/css/foundation.min.css"&gt;</code></pre>
+    </section>
+
+    <section>
+        <h3>Choosing the Right Framework</h3>
+        <p>The choice of framework depends on project needs:</p>
+        <ul>
+            <li>**Bootstrap** – Best for pre-built UI components and quick development.</li>
+            <li>**Tailwind CSS** – Best for customization and utility-first design.</li>
+            <li>**Bulma** – Lightweight alternative with simple class-based styling.</li>
+            <li>**Foundation** – Great for responsive and accessibility-focused design.</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

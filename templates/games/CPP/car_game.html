@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Racer: Quiz Time!</title>
+    <style>
+        body {
+            background: #0d1117;
+            font-family: 'Courier New', monospace;
+            color: #00ffcc;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .game-container {
+            background: rgba(20, 20, 20, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            box-shadow: 0px 0px 10px #00ffcc;
+        }
+
+        button {
+            background-color: #ff6600;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .race-track {
+            position: relative;
+            width: 100vw;
+            height: 50vh;
+            background: url("{{ url_for('static', filename='images/CPP_GAME/racingtrack.jpg') }}") no-repeat center;
+            background-size: cover;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .car {
+            position: absolute;
+            bottom: -5px;
+            font-size: 300px;
+            transition: transform 0.2s ease;
+            width: 200px;
+            height: auto;
+        }
+
+        .finish-line {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            width: 10px;
+            height: 50%;
+            background: white;
+            border-right: 5px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🏎️ Car Racer: Quiz Time! 🚀</h1>
+        <p>Level: <span id="level">1</span></p>
+        <p>Streak: <span id="streak">0</span></p>
+        <p>Time Left: <span id="time">30</span> sec</p>
+        <p>Score: <span id="score">0</span></p>
+        <p id="question-text">Loading question...</p>
+        <div id="options"></div>
+        <button id="next-btn">Next Question</button>
+    </div>
+
+    <div class="race-track">
+        <div class="finish-line"></div> 
+        <img src="{{ url_for('static', filename='images/CPP_GAME/racing-car.png') }}" class="car" id="car">
+    </div>
+
+    <audio id="wrongSound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+
+    <script>
+        const questions = [
+            { question: 'What is the output of: cout << 5 + 3;', options: ['5', '8', '53'], answer: '8' },
+            { question: 'Which keyword is used for a function in C++?', options: ['void', 'def', 'function'], answer: 'void' },
+            { question: 'Which data type is used for a single character in C++?', options: ['char', 'string', 'int'], answer: 'char' },
+            { question: 'What is the correct syntax for a for-loop in C++?', options: ['for (i = 0; i < 5; i++)', 'loop (i = 0; i < 5; i++)', 'for i in range(5)'], answer: 'for (i = 0; i < 5; i++)' },
+            { question: 'Which symbol is used for a pointer in C++?', options: ['&', '*', '#'], answer: '*' },
+            { question: 'Which operator is used to access members of a class?', options: ['.', '->', ':'], answer: '.' },
+            { question: 'Which of these is a logical operator?', options: ['&&', '==', '%'], answer: '&&' }
+        ];
+        
+        let currentQuestion = 0;
+        let score = 0;
+        let streak = 0;
+        let timeLeft = 30;
+        let speed = 2; // Minimum speed set to 2
+        let level = 1;
+        let carPosition = window.innerWidth - 250;
+        let timer, raceInterval;
+
+        document.addEventListener('DOMContentLoaded', startGame);
+        document.getElementById('next-btn').addEventListener('click', nextQuestion);
+
+        function startGame() {
+            document.getElementById('car').style.left = carPosition + "px";
+            loadQuestion();
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time').textContent = timeLeft;
+                if (timeLeft <= 0) endGame();
+            }, 1000);
+
+            raceInterval = setInterval(moveCar, 50);
+        }
+
+        function loadQuestion() {
+            if (currentQuestion >= questions.length) return endGame();
+            let q = questions[currentQuestion];
+            document.getElementById('question-text').textContent = q.question;
+            let optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+            q.options.forEach(option => {
+                let btn = document.createElement('button');
+                btn.textContent = option;
+                btn.onclick = () => checkAnswer(option);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(answer) {
+            if (currentQuestion < questions.length && answer === questions[currentQuestion].answer) {
+                score += 10;
+                streak++;
+                speed += 1;
+                level++;
+            } else {
+                streak = 0;
+                speed = Math.max(2, speed - 1);
+                document.getElementById('wrongSound').play();
+            }
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('streak').textContent = streak;
+            document.getElementById('level').textContent = level;
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                endGame();
+            }
+        }
+
+        function moveCar() {
+            carPosition -= speed;
+            document.getElementById('car').style.left = carPosition + 'px';
+
+            if (carPosition <= 50) {
+                clearInterval(raceInterval);
+                endGame();
+            }
+        }
+
+        function endGame() {
+            clearInterval(timer);
+            clearInterval(raceInterval);
+            alert('Game Over! Your score: ' + score);
+        }
+    </script>
+</body>
+</html>

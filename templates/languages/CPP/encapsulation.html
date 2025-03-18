@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Encapsulation</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Encapsulation</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='classes_objects') }}">Previous: Classes & Objects</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='inheritance') }}">Next: Inheritance</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Encapsulation in C++</h2>
+        <p>Encapsulation is one of the core principles of Object-Oriented Programming. It restricts direct access to certain details of an object and allows controlled access through methods.</p>
+    </section>
+
+    <section>
+        <h2>What is Encapsulation?</h2>
+        <p>Encapsulation is the bundling of data (variables) and methods (functions) that operate on the data into a single unit, i.e., a class. It helps protect data from unintended access and modification.</p>
+    </section>
+
+    <section>
+        <h2>Encapsulation Example</h2>
+        <p>In the example below, data members of the class are private and can only be accessed through public methods.</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class BankAccount {
+private:
+    double balance;
+
+public:
+    // Constructor
+    BankAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    // Setter function
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    // Getter function
+    double getBalance() {
+        return balance;
+    }
+};
+
+int main() {
+    BankAccount account(1000);  // Create an account with $1000
+    account.deposit(500);  // Deposit $500
+    cout << "Current balance: $" << account.getBalance() << endl;
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Why Use Encapsulation?</h2>
+        <ul>
+            <li><strong>Data Hiding:</strong> Prevents direct access to sensitive data.</li>
+            <li><strong>Improved Maintainability:</strong> Changes can be made without affecting other parts of the program.</li>
+            <li><strong>Code Reusability:</strong> Encapsulated code can be reused across different applications.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Access Modifiers in Encapsulation</h2>
+        <p>Encapsulation in C++ is implemented using <strong>access specifiers</strong>:</p>
+        <ul>
+            <li><strong>private:</strong> Members are accessible only within the same class.</li>
+            <li><strong>public:</strong> Members are accessible from outside the class.</li>
+            <li><strong>protected:</strong> Members are accessible in derived classes.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Encapsulation with Getters and Setters</h2>
+        <p>Getters and setters allow controlled access to private variables.</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Student {
+private:
+    string name;
+
+public:
+    // Setter method
+    void setName(string studentName) {
+        name = studentName;
+    }
+
+    // Getter method
+    string getName() {
+        return name;
+    }
+};
+
+int main() {
+    Student student;
+    student.setName("Alice");
+    cout << "Student Name: " << student.getName() << endl;
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

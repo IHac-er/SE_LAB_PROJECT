@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python List Comprehensions</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Pure Black Background */
+  color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #6600cc; /* Deep Purple */
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  margin: 20px;
+  background: #121212; /* Very Dark Gray for Depth */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+  background: #181818; /* Dark Gray Code Block */
+  color: #00ffff; /* Cyan Text for Code */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #6600cc; /* Matching table border with theme */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #440088;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #6600cc; /* Dark Purple Footer */
+  color: white;
+}
+
+</style>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='index') }}">Home</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='generators') }}">Previous: Generators</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='multithreading') }}">Next: Multithreading</a></li>
+             </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Python List Comprehensions</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>What are List Comprehensions?</h2>
+            <p>List comprehensions provide a concise way to create lists in Python. They offer a more readable and efficient alternative to using loops.</p>
+        </section>
+
+        <section>
+            <h2>1. Basic Syntax</h2>
+            <p>The syntax for a list comprehension is:</p>
+            <pre><code>
+[expression for item in iterable if condition]
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Simple Examples</h2>
+
+            <h3>🔹 Creating a List of Squares</h3>
+            <pre><code>
+# Using a loop
+squares = []
+for i in range(10):
+    squares.append(i ** 2)
+
+# Using list comprehension
+squares = [i ** 2 for i in range(10)]
+
+print(squares)  # Output: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+            </code></pre>
+
+            <h3>🔹 Filtering Even Numbers</h3>
+            <pre><code>
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = [num for num in numbers if num % 2 == 0]
+
+print(evens)  # Output: [2, 4, 6, 8, 10]
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Nested List Comprehensions</h2>
+            <p>List comprehensions can be nested to create multidimensional lists.</p>
+            <pre><code>
+matrix = [[j for j in range(3)] for i in range(3)]
+print(matrix)
+# Output: [[0, 1, 2], [0, 1, 2], [0, 1, 2]]
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>4. Using Functions in List Comprehensions</h2>
+            <pre><code>
+def square(n):
+    return n * n
+
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = [square(num) for num in numbers]
+
+print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>5. Dictionary & Set Comprehensions</h2>
+
+            <h3>🔹 Dictionary Comprehension</h3>
+            <pre><code>
+numbers = [1, 2, 3, 4, 5]
+squares_dict = {num: num ** 2 for num in numbers}
+
+print(squares_dict)  # Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+            </code></pre>
+
+            <h3>🔹 Set Comprehension</h3>
+            <pre><code>
+numbers = [1, 2, 2, 3, 3, 4, 5]
+unique_squares = {num ** 2 for num in numbers}
+
+print(unique_squares)  # Output: {1, 4, 9, 16, 25}
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>6. Using List Comprehensions with Conditionals</h2>
+
+            <h3>🔹 If-Else Condition</h3>
+            <pre><code>
+numbers = [1, 2, 3, 4, 5, 6]
+labels = ["Even" if num % 2 == 0 else "Odd" for num in numbers]
+
+print(labels)  # Output: ['Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even']
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>7. Performance Comparison</h2>
+            <p>List comprehensions are faster than loops because they are optimized internally in Python.</p>
+            <pre><code>
+import time
+
+# Using a loop
+start = time.time()
+squares = []
+for i in range(1000000):
+    squares.append(i ** 2)
+end = time.time()
+print("Loop Time:", end - start)
+
+# Using list comprehension
+start = time.time()
+squares = [i ** 2 for i in range(1000000)]
+end = time.time()
+print("List Comprehension Time:", end - start)
+            </code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learn Python. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Operators</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Operators</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='datatypes') }}">Previous: Data Types</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='control_flow') }}">Next: Control Flow</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Operators in C++</h2>
+        <p>Operators are symbols that perform operations on variables and values.</p>
+    </section>
+
+    <section>
+        <h2>Types of Operators in C++</h2>
+        <p>C++ provides various operators categorized as follows:</p>
+        <table border="1">
+            <tr>
+                <th>Operator Type</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td><strong>Arithmetic Operators</strong></td>
+                <td>Perform mathematical operations</td>
+                <td>+, -, *, /, %</td>
+            </tr>
+            <tr>
+                <td><strong>Relational Operators</strong></td>
+                <td>Compare two values</td>
+                <td>==, !=, >, <, >=, <=</td>
+            </tr>
+            <tr>
+                <td><strong>Logical Operators</strong></td>
+                <td>Used for logical operations</td>
+                <td>&&, ||, !</td>
+            </tr>
+            <tr>
+                <td><strong>Bitwise Operators</strong></td>
+                <td>Perform operations at the bit level</td>
+                <td>&, |, ^, ~, <<, >></td>
+            </tr>
+            <tr>
+                <td><strong>Assignment Operators</strong></td>
+                <td>Assign values to variables</td>
+                <td>=, +=, -=, *=, /=, %=</td>
+            </tr>
+            <tr>
+                <td><strong>Increment & Decrement</strong></td>
+                <td>Increase or decrease value</td>
+                <td>++, --</td>
+            </tr>
+            <tr>
+                <td><strong>Conditional (Ternary) Operator</strong></td>
+                <td>Shorthand for if-else</td>
+                <td>condition ? expr1 : expr2</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Example: Arithmetic Operators</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int a = 10, b = 5;
+    
+    cout << "Addition: " << (a + b) << endl;
+    cout << "Subtraction: " << (a - b) << endl;
+    cout << "Multiplication: " << (a * b) << endl;
+    cout << "Division: " << (a / b) << endl;
+    cout << "Modulus: " << (a % b) << endl;
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Relational Operators</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int x = 10, y = 20;
+    
+    cout << (x == y) << endl;
+    cout << (x != y) << endl;
+    cout << (x > y) << endl;
+    cout << (x < y) << endl;
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Logical Operators</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    bool a = true, b = false;
+    
+    cout << (a && b) << endl; // Logical AND
+    cout << (a || b) << endl; // Logical OR
+    cout << (!a) << endl;     // Logical NOT
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Bitwise Operators</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int x = 5, y = 3;
+    
+    cout << (x & y) << endl;  // Bitwise AND
+    cout << (x | y) << endl;  // Bitwise OR
+    cout << (x ^ y) << endl;  // Bitwise XOR
+    cout << (~x) << endl;     // Bitwise NOT
+    cout << (x << 1) << endl; // Left Shift
+    cout << (y >> 1) << endl; // Right Shift
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Ternary Operator</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int a = 10, b = 20;
+    int min = (a < b) ? a : b;
+
+    cout << "Minimum value: " << min << endl;
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

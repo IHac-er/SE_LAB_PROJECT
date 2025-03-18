@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn HTML</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #6600cc; /* Deep Purple */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ffff; /* Cyan Text for Code */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #6600cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #440088;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #6600cc; /* Dark Purple Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>Learn HTML</h1>
+    </header>
+
+    <section class="hero-section">
+        <h2>Welcome to HTML Learning</h2>
+        <p>This guide will help you learn HTML step by step.</p>
+    </section>
+
+    <section>
+        <h2>HTML Topics</h2>
+        <ul class="topic-list">
+            <li><a href="{{ url_for('languages.load_topic', language='html', topic='intro') }}">1. Introduction to HTML</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='syntax') }}">2. HTML Syntax</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='elements') }}">3. HTML Elements</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='attributes') }}">4. HTML Attributes</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='forms') }}">5. HTML Forms & Input</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='tables') }}">6. HTML Tables</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='media') }}">7. HTML Multimedia</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='semantic') }}">8. HTML Semantic Elements</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='hyperlinks') }}">9. HTML Hyperlinks</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='lists') }}">10. HTML Lists</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='block-vs-inline') }}">11. HTML Block vs Inline Elements</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='canvas') }}">12. HTML Canvas</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='svg') }}">13. HTML SVG</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='html', topic='graphics') }}">14. HTML Graphics</a></li>
+
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn HTML. All rights reserved.</p>
+    </footer>
+</body>
+</html>

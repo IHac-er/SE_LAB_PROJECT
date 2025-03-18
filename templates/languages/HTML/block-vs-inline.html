@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block vs Inline Elements</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #6600cc; /* Deep Purple */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ffff; /* Cyan Text for Code */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #6600cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #440088;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #6600cc; /* Dark Purple Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>Block vs Inline Elements</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='lists') }}">Previous: HTML Lists</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='tables') }}">Next: HTML Tables</a></li>
+                     </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are Block and Inline Elements?</h2>
+        <p>HTML elements are categorized into two types: block-level elements and inline elements.</p>
+    </section>
+
+    <section>
+        <h2>Block Elements</h2>
+        <p>Block elements take up the full width available and start on a new line.</p>
+        <p>Examples of block elements:</p>
+        <pre><code>&lt;div&gt;This is a block element&lt;/div&gt;
+&lt;p&gt;Paragraphs are block elements&lt;/p&gt;
+&lt;h1&gt;Headings are block elements&lt;/h1&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Inline Elements</h2>
+        <p>Inline elements take up only as much width as necessary and do not start on a new line.</p>
+        <p>Examples of inline elements:</p>
+        <pre><code>&lt;span&gt;This is an inline element&lt;/span&gt;
+&lt;a href="#"&gt;Links are inline&lt;/a&gt;
+&lt;strong&gt;Bold text is inline&lt;/strong&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Key Differences</h2>
+        <table>
+            <tr>
+                <th>Block Elements</th>
+                <th>Inline Elements</th>
+            </tr>
+            <tr>
+                <td>Start on a new line</td>
+                <td>Do not start on a new line</td>
+            </tr>
+            <tr>
+                <td>Take up full width</td>
+                <td>Take only necessary width</td>
+            </tr>
+            <tr>
+                <td>Can contain other block and inline elements</td>
+                <td>Can contain only text or other inline elements</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn HTML. All rights reserved.</p>
+    </footer>
+</body>
+</html>

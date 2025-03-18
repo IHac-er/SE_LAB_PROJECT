@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐞 Bug Hunt: Debugging Arena 🕹️</title>
+    <style>
+        body {
+    background-color: #1a1a1a; /* Dark gaming background */
+    color: #ffffff; /* White text for contrast */
+}
+
+        body {
+    background-image: url('your-gaming-image.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        #code-container {
+            background: #222;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+
+        button {
+            background: #ff5733;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #ff2e00;
+        }
+
+        .timer, .score, .level, .streak {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .timer { color: red; }
+        .score { color: green; }
+        .level { color: blue; }
+        .streak { color: orange; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐞 Bug Hunt: Debugging Arena 🕹️</h1>
+        <p>Fix the buggy C++ code below and submit your answer!</p>
+        <p class="level">📈 Level: <span id="level">1</span></p>
+        <p class="streak">🔥 Streak: <span id="streak">0</span></p>
+        <p class="timer">⏳ Time Left: <span id="timer">30</span> sec</p>
+        <p class="score">🏆 Score: <span id="score">0</span></p>
+        
+        <div id="code-container">
+            <pre id="buggy-code"></pre>
+            <textarea id="fix-code" placeholder="Fix the bug here..."></textarea>
+        </div>
+
+        <button onclick="submitCode()">Submit Fix</button>
+        <p id="feedback"></p>
+    </div>
+
+    <script>
+        let bugs = [
+            { code: "#include <iostream>\nusing namespace std;\nint main() {\n    cout << \"Hello, World!\" // Missing semicolon\n    return 0;\n}", fix: ";" },
+            { code: "#include <iostream>\nusing namespace std;\nvoid main() {\n    cout << \"Welcome!\";\n}", fix: "int main()" },
+            { code: "#include <iostream>\nusing namespace std;\nint main() {\n    int x = 5\n    cout << x;\n    return 0;\n}", fix: ";" }
+        ];
+
+        let score = 0;
+        let timeLeft = 30;
+        let level = 1;
+        let streak = 0;
+        let currentBug = {};
+        let timer;
+
+        function loadBug() {
+            let randomIndex = Math.floor(Math.random() * bugs.length);
+            currentBug = bugs[randomIndex];
+            document.getElementById("buggy-code").innerText = currentBug.code;
+        }
+
+        function submitCode() {
+            let userCode = document.getElementById("fix-code").value;
+            if (userCode.includes(currentBug.fix)) {
+                document.getElementById("feedback").innerText = "✅ Correct! Bug fixed!";
+                score += 10;
+                streak += 1;
+                document.getElementById("score").innerText = score;
+                document.getElementById("streak").innerText = streak;
+
+                if (streak % 3 === 0) {
+                    levelUp();
+                }
+
+                loadBug();
+                document.getElementById("fix-code").value = "";
+            } else {
+                document.getElementById("feedback").innerText = "❌ Try again! There's still a bug.";
+                streak = 0;
+                document.getElementById("streak").innerText = streak;
+            }
+        }
+
+        function levelUp() {
+            level++;
+            document.getElementById("level").innerText = level;
+            timeLeft += 10;
+            document.getElementById("timer").innerText = timeLeft;
+        }
+
+        function countdown() {
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    alert("Time's up! Your final score: " + score);
+                }
+            }, 1000);
+        }
+
+        window.onload = function() {
+            loadBug();
+            countdown();
+        };
+    </script>
+</body>
+</html>

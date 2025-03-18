@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preprocessor Directives in C</title> 
+</head>
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+    
+<body>
+    <header class="navbar">
+        <h1>Preprocessor Directives in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='memorymanagement') }}">Previous: Memory Management</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='multithreading') }}">Next: Multithreading</a></li>
+              </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are Preprocessor Directives?</h2>
+        <p>Preprocessor directives in C are commands that are processed before compilation begins. They start with a `#` symbol.</p>
+    </section>
+
+    <section>
+        <h2>Types of Preprocessor Directives</h2>
+        <ul>
+            <li><strong>File Inclusion:</strong> `#include`</li>
+            <li><strong>Macro Definition:</strong> `#define`</li>
+            <li><strong>Conditional Compilation:</strong> `#ifdef`, `#ifndef`, `#if`, `#else`, `#elif`, `#endif`</li>
+            <li><strong>Other Directives:</strong> `#pragma`, `#undef`</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>1. File Inclusion (`#include`)</h2>
+        <p>Includes external header files in a C program.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+#include "myfile.h"  // User-defined header file</code></pre>
+    </section>
+
+    <section>
+        <h2>2. Macro Definition (`#define`)</h2>
+        <p>Used to define constants or macros.</p>
+        <pre><code>#define PI 3.1416
+
+int main() {
+    printf("Value of PI: %f\n", PI);
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>3. Conditional Compilation</h2>
+        <p>Controls whether certain parts of the code should be compiled.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+#define DEBUG 1
+
+int main() {
+#ifdef DEBUG
+    printf("Debugging mode is ON\n");
+#endif
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>4. `#pragma` Directive</h2>
+        <p>Used for compiler-specific instructions.</p>
+        <pre><code>#pragma startup myFunction
+#pragma exit myFunction</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

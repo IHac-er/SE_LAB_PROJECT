@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Lambda Functions</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Lambda Functions</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='functions') }}">Previous: Functions</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='stl') }}">Next: STL</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Lambda Functions in C++</h2>
+        <p>Lambda functions provide a concise way to define anonymous functions inline.</p>
+    </section>
+
+    <section>
+        <h2>What are Lambda Functions?</h2>
+        <p>Lambda functions are anonymous functions (i.e., functions without a name) that can be used for short, simple tasks.</p>
+        <p><strong>Syntax:</strong></p>
+        <pre><code>[capture_list](parameters) -> return_type {
+    // Function body
+};</code></pre>
+    </section>
+
+    <section>
+        <h2>Basic Example</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    auto add = [](int a, int b) {
+        return a + b;
+    };
+    cout << "Sum: " << add(5, 3) << endl;
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> A lambda function is assigned to <code>add</code> and used to add two numbers.</p>
+    </section>
+
+    <section>
+        <h2>Lambda with Capturing Variables</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int x = 10;
+    auto printX = [x]() {
+        cout << "Captured value: " << x << endl;
+    };
+    printX();
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The lambda function captures the variable <code>x</code> from the surrounding scope.</p>
+    </section>
+
+    <section>
+        <h2>Modifying Captured Variables</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int x = 10;
+    auto modifyX = [&x]() {
+        x += 5;
+    };
+    modifyX();
+    cout << "Modified value: " << x << endl;
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The lambda captures <code>x</code> by reference, allowing modifications.</p>
+    </section>
+
+    <section>
+        <h2>Lambda as a Parameter</h2>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+void applyFunction(vector<int>& v, auto func) {
+    for (int& num : v) {
+        num = func(num);
+    }
+}
+
+int main() {
+    vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+    applyFunction(v, [](int n) { return n * 2; });
+
+    for (int num : v) {
+        cout << num << " ";
+    }
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> A lambda function is passed to <code>applyFunction</code> to modify vector elements.</p>
+    </section>
+
+    <section>
+        <h2>Example: Lambda with STL Algorithms</h2>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; nums = {1, 2, 3, 4, 5};
+    
+    // Using lambda with for_each
+    for_each(nums.begin(), nums.end(), [](int n) {
+        cout << n * 2 << " ";
+    });
+
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> A lambda function is used inside <code>for_each</code> to process each element in the vector.</p>
+    </section>
+
+    <section>
+        <h2>Example: Returning from a Lambda</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    auto square = [](int x) -> int {
+        return x * x;
+    };
+    
+    cout << "Square of 6: " << square(6) << endl;
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The lambda function <code>square</code> returns the square of the input value.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Preprocessors</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Learning</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='variables') }}">Previous: CSS Variables</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='frameworks') }}">Next: CSS Frameworks</a></li>
+                        </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Preprocessors</h2>
+        <p>Learn how preprocessors like Sass and LESS enhance CSS.</p>
+    </section>
+
+    <section>
+        <h3>What is a CSS Preprocessor?</h3>
+        <p>A CSS preprocessor is an advanced tool that extends CSS by adding features like variables, nesting, functions, and mixins.</p>
+
+        <h4>Advantages of CSS Preprocessors:</h4>
+        <ul>
+            <li>Improves code organization and maintainability.</li>
+            <li>Allows the use of variables for reusability.</li>
+            <li>Supports nesting for better structure.</li>
+            <li>Provides mixins for reusable styles.</li>
+            <li>Enables functions for dynamic styling.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Popular CSS Preprocessors</h3>
+
+        <h4>1. Sass (Syntactically Awesome Stylesheets)</h4>
+        <p>Sass is the most popular preprocessor that allows advanced CSS functionalities like variables, nesting, and mixins.</p>
+        <pre><code>// Installing Sass
+npm install -g sass
+
+// Example Sass Code
+$primary-color: #ffcc00;
+
+body {
+    background-color: $primary-color;
+}</code></pre>
+
+        <h4>2. LESS</h4>
+        <p>LESS is another CSS preprocessor that offers similar features to Sass but with a slightly different syntax.</p>
+        <pre><code>// Example LESS Code
+@primary-color: #ffcc00;
+
+body {
+    background-color: @primary-color;
+}</code></pre>
+
+        <h4>3. Stylus</h4>
+        <p>Stylus is a more flexible preprocessor that removes many syntax constraints, making CSS writing faster.</p>
+        <pre><code>// Example Stylus Code
+primary-color = #ffcc00
+
+body 
+    background-color primary-color</code></pre>
+    </section>
+
+    <section>
+        <h3>Comparison of CSS Preprocessors</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Sass</th>
+                <th>LESS</th>
+                <th>Stylus</th>
+            </tr>
+            <tr>
+                <td>Variables</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td>Nesting</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td>Mixins</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td>Syntax Flexibility</td>
+                <td>Moderate</td>
+                <td>Strict</td>
+                <td>Highly Flexible</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

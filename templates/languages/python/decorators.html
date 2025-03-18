@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Decorators</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Pure Black Background */
+  color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #6600cc; /* Deep Purple */
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  margin: 20px;
+  background: #121212; /* Very Dark Gray for Depth */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+  background: #181818; /* Dark Gray Code Block */
+  color: #00ffff; /* Cyan Text for Code */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #6600cc; /* Matching table border with theme */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #440088;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #6600cc; /* Dark Purple Footer */
+  color: white;
+}
+
+</style>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h1>Python Learning</h1>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='index') }}">Home</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='filehandling') }}">Previous: File Handling</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='generators') }}">Next: Generators</a></li>
+           </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h2>Python Decorators</h2>
+        <p>Learn how to use decorators in Python to modify and enhance functions dynamically.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>What are Decorators?</h2>
+            <p>Decorators in Python allow modifying functions dynamically. They are used to enhance functions without modifying their code.</p>
+        </section>
+
+        <section>
+            <h2>1. Basic Function Decorator</h2>
+            <p>A decorator is a function that takes another function as input and returns a new function.</p>
+            <pre><code>
+def decorator(func):
+    def wrapper():
+        print("Before function execution")
+        func()
+        print("After function execution")
+    return wrapper
+
+@decorator
+def greet():
+    print("Hello, World!")
+
+greet()
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Decorators with Arguments</h2>
+            <p>Pass arguments to the wrapped function inside the wrapper.</p>
+            <pre><code>
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Function is being called")
+        return func(*args, **kwargs)
+    return wrapper
+
+@decorator
+def add(a, b):
+    return a + b
+
+print(add(3, 5))
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Using Multiple Decorators</h2>
+            <p>You can stack multiple decorators.</p>
+            <pre><code>
+def decorator1(func):
+    def wrapper():
+        print("Decorator 1")
+        func()
+    return wrapper
+
+def decorator2(func):
+    def wrapper():
+        print("Decorator 2")
+        func()
+    return wrapper
+
+@decorator1
+@decorator2
+def greet():
+    print("Hello!")
+
+greet()
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>4. Class-Based Decorators</h2>
+            <p>Decorators can also be implemented using classes.</p>
+            <pre><code>
+class Decorator:
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
+        print("Before function call")
+        result = self.func(*args, **kwargs)
+        print("After function call")
+        return result
+
+@Decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+            </code></pre>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Learn Python. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

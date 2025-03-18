@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Hyperlinks</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #6600cc; /* Deep Purple */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ffff; /* Cyan Text for Code */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #6600cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #440088;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #6600cc; /* Dark Purple Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>HTML Hyperlinks</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='media') }}">Previous: HTML Media</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='tables') }}">Next: HTML Tables</a></li>
+                          </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are HTML Hyperlinks?</h2>
+        <p>Hyperlinks, or links, allow users to navigate between web pages.</p>
+    </section>
+
+    <section>
+        <h2>Basic Hyperlink</h2>
+        <p>Use the <code>&lt;a&gt;</code> tag to create a hyperlink.</p>
+        <pre><code>&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Opening Links in a New Tab</h2>
+        <p>Use <code>target="_blank"</code> to open a link in a new tab.</p>
+        <pre><code>&lt;a href="https://www.example.com" target="_blank"&gt;Open in New Tab&lt;/a&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Email Links</h2>
+        <p>Use <code>mailto:</code> to create an email link.</p>
+        <pre><code>&lt;a href="mailto:someone@example.com"&gt;Send Email&lt;/a&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Phone Links</h2>
+        <p>Use <code>tel:</code> to create a phone call link.</p>
+        <pre><code>&lt;a href="tel:+1234567890"&gt;Call Now&lt;/a&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Internal Links (Same Page)</h2>
+        <p>Link to a section within the same page using an ID.</p>
+        <pre><code>&lt;a href="#section1"&gt;Go to Section 1&lt;/a&gt;
+
+&lt;h2 id="section1"&gt;Section 1&lt;/h2&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Downloadable Links</h2>
+        <p>Add the <code>download</code> attribute to allow file downloads.</p>
+        <pre><code>&lt;a href="file.pdf" download&gt;Download PDF&lt;/a&gt;</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn HTML. All rights reserved.</p>
+    </footer>
+</body>
+</html>

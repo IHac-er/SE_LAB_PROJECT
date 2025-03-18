@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Exception Handling</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Pure Black Background */
+  color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #6600cc; /* Deep Purple */
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  margin: 20px;
+  background: #121212; /* Very Dark Gray for Depth */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+  background: #181818; /* Dark Gray Code Block */
+  color: #00ffff; /* Cyan Text for Code */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #6600cc; /* Matching table border with theme */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #440088;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #6600cc; /* Dark Purple Footer */
+  color: white;
+}
+
+</style>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h1>Python Learning</h1>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('languages.load_topic', language='py', topic='index') }}">Home</a></li>
+            <li><a href="{{ url_for('languages.load_topic', language='py', topic='modules') }}">Previous: Modules</a></li>
+            <li><a href="{{ url_for('languages.load_topic', language='py', topic='filehandling') }}">Next: File Handling</a></li>
+                   </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h2>Python Exception Handling</h2>
+        <p>Learn how to handle errors in Python using <code>try-except</code> blocks and other techniques.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>What is Exception Handling?</h2>
+            <p>Exceptions are errors that occur during execution. Python provides mechanisms to handle them using <code>try-except</code> blocks.</p>
+        </section>
+
+        <section>
+            <h2>1. Basic Try-Except Block</h2>
+            <p>Use <code>try</code> to test code and <code>except</code> to handle errors.</p>
+            <pre><code>
+try:
+    x = 5 / 0  # Division by zero error
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Handling Multiple Exceptions</h2>
+            <p>You can handle multiple exceptions using multiple <code>except</code> blocks.</p>
+            <pre><code>
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")
+except ValueError:
+    print("Error: Invalid input. Please enter a number.")
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Using Finally Block</h2>
+            <p>The <code>finally</code> block executes regardless of whether an exception occurs or not.</p>
+            <pre><code>
+try:
+    file = open("data.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("File not found.")
+finally:
+    file.close()  # Ensures file is closed
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>4. Raising Exceptions</h2>
+            <p>Use <code>raise</code> to manually throw an exception.</p>
+            <pre><code>
+def check_age(age):
+    if age < 18:
+        raise ValueError("Age must be 18 or above.")
+    return "Access granted"
+
+try:
+    print(check_age(16))
+except ValueError as e:
+    print("Error:", e)
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>5. Custom Exceptions</h2>
+            <p>You can define custom exceptions by creating a new class that inherits from <code>Exception</code>.</p>
+            <pre><code>
+class NegativeNumberError(Exception):
+    pass
+
+def square_root(x):
+    if x < 0:
+        raise NegativeNumberError("Cannot compute square root of a negative number.")
+    return x ** 0.5
+
+try:
+    print(square_root(-4))
+except NegativeNumberError as e:
+    print("Error:", e)
+            </code></pre>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Learn Python. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

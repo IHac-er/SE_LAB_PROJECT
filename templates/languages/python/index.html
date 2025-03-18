@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Python</title> 
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+header {
+    background: rgb(246, 255, 0);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: rgb(0, 0, 0);
+    color: rgb(246, 255, 0);
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: rgb(246, 255, 0);
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    background: rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background: #e8e8e8;
+}
+
+h2 {
+    color: rgb(246, 255, 0);
+}
+
+pre {
+    background: #272822;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: "Courier New", monospace;
+}
+
+footer {
+    background: rgb(246, 255, 0);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.abc> h1 >a{
+    text-decoration: none;
+    color: #fff;
+}
+</style>
+<body>
+    <header>
+        <h1>Learn Python Programming</h1>
+        <p>Your guide to mastering Python.</p>
+    </header>
+    <nav>
+        <ul>
+            to be added
+        </ul>
+    </nav>
+    <main class = "abc"> <h1> <h1><a href="{{ url_for('languages.load_topic', language='python', topic='intro') }}">INTRODUCTION</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='syntax') }}">Syntax</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='datatypes') }}">Data Types</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='operators') }}">Operators</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='controlflow') }}">Control Flow</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='functions') }}">Functions</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='oop') }}">Object-Oriented Programming</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='modules') }}">Modules</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='exceptions') }}">Exception Handling</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='filehandling') }}">File Handling</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='decorators') }}">Decorators</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='generators') }}">Generators</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='list_comprehensions') }}">List Comprehensions</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='multithreading') }}">Multithreading</a></h1>
+      <h1><a href="{{ url_for('languages.load_topic', language='python', topic='regex') }}">Regular Expressions</a></h1>
+      
+               
+    </main>
+    <footer>
+        <p>&copy; 2025 Learn Python. All rights reserved.</p>
+    </footer>
+</body>
+</html>

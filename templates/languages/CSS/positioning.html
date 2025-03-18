@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Learning</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='flexbox') }}">Previous: Flexbox</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='grid') }}">Next: Grid</a></li>
+                         </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Positioning</h2>
+        <p>CSS Positioning is used to control the placement of elements on a webpage.</p>
+    </section>
+
+    <section>
+        <h3>What is CSS Positioning?</h3>
+        <p>CSS provides different ways to position HTML elements on a webpage. The <code>position</code> property allows you to define how elements appear relative to the document flow or other elements.</p>
+    </section>
+
+    <section>
+        <h3>Types of Positioning</h3>
+        <p>There are five main types of positioning in CSS:</p>
+        <ul>
+            <li><strong>Static</strong> - Default positioning; follows normal document flow.</li>
+            <li><strong>Relative</strong> - Positioned relative to its original position.</li>
+            <li><strong>Absolute</strong> - Positioned relative to the nearest positioned ancestor.</li>
+            <li><strong>Fixed</strong> - Positioned relative to the viewport; does not move when scrolling.</li>
+            <li><strong>Sticky</strong> - Switches between relative and fixed positioning depending on scroll position.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Static Positioning</h3>
+        <p>By default, all elements are positioned as <code>static</code>. They appear in the normal document flow.</p>
+        <pre><code>&lt;div class="static"&gt;This is a statically positioned div&lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+        <h3>Relative Positioning</h3>
+        <p>When an element has <code>position: relative;</code>, it moves relative to its normal position.</p>
+        <pre><code>&lt;div class="relative"&gt;This is a relatively positioned div&lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+        <h3>Absolute Positioning</h3>
+        <p>With <code>position: absolute;</code>, an element is positioned relative to the nearest positioned ancestor (excluding static elements).</p>
+        <pre><code>&lt;div class="absolute"&gt;This is an absolutely positioned div&lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+        <h3>Fixed Positioning</h3>
+        <p>Elements with <code>position: fixed;</code> remain fixed relative to the viewport and do not scroll.</p>
+        <pre><code>&lt;div class="fixed"&gt;This is a fixed positioned div&lt;/div&gt;</code></pre>
+    </section>
+
+    <section>
+        <h3>Sticky Positioning</h3>
+        <p><code>position: sticky;</code> makes an element act like <code>relative</code> until a certain scroll position is reached, then it behaves like <code>fixed</code>.</p>
+        <pre><code>&lt;div class="sticky"&gt;This is a sticky positioned div&lt;/div&gt;</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

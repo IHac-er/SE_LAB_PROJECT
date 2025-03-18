@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Functions</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Functions</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='operators') }}">Previous: Operators</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='classes_objects') }}">Next: Classes & Objects</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Functions in C++</h2>
+        <p>Functions in C++ are blocks of code that perform a specific task and can be reused.</p>
+    </section>
+
+    <section>
+        <h2>Types of Functions in C++</h2>
+        <p>C++ supports different types of functions:</p>
+        <ul>
+            <li><strong>Built-in Functions:</strong> Functions provided by the standard library (e.g., <code>sqrt()</code>, <code>pow()</code>).</li>
+            <li><strong>User-defined Functions:</strong> Functions created by the programmer.</li>
+            <li><strong>Recursive Functions:</strong> Functions that call themselves.</li>
+            <li><strong>Inline Functions:</strong> Functions defined with the <code>inline</code> keyword to reduce function call overhead.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Function Syntax</h2>
+        <pre><code>returnType functionName(parameters) {
+    // Function body
+    return value;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Function with Parameters</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 3);
+    cout << "Sum: " << result << endl;
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Function Overloading</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+
+int main() {
+    cout << "Integer sum: " << add(5, 3) << endl;
+    cout << "Double sum: " << add(5.5, 3.2) << endl;
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Recursive Function</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int factorial(int n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}
+
+int main() {
+    cout << "Factorial of 5: " << factorial(5) << endl;
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Inline Function</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+inline int square(int x) {
+    return x * x;
+}
+
+int main() {
+    cout << "Square of 4: " << square(4) << endl;
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The <code>inline</code> function reduces function call overhead by replacing the function call with the actual code.</p>
+    </section>
+
+    <section>
+        <h2>Example: Function with Default Parameters</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+void greet(string name = "User") {
+    cout << "Hello, " << name << "!" << endl;
+}
+
+int main() {
+    greet();          // Uses default parameter
+    greet("Alice");   // Uses provided argument
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The function <code>greet</code> has a default parameter value that is used when no argument is provided.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

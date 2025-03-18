@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Z-Index</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Learning Hub</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='positioning') }}">Positioning</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='z-index') }}">Z-Index</a></li>
+                       </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Z-Index</h2>
+        <p>The <code>z-index</code> property controls the vertical stacking order of elements.</p>
+    </section>
+
+    <main>
+        <section>
+            <h3>What is Z-Index?</h3>
+            <p>The <code>z-index</code> property defines the stack order of elements. Elements with a higher z-index appear in front of elements with a lower z-index.</p>
+            <p>It only works on elements with a <code>position</code> of <code>relative</code>, <code>absolute</code>, <code>fixed</code>, or <code>sticky</code>.</p>
+        </section>
+
+        <section>
+            <h3>How Z-Index Works</h3>
+            <p>The default stack order follows the document flow, but you can control it using <code>z-index</code>.</p>
+            <pre><code>&lt;div class="box box1"&gt;Box 1 (z-index: 1)&lt;/div&gt;
+&lt;div class="box box2"&gt;Box 2 (z-index: 2)&lt;/div&gt;</code></pre>
+        </section>
+
+        <section>
+            <h3>Example of Z-Index</h3>
+            <p>In the example below, Box 2 will appear on top of Box 1 because it has a higher z-index.</p>
+            <pre><code>.box1 {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    z-index: 1;
+}
+
+.box2 {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    z-index: 2;
+}</code></pre>
+        </section>
+
+        <section>
+            <h3>Auto and Negative Z-Index</h3>
+            <p>The default <code>z-index</code> value is "auto," which means the stacking order follows the document flow.</p>
+            <p>Negative values push elements behind others.</p>
+            <pre><code>.box3 {
+    position: absolute;
+    top: 90px;
+    left: 90px;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    z-index: -1;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

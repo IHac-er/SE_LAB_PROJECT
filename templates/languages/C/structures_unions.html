@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structures & Unions in C</title> 
+</head>
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+    
+<body>
+    <header class="navbar">
+        <h1>Structures & Unions in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='pointers') }}">Previous: Pointers</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='filehandling') }}">Next: File Handling</a></li>
+              </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are Structures & Unions?</h2>
+        <p>Structures and unions are **user-defined data types** in C that allow grouping of different types of variables under one name.</p>
+    </section>
+
+    <section>
+        <h2>Structures in C</h2>
+        <p>A **structure** (`struct`) is a collection of variables of different types grouped under a single name.</p>
+        <h3>Example: Declaring and Using a Structure</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Defining a structure
+struct Student {
+    char name[50];
+    int age;
+    float marks;
+};
+
+int main() {
+    struct Student s1 = {"John", 20, 85.5};
+
+    printf("Name: %s\n", s1.name);
+    printf("Age: %d\n", s1.age);
+    printf("Marks: %.2f\n", s1.marks);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Accessing Structure Members</h2>
+        <p>Structure members are accessed using the **dot (`.`) operator**.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+struct Car {
+    char brand[50];
+    int year;
+};
+
+int main() {
+    struct Car c1 = {"Toyota", 2020};
+
+    printf("Car Brand: %s\n", c1.brand);
+    printf("Year: %d\n", c1.year);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Pointers to Structures</h2>
+        <p>Pointers can be used to **efficiently access structure members**.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+struct Employee {
+    char name[50];
+    int salary;
+};
+
+int main() {
+    struct Employee e1 = {"Alice", 50000};
+    struct Employee *ptr = &e1;
+
+    printf("Employee Name: %s\n", ptr->name);
+    printf("Salary: %d\n", ptr->salary);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Nested Structures</h2>
+        <p>A **structure within another structure** is called a nested structure.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+struct Address {
+    char city[50];
+    int pincode;
+};
+
+struct Employee {
+    char name[50];
+    struct Address address;
+};
+
+int main() {
+    struct Employee emp = {"Alice", {"New York", 10001}};
+
+    printf("Name: %s\n", emp.name);
+    printf("City: %s\n", emp.address.city);
+    printf("Pincode: %d\n", emp.address.pincode);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Unions in C</h2>
+        <p>A **union** is similar to a structure, but its members **share the same memory location**.</p>
+        <h3>Example: Declaring and Using a Union</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+int main() {
+    union Data data;
+
+    data.i = 10;
+    printf("Integer: %d\n", data.i);
+
+    data.f = 22.5;
+    printf("Float: %.2f\n", data.f);
+
+    return 0;
+}</code></pre>
+        <p>Since union members **share memory**, changing one member **affects others**.</p>
+    </section>
+
+    <section>
+        <h2>Difference Between Structures and Unions</h2>
+        <table border="1">
+            <tr>
+                <th>Aspect</th>
+                <th>Structure</th>
+                <th>Union</th>
+            </tr>
+            <tr>
+                <td>Memory Allocation</td>
+                <td>Each member has its own memory space.</td>
+                <td>All members share the same memory space.</td>
+            </tr>
+            <tr>
+                <td>Size</td>
+                <td>Total size is the sum of member sizes.</td>
+                <td>Size is equal to the largest member.</td>
+            </tr>
+            <tr>
+                <td>Usage</td>
+                <td>Stores multiple values at the same time.</td>
+                <td>Stores only one value at a time.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Example: Comparing Structure and Union</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+struct StructureExample {
+    int a;
+    float b;
+    char c;
+};
+
+union UnionExample {
+    int a;
+    float b;
+    char c;
+};
+
+int main() {
+    struct StructureExample s;
+    union UnionExample u;
+
+    printf("Size of structure: %lu bytes\n", sizeof(s));
+    printf("Size of union: %lu bytes\n", sizeof(u));
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Elements</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #6600cc; /* Deep Purple */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ffff; /* Cyan Text for Code */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #6600cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #440088;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #6600cc; /* Dark Purple Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>HTML Elements</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='syntax') }}">Previous: HTML Syntax</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='attributes') }}">Next: HTML Attributes</a></li>
+                        </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are HTML Elements?</h2>
+        <p>An HTML element consists of a start tag, content, and an end tag.</p>
+    </section>
+
+    <section>
+        <h2>Basic HTML Elements</h2>
+        <p>Here are some commonly used HTML elements:</p>
+        <table border="1">
+            <tr>
+                <th>Element</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td><code>&lt;h1&gt; - &lt;h6&gt;</code></td>
+                <td>Defines headings</td>
+                <td><code>&lt;h1&gt;Hello World&lt;/h1&gt;</code></td>
+            </tr>
+            <tr>
+                <td><code>&lt;p&gt;</code></td>
+                <td>Defines a paragraph</td>
+                <td><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></td>
+            </tr>
+            <tr>
+                <td><code>&lt;a&gt;</code></td>
+                <td>Defines a hyperlink</td>
+                <td><code>&lt;a href="https://example.com"&gt;Click Here&lt;/a&gt;</code></td>
+            </tr>
+            <tr>
+                <td><code>&lt;img&gt;</code></td>
+                <td>Embeds an image</td>
+                <td><code>&lt;img src="image.jpg" alt="Image"&gt;</code></td>
+            </tr>
+            <tr>
+                <td><code>&lt;ul&gt; &amp; &lt;li&gt;</code></td>
+                <td>Creates an unordered list</td>
+                <td>
+                    <code>
+                        &lt;ul&gt;
+                        &lt;li&gt;Item 1&lt;/li&gt;
+                        &lt;li&gt;Item 2&lt;/li&gt;
+                        &lt;/ul&gt;
+                    </code>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn HTML. All rights reserved.</p>
+    </footer>
+</body>
+</html>

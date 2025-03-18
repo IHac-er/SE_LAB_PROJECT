@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Abstraction</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Abstraction</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='encapsulation') }}">Previous: Encapsulation</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='inheritance') }}">Next: Inheritance</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Abstraction in C++</h2>
+        <p>Abstraction is one of the key principles of Object-Oriented Programming (OOP), which focuses on hiding unnecessary details and exposing only the relevant information.</p>
+    </section>
+
+    <section>
+        <h2>What is Abstraction?</h2>
+        <p>Abstraction allows us to define the essential characteristics of an object while hiding the complex implementation details. This improves code maintainability and security.</p>
+    </section>
+
+    <section>
+        <h2>How to Achieve Abstraction in C++?</h2>
+        <ul>
+            <li><strong>Using Abstract Classes (with pure virtual functions)</strong></li>
+            <li><strong>Using Access Specifiers (private & protected)</strong></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Abstraction using Classes</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Car {
+private:
+    int speed;
+
+public:
+    void setSpeed(int s) {
+        if (s > 0) {
+            speed = s;
+        }
+    }
+
+    int getSpeed() {
+        return speed;
+    }
+};
+
+int main() {
+    Car myCar;
+    myCar.setSpeed(120);
+    cout << "Car speed: " << myCar.getSpeed() << " km/h" << endl;
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The `speed` variable is private and can only be accessed via public methods, ensuring data abstraction.</p>
+    </section>
+
+    <section>
+        <h2>Example: Abstraction using Abstract Classes</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() = 0; // Pure virtual function (abstract method)
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing a Circle" << endl;
+    }
+};
+
+int main() {
+    Circle c;
+    c.draw();
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The `Shape` class is an abstract class because it has a pure virtual function. The `Circle` class provides an implementation for it.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

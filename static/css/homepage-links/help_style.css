@@ -1,0 +1,80 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0a;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: black;
+    border-bottom: 2px solid red;
+}
+
+.navbar .home-btn {
+    background: red;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navbar .home-btn:hover {
+    background: white;
+    color: red;
+}
+
+.navbar .logo {
+    height: 40px; /* Adjust size as needed */
+}
+
+/* Help Center Section */
+.help-center {
+    margin-left: 230px;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: red;
+}
+
+/* FAQ Section */
+.faq-container {
+    margin-top: 20px;
+}
+
+.faq {
+    background: #222;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.faq h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 10px;
+    color: #ccc;
+}
+
+.faq.open .faq-answer {
+    display: block;
+}

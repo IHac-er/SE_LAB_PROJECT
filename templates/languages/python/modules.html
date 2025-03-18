@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Modules</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Pure Black Background */
+  color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #6600cc; /* Deep Purple */
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  margin: 20px;
+  background: #121212; /* Very Dark Gray for Depth */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+  background: #181818; /* Dark Gray Code Block */
+  color: #00ffff; /* Cyan Text for Code */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #6600cc; /* Matching table border with theme */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #440088;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #6600cc; /* Dark Purple Footer */
+  color: white;
+}
+
+</style>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='index') }}">Home</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='oop') }}">Previous: Object-Oriented Programming</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='exceptions') }}">Next: Exception Handling</a></li>
+          </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Python Modules</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>What are Modules?</h2>
+            <p>A module is a file containing Python code (functions, classes, variables) that can be reused in other programs.</p>
+        </section>
+
+        <section>
+            <h2>1. Importing Modules</h2>
+            <p>Python allows importing modules using the <code>import</code> statement.</p>
+            <pre><code>
+import math
+
+print(math.sqrt(25))  # Output: 5.0
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Importing Specific Functions</h2>
+            <p>You can import only specific functions from a module using <code>from</code>.</p>
+            <pre><code>
+from math import sqrt, pi
+
+print(sqrt(36))  # Output: 6.0
+print(pi)        # Output: 3.141592653589793
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Importing with an Alias</h2>
+            <p>You can rename modules using <code>as</code> for convenience.</p>
+            <pre><code>
+import numpy as np
+
+array = np.array([1, 2, 3])
+print(array)
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>4. Creating and Importing User-Defined Modules</h2>
+            <p>You can create your own module and import it.</p>
+            <p><strong>Example: Creating a module (<code>mymodule.py</code>)</strong></p>
+            <pre><code>
+# mymodule.py
+def greet(name):
+    return f"Hello, {name}!"
+            </code></pre>
+            <p><strong>Using the module in another file:</strong></p>
+            <pre><code>
+import mymodule
+
+print(mymodule.greet("Alice"))  # Output: Hello, Alice!
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>5. The __name__ Variable</h2>
+            <p>The <code>__name__</code> variable is used to check if a script is run directly or imported.</p>
+            <pre><code>
+# myscript.py
+def main():
+    print("Script is running directly.")
+
+if __name__ == "__main__": 
+    main()
+            </code></pre>
+            <p>If the script is run directly, it prints the message. If imported, it doesn't run <code>main()</code>.</p>
+        </section>
+
+        <section>
+            <h2>6. Built-in Modules</h2>
+            <p>Python includes many built-in modules.</p>
+            <pre><code>
+import random
+
+print(random.randint(1, 10))  # Output: Random number between 1 and 10
+            </code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learn Python. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

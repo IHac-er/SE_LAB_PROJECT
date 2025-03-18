@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions in C</title>
+</head>
+
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+
+
+<body>
+    <header class="navbar">
+        <h1>Functions in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='controlflow') }}">Previous: Control Flow</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='pointers') }}">Next:
+              
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are Functions in C?</h2>
+        <p>Functions in C allow code to be divided into smaller, reusable blocks to improve readability and maintainability.</p>
+    </section>
+
+    <section>
+        <h2>Types of Functions</h2>
+        <ul>
+            <li><strong>Library Functions:</strong> Predefined functions like `printf()`, `scanf()`, and `sqrt()`.</li>
+            <li><strong>User-Defined Functions:</strong> Custom functions created by the programmer.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Function Declaration, Definition, and Calling</h2>
+        <ul>
+            <li><strong>Declaration:</strong> Specifies function name, return type, and parameters.</li>
+            <li><strong>Definition:</strong> Contains the actual code that executes.</li>
+            <li><strong>Calling:</strong> Executes the function in the program.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Function Declaration, Definition, and Call</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Function Declaration
+void greet();
+
+// Main Function
+int main() {
+    greet(); // Function Call
+    return 0;
+}
+
+// Function Definition
+void greet() {
+    printf("Hello, Welcome to C Functions!\n");
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Function Parameters and Return Values</h2>
+        <ul>
+            <li><strong>Functions with No Parameters and No Return Value:</strong> Perform an operation but return nothing.</li>
+            <li><strong>Functions with Parameters and No Return Value:</strong> Accept input but do not return a value.</li>
+            <li><strong>Functions with Parameters and a Return Value:</strong> Accept input and return a result.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Function with Parameters and Return Value</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Function Declaration
+int add(int a, int b);
+
+int main() {
+    int sum = add(5, 7);
+    printf("Sum: %d\n", sum);
+    return 0;
+}
+
+// Function Definition
+int add(int a, int b) {
+    return a + b;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Recursive Functions</h2>
+        <p>A recursive function is a function that calls itself.</p>
+    </section>
+
+    <section>
+        <h2>Example: Recursive Function for Factorial</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Function to calculate factorial
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int num = 5;
+    printf("Factorial of %d is %d\n", num, factorial(num));
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Call by Value vs Call by Reference</h2>
+        <ul>
+            <li><strong>Call by Value:</strong> A copy of the variable is passed to the function.</li>
+            <li><strong>Call by Reference:</strong> The actual variable is passed, and modifications affect the original variable.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Call by Value</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+void changeValue(int x) {
+    x = 100;
+}
+
+int main() {
+    int num = 10;
+    changeValue(num);
+    printf("Value after function call: %d\n", num); // Output: 10
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Call by Reference</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+void changeValue(int *x) {
+    *x = 100;
+}
+
+int main() {
+    int num = 10;
+    changeValue(&num);
+    printf("Value after function call: %d\n", num); // Output: 100
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

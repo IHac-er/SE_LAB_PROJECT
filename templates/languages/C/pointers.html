@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointers in C</title>
+</head>
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+    
+<body>
+    <header class="navbar">
+        <h1>Pointers in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='functions') }}">Previous: Functions</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='structures_unions') }}">Next: Structures & Unions</a></li>
+              </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are Pointers?</h2>
+        <p>Pointers in C are variables that store the memory address of another variable.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Pointers?</h2>
+        <ul>
+            <li>Efficient memory management.</li>
+            <li>Allows dynamic memory allocation.</li>
+            <li>Enables efficient array and string handling.</li>
+            <li>Used for function arguments to modify actual values.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Declaring and Using Pointers</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 10;
+    int *ptr = &num; // Pointer storing address of num
+
+    printf("Value of num: %d\n", num);
+    printf("Address of num: %p\n", &num);
+    printf("Pointer pointing to: %p\n", ptr);
+    printf("Value via pointer: %d\n", *ptr);
+    
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Pointer Arithmetic</h2>
+        <p>Pointers can be incremented or decremented to traverse memory locations.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[] = {10, 20, 30};
+    int *ptr = arr;
+
+    printf("First element: %d\n", *ptr);
+    ptr++;
+    printf("Second element: %d\n", *ptr);
+    ptr++;
+    printf("Third element: %d\n", *ptr);
+    
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Pointer to Pointer</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 42;
+    int *ptr = &num;
+    int **ptr2 = &ptr;
+
+    printf("Value of num: %d\n", **ptr2);
+    
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Pointers and Arrays</h2>
+        <p>Arrays and pointers are closely related in C.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", *(ptr + i));
+    }
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Pointers and Functions</h2>
+        <p>Pointers can be used to modify values in functions.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+void modify(int *ptr) {
+    *ptr = 100;
+}
+
+int main() {
+    int num = 10;
+    modify(&num);
+    printf("Modified value: %d\n", num);
+    
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Dynamic Memory Allocation</h2>
+        <p>Pointers are used for dynamic memory allocation.</p>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *ptr = (int*) malloc(sizeof(int));
+
+    if (ptr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    *ptr = 50;
+    printf("Dynamically allocated value: %d\n", *ptr);
+
+    free(ptr);
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

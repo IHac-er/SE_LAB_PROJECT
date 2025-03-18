@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Learning Hub</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="variables.html">CSS Variables</a></li>
+                <li><a href="selectors.html">Selectors</a></li>
+                <li><a href="colors-background.html">Colors & Background</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Variables</h2>
+        <p>Learn how to use variables in CSS to create reusable and flexible styles.</p>
+    </section>
+
+    <main>
+        <section>
+            <h3>What are CSS Variables?</h3>
+            <p>CSS Variables (also known as custom properties) allow you to store values in reusable variables and apply them throughout your stylesheet.</p>
+
+            <h4>Basic Syntax</h4>
+            <pre><code>:root {
+    --primary-color: #ffcc00;
+    --secondary-color: #333;
+    --font-size: 16px;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: var(--font-size);
+}</code></pre>
+        </section>
+
+        <section>
+            <h3>Defining and Using Variables</h3>
+
+            <h4>1. Declaring Variables</h4>
+            <p>CSS variables are typically defined inside the `:root` selector to make them global.</p>
+            <pre><code>:root {
+    --main-bg-color: black;
+    --text-color: white;
+}</code></pre>
+
+            <h4>2. Applying Variables</h4>
+            <p>Use the `var()` function to access the variable values.</p>
+            <pre><code>body {
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+}</code></pre>
+
+            <h4>3. Variable Scope</h4>
+            <p>Variables declared inside a selector are scoped to that selector.</p>
+            <pre><code>.container {
+    --container-bg: blue;
+    background-color: var(--container-bg);
+}</code></pre>
+        </section>
+
+        <section>
+            <h3>Advantages of CSS Variables</h3>
+            <ul>
+                <li>Improves maintainability of stylesheets.</li>
+                <li>Allows easy theme changes.</li>
+                <li>Reduces repetition of values.</li>
+                <li>Supports real-time changes via JavaScript.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>CSS Variables with JavaScript</h3>
+            <p>CSS variables can be dynamically updated using JavaScript.</p>
+            <pre><code>document.documentElement.style.setProperty('--primary-color', 'blue');</code></pre>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

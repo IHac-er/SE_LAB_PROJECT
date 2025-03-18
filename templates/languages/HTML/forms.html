@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #6600cc; /* Deep Purple */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ffff; /* Cyan Text for Code */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #6600cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #440088;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #6600cc; /* Dark Purple Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>HTML Forms</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='input') }}">Previous: HTML Input Elements</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='html', topic='tables') }}">Next: HTML Tables</a></li>
+                 </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are HTML Forms?</h2>
+        <p>HTML forms are used to collect user input and send it to a server.</p>
+    </section>
+
+    <section>
+        <h2>Basic Form Structure</h2>
+        <p>A basic HTML form includes input fields and a submit button:</p>
+        <pre><code>&lt;form action="submit.php" method="post"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Common Form Elements</h2>
+        <ul>
+            <li><code>&lt;input&gt;</code> - Text fields, checkboxes, radio buttons</li>
+            <li><code>&lt;textarea&gt;</code> - Multi-line text input</li>
+            <li><code>&lt;select&gt;</code> - Dropdown menu</li>
+            <li><code>&lt;button&gt;</code> - Button element</li>
+            <li><code>&lt;label&gt;</code> - Labels for inputs</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Full Form</h2>
+        <pre><code>&lt;form action="submit.php" method="post"&gt;
+    &lt;fieldset&gt;
+        &lt;legend>User Information&lt;/legend&gt;
+
+        &lt;label for="username"&gt;Username:&lt;/label&gt;
+        &lt;input type="text" id="username" name="username" required&gt;&lt;br&gt;&lt;br&gt;
+
+        &lt;label for="password"&gt;Password:&lt;/label&gt;
+        &lt;input type="password" id="password" name="password" required&gt;&lt;br&gt;&lt;br&gt;
+
+        &lt;label&gt;Gender:&lt;/label&gt;
+        &lt;input type="radio" name="gender" value="male"&gt; Male
+        &lt;input type="radio" name="gender" value="female"&gt; Female&lt;br&gt;&lt;br&gt;
+
+        &lt;label for="country"&gt;Country:&lt;/label&gt;
+        &lt;select id="country" name="country"&gt;
+            &lt;option value="usa"&gt;USA&lt;/option&gt;
+            &lt;option value="uk"&gt;UK&lt;/option&gt;
+            &lt;option value="india"&gt;India&lt;/option&gt;
+        &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+
+        &lt;input type="submit" value="Register"&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn HTML. All rights reserved.</p>
+    </footer>
+</body>
+</html>

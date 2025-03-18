@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/games/CSS/cssgame1_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Design your own BOX using CSS!</h1>
+        <p>Type the correct CSS code to complete each challenge.</p>
+        
+        <div id="challenge">
+            <p id="challengeText">Make the box red by using CSS!</p>
+            <div id="box"></div>
+            <textarea id="cssInput" placeholder="Type your CSS here..."></textarea>
+            <button class="btn" onclick="checkCSS()">Check Answer</button>
+        </div>
+        
+        <p id="feedback"></p>
+        <button class="btn next-btn" onclick="nextLevel()" style="display: none;">Next Level</button>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/games/CSS/cssgame1_script.js') }}"></script>
+</body>
+</html>

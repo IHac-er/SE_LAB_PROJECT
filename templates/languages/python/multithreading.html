@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Multithreading</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Pure Black Background */
+  color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #6600cc; /* Deep Purple */
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  margin: 20px;
+  background: #121212; /* Very Dark Gray for Depth */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+  background: #181818; /* Dark Gray Code Block */
+  color: #00ffff; /* Cyan Text for Code */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #6600cc; /* Matching table border with theme */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #440088;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #6600cc; /* Dark Purple Footer */
+  color: white;
+}
+
+</style>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='index') }}">Home</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='comprehensions') }}">Previous: Comprehensions</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='regex') }}">Next: Regular Expressions</a></li>
+          </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Python Multithreading</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>What is Multithreading?</h2>
+            <p>
+                Multithreading in Python allows the execution of multiple threads concurrently. It is 
+                useful for **I/O-bound tasks** (such as file handling, network requests) but has 
+                limitations due to Python's **Global Interpreter Lock (GIL)**.
+            </p>
+            <p>
+                The GIL ensures that only **one thread executes Python bytecode at a time**, which means 
+                multithreading **does not improve performance** for CPU-bound tasks.
+            </p>
+        </section>
+
+        <section>
+            <h2>1. Creating Threads in Python</h2>
+            <p>Threads can be created using the <code>threading</code> module.</p>
+            <pre><code>
+import threading
+
+def print_numbers():
+    for i in range(5):
+        print(i)
+
+# Creating a thread
+t1 = threading.Thread(target=print_numbers)
+
+t1.start()  # Start the thread
+t1.join()   # Wait for the thread to finish
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Using the <code>Thread</code> Class</h2>
+            <p>We can define a custom thread class by inheriting from <code>threading.Thread</code>.</p>
+            <pre><code>
+import threading
+
+class MyThread(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print(f"Thread running: {i}")
+
+# Creating and starting the thread
+t = MyThread()
+t.start()
+t.join()  # Ensures the main thread waits for this thread to complete
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Thread Synchronization</h2>
+            <p>
+                When multiple threads modify shared data, race conditions can occur. 
+                We use **locks** to prevent this.
+            </p>
+            <pre><code>
+import threading
+
+counter = 0
+lock = threading.Lock()
+
+def increment():
+    global counter
+    with lock:  # Ensures only one thread modifies the counter at a time
+        counter += 1
+
+# Creating multiple threads
+threads = []
+for _ in range(10):
+    t = threading.Thread(target=increment)
+    threads.append(t)
+    t.start()
+
+# Ensuring all threads complete
+for t in threads:
+    t.join()
+
+print("Final counter value:", counter)
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>4. Using <code>ThreadPoolExecutor</code></h2>
+            <p>
+                The <code>concurrent.futures.ThreadPoolExecutor</code> provides an **easier** 
+                way to manage multiple threads efficiently.
+            </p>
+            <pre><code>
+from concurrent.futures import ThreadPoolExecutor
+
+def square(n):
+    return n * n
+
+# Creating a thread pool with 3 worker threads
+with ThreadPoolExecutor(max_workers=3) as executor:
+    results = executor.map(square, [1, 2, 3, 4, 5])
+
+print(list(results))  # Output: [1, 4, 9, 16, 25]
+            </code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learn Python. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

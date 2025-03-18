@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to C</title>
+</head>
+
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+    
+<body>
+    <header class="navbar">
+        <h1>Introduction to C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='syntax') }}">Next: C Syntax</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What is C Programming?</h2>
+        <p>C is a powerful, general-purpose programming language that is widely used for system programming, game development, and embedded systems.</p>
+    </section>
+
+    <section>
+        <h2>History of C</h2>
+        <ul>
+            <li>Developed in **1972** by **Dennis Ritchie** at Bell Labs.</li>
+            <li>Based on **B** and **BCPL** programming languages.</li>
+            <li>Became the foundation for modern languages like C++, Java, and Python.</li>
+            <li>Standardized as **ANSI C (C89/C90)** and later updated to **C99, C11, and C18**.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Features of C</h2>
+        <ul>
+            <li><strong>Simple & Efficient:</strong> Provides low-level access to memory with a simple syntax.</li>
+            <li><strong>Fast Execution:</strong> Compiled language with minimal runtime overhead.</li>
+            <li><strong>Portability:</strong> Can run on various hardware and operating systems.</li>
+            <li><strong>Modularity:</strong> Supports functions and libraries for reusable code.</li>
+            <li><strong>Memory Management:</strong> Allows manual memory allocation using pointers.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Basic Structure of a C Program</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Main function
+int main() {
+    printf("Hello, World!");
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Applications of C</h2>
+        <ul>
+            <li>Operating Systems (Linux, Windows Kernel).</li>
+            <li>Embedded Systems (Microcontrollers, IoT devices).</li>
+            <li>Compilers and Interpreters.</li>
+            <li>Game Development.</li>
+            <li>Database Systems.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Advantages of C</h2>
+        <ul>
+            <li><strong>Performance:</strong> Runs close to the hardware, making it faster than interpreted languages.</li>
+            <li><strong>Flexibility:</strong> Can be used for both high-level applications and low-level system programming.</li>
+            <li><strong>Extensive Libraries:</strong> Rich standard library for I/O, memory, and string manipulation.</li>
+            <li><strong>Foundation for Other Languages:</strong> Learning C makes it easier to learn C++, Java, and Python.</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

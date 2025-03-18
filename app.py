@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request, redirect, session
-import mysql.connector
-import os
 
 from routes.languages import languages_bp
 from routes.auth import auth_bp
@@ -24,6 +22,14 @@ def homepage():
 @app.route('/404')
 def ER404():
     return render_template('404.html')
+
+@app.route('/about')
+def about():
+    return render_template('homepage-links/about.html')
+
+@app.route('/help')
+def help():
+    return render_template('homepage-links/help.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

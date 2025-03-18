@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix the C Code Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/games/C/c_debugger_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🐞 Fix the C Code!</h1>
+        <p id="question"></p>
+        
+        <pre id="code-box"></pre>
+
+        <textarea id="user-input" placeholder="Write your fixed code here..."></textarea>
+        
+        <button id="submitAnswer">Submit</button>
+        <p id="feedback"></p>
+        <p id="score">Score: 0</p>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/games/C/c_debugger_script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Flexbox</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='box-model') }}">Previous: Box Model</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='grid') }}">Next: Grid</a></li>
+                       </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Flexbox</h2>
+        <p>Flexbox is a powerful layout system in CSS that allows easy alignment and distribution of elements.</p>
+    </section>
+
+    <section>
+        <h3>What is Flexbox?</h3>
+        <p>Flexbox (Flexible Box) is a CSS layout model designed for arranging elements efficiently, even if their size is dynamic or unknown.</p>
+    </section>
+
+    <section>
+        <h3>Basic Flexbox Properties</h3>
+        <ul>
+            <li><code>display: flex;</code> - Enables flexbox on a container.</li>
+            <li><code>flex-direction</code> - Defines the direction of items (row/column).</li>
+            <li><code>justify-content</code> - Aligns items along the main axis.</li>
+            <li><code>align-items</code> - Aligns items along the cross-axis.</li>
+            <li><code>flex-wrap</code> - Controls whether items wrap to the next line.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Example: Creating a Flexbox Container</h3>
+        <pre><code>
+/* Flexbox Container */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    background-color: #333;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #ffcc00;
+    text-align: center;
+    line-height: 100px;
+    color: black;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>Flexbox Example in HTML</h3>
+        <pre><code>
+&lt;div class="container"&gt;
+    &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;div class="box"&gt;2&lt;/div&gt;
+    &lt;div class="box"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multithreading in C</title>
+    
+</head>
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+    
+<body>
+    <header class="navbar">
+        <h1>Multithreading in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='preprocessor') }}">Previous: Preprocessor Directives</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What is Multithreading?</h2>
+        <p>Multithreading in C enables concurrent execution of multiple parts of a program (threads), improving performance and efficiency.</p>
+    </section>
+
+    <section>
+        <h2>Why Use Multithreading?</h2>
+        <ul>
+            <li>Allows better CPU utilization by running multiple threads in parallel.</li>
+            <li>Improves performance for multi-core processors.</li>
+            <li>Enhances responsiveness in applications (e.g., GUI applications).</li>
+            <li>Useful in network programming and real-time systems.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>How to Implement Multithreading in C?</h2>
+        <p>Multithreading in C is implemented using the **POSIX Threads (pthread)** library.</p>
+        <ul>
+            <li><code>pthread_create()</code> - Creates a new thread.</li>
+            <li><code>pthread_exit()</code> - Terminates a thread.</li>
+            <li><code>pthread_join()</code> - Waits for a thread to finish execution.</li>
+            <li><code>pthread_mutex_lock()</code> - Locks a resource.</li>
+            <li><code>pthread_mutex_unlock()</code> - Unlocks a resource.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Creating and Joining Threads</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+
+void* print_message(void* arg) {
+    printf("Hello from thread!\n");
+    return NULL;
+}
+
+int main() {
+    pthread_t thread;
+
+    // Create a new thread
+    pthread_create(&thread, NULL, print_message, NULL);
+
+    // Wait for the thread to finish
+    pthread_join(thread, NULL);
+
+    printf("Main thread finished execution.\n");
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Thread Synchronization Using Mutex</h2>
+        <p>When multiple threads access shared data, synchronization is required to prevent race conditions. A **mutex (mutual exclusion)** is used for this.</p>
+    </section>
+
+    <section>
+        <h2>Example: Using Mutex for Synchronization</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+
+pthread_mutex_t lock;
+int counter = 0;
+
+void* increment(void* arg) {
+    pthread_mutex_lock(&lock);
+    counter++;
+    printf("Counter: %d\n", counter);
+    pthread_mutex_unlock(&lock);
+    return NULL;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+
+    pthread_mutex_init(&lock, NULL);
+    pthread_create(&thread1, NULL, increment, NULL);
+    pthread_create(&thread2, NULL, increment, NULL);
+
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    pthread_mutex_destroy(&lock);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Detaching Threads</h2>
+        <p>A thread can be detached from the main program using **pthread_detach()**, allowing it to run independently.</p>
+    </section>
+
+    <section>
+        <h2>Example: Detached Thread</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;unistd.h&gt;
+
+void* background_task(void* arg) {
+    for (int i = 0; i < 5; i++) {
+        printf("Background task running...\n");
+        sleep(1);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t thread;
+
+    pthread_create(&thread, NULL, background_task, NULL);
+    pthread_detach(thread);
+
+    printf("Main thread is done.\n");
+    sleep(3); // Allow background thread to run
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Thread Pooling</h2>
+        <p>Thread pools are used to create a fixed number of threads that handle multiple tasks efficiently.</p>
+        <ul>
+            <li>Threads are reused instead of creating new ones repeatedly.</li>
+            <li>Reduces thread creation overhead.</li>
+            <li>Commonly used in high-performance applications.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Thread Safety Best Practices</h2>
+        <ul>
+            <li>Use **mutex** to protect shared resources.</li>
+            <li>Minimize shared state to reduce synchronization overhead.</li>
+            <li>Use **thread-safe functions** (e.g., `strtok_r` instead of `strtok`).</li>
+            <li>Ensure proper thread termination using **pthread_join()**.</li>
+            <li>Destroy mutex after use using **pthread_mutex_destroy()**.</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

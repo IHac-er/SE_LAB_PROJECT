@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Code Puzzle Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/games/C/c_puzzle_style.css') }}">
+</head>
+<body>
+
+    <h1>🧩 C Code Puzzle Game</h1>
+    <p>Arrange the code in the correct order!</p>
+
+    <div class="container">
+        <div id="codeBlocks" class="code-section"></div>
+        <div id="dropArea" class="drop-section">Drop the correct order here 👇</div>
+    </div>
+
+    <button id="checkAnswer">Check Answer ✅</button>
+    <p id="result"></p>
+
+    <script src="{{ url_for('static', filename='js/games/C/c_puzzle_script.js') }}"></script>
+</body>
+</html>

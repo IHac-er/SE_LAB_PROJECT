@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Flow in C</title>
+</head>
+<style> 
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #004080;
+    color: white;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #00ffcc;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #0059b3;
+  }
+  
+  .hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  
+  /* Sections */
+  section {
+    padding: 20px;
+    margin: 20px;
+    background: #262626;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  section h2 {
+    color: #00ffcc;
+  }
+  
+  section p {
+    font-size: 1.1rem;
+  }
+  
+  /* Syntax Block */
+  pre {
+    background: #000000;
+    color: #00ffcc;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+  
+  code {
+    font-family: monospace;
+    color: #00ffcc;
+  }
+  
+  /* Buttons */
+  .button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #004080;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0073e6;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #004080;
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      text-align: center;
+    }
+    .nav-links {
+      flex-direction: column;
+      padding: 10px 0;
+    }
+    .nav-links li {
+      margin: 10px 0;
+    }
+  }
+  
+</style>
+
+<body>
+    <header class="navbar">
+        <h1>Control Flow in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='operators') }}">Previous: Operators</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='functions') }}">Next: Functions</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Control Flow in C</h2>
+        <p>Control flow determines the execution order of statements in a C program.</p>
+    </section>
+
+    <section>
+        <h2>What is Control Flow?</h2>
+        <p>Control flow in C refers to the execution order of statements based on conditions and loops.</p>
+    </section>
+
+    <section>
+        <h2>Decision-Making Statements</h2>
+        <ul>
+            <li><b>if Statement:</b> Executes a block of code if a condition is true.</li>
+            <li><b>if-else Statement:</b> Executes one block if true, another if false.</li>
+            <li><b>switch Statement:</b> Used when multiple conditions depend on a single variable.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: if-else Statement</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num = -5;
+
+    if (num > 0) {
+        printf("Positive number\n");
+    } else {
+        printf("Negative number\n");
+    }
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Looping Statements</h2>
+        <ul>
+            <li><b>for Loop:</b> Repeats a block of code a fixed number of times.</li>
+            <li><b>while Loop:</b> Executes as long as the condition is true.</li>
+            <li><b>do-while Loop:</b> Executes at least once, then checks condition.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: for Loop</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        printf("%d\n", i);
+    }
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Break and Continue Statements</h2>
+        <ul>
+            <li><b>break Statement:</b> Exits a loop or switch statement immediately.</li>
+            <li><b>continue Statement:</b> Skips the current iteration and continues with the next.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: break Statement</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        if (i == 3) {
+            break;
+        }
+        printf("%d\n", i);
+    }
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

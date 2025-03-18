@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage-links/about_style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="CodeOdyssey Logo" class="logo">
+        <nav>
+            <a href="/" class="nav-link">Back to Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="device">
+                <div class="screen">
+                    <img src="{{ url_for('static', filename='images/about.png') }}" alt="About Image">
+                </div>
+            </div>
+            <div class="content">
+                <h1>LEARN TECH SKILLS</h1>
+                <p>CodeOdyssey is a gamified way to learn to code online. Journey through the fantasy land of 
+                    <strong>Python, C, C++, HTML & CSS</strong>.
+                    Earn experience points (XP) to unlock new regions & collect all the badges at your own pace.
+                </p>
+            </div>
+        </section>
+
+        <section class="team">
+            <h2>MEET THE TEAM</h2>
+            <p class="team-description">The folks behind CodeOdyssey have learnt Computer Science at top univerities, collges and schools.</p>
+        
+            <div class="team-container">
+                <!-- Team Member 1 -->
+                <div class="team-card">
+                    <div class="card-frame">
+                        <img src="{{ url_for('static', filename='images/team1.png') }}" alt="@member1">
+                    </div>
+                    <h3>THARUN R</h3>
+                    <p>Lead Developer</p>
+                </div>
+        
+                <!-- Team Member 2 -->
+                <div class="team-card">
+                    <div class="card-frame">
+                        <img src="{{ url_for('static', filename='images/team2.png') }}" alt="@member2">
+                    </div>
+                    <h3>NAYIRA SRI</h3>
+                    <p>Frontend Designer</p>
+                </div>
+        
+                <!-- Team Member 3 -->
+                <div class="team-card">
+                    <div class="card-frame">
+                        <img src="{{ url_for('static', filename='images/team3.png') }}" alt="@member3">
+                    </div>
+                    <h3>AVULA MEGHANA</h3>
+                    <p>Game Designer</p>
+                </div>
+        
+                <!-- Team Member 4 -->
+                <div class="team-card">
+                    <div class="card-frame">
+                        <img src="{{ url_for('static', filename='images/team4.png') }}" alt="@member4">
+                    </div>
+                    <h3>MUKESH KUMAR</h3>
+                    <p>Frontend Developer</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card">
+                    <div class="card-frame">
+                        <img src="{{ url_for('static', filename='images/team5.png') }}" alt="@member4">
+                    </div>
+                    <h3>VARSHAN BABU</h3>
+                    <p>Backend Developer</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="/about">About</a>
+                    <a href="/404">Help Center</a>
+                    <a href="/404">Contact Us</a>
+    
+                </div>
+                <div class="footer-section">
+                    <h3>Learn</h3>
+                    <a href="/python">Python</a>
+                    <a href="/C">C</a>
+                    <a href="/Cpp">C++</a>
+                    <a href="/HTML">HTML</a>
+                    <a href="/CSS">CSS</a>
+                </div>
+            </div>
+    
+            <div class="footer-section contact">
+                <h3 class="footer-title">Contact</h3>
+                <p>Email: codeodysseyzone@gmail.com</p>
+                <p>Phone: +91 1234567897</p>
+            </div>
+        
+            <div class="footer-social">
+                <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="Logo" class="footer-logo">
+                <div class="social-icons">
+                    <a href="/404"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://x.com/codeodysseyzone"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/code.odyssey/"><i class="fab fa-instagram"></i></a>
+                    <a href="/404"><i class="fab fa-discord"></i></a>
+                    <a href="https://youtube.com/@codeodyssey-g2m?si=1-UpRk2wSKG9okaa"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        
+            <p class="footer-copyright">© 2024 CodeOdyssey. All Rights Reserved.</p>    
+        </footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/homepage-links/about_script.js') }}"></script>
+</body>
+</html>

@@ -12,6 +12,48 @@ def open_py_hangman():
         return render_template('games/python/hangman_py.html') 
     return render_template('/dashboard')
 
+@games_bp.route('/cssgame1')
+def open_cssgame1():
+    if 'email' in session:
+        return render_template('games/CSS/cssgame1.html')
+    return render_template('/dashboard')
+
+@games_bp.route('/puzzle-c-game')
+def open_c_puzzle():
+    if 'email' in session: 
+        return render_template('games/C/c_puzzle.html')
+    return render_template('/dashboard')
+
+@games_bp.route('/debugger-c-game')
+def open_c_debug():
+    if 'email' in session:
+        return render_template('games/C/c_debugger.html')
+    return render_template('/dashboard')
+
+@games_bp.route('/debugger-cpp-game')
+def open_cpp_debug():
+    if 'email' in session:
+        return render_template('games/CPP/cpp_debugger.html')
+    return render_template('/dashboard')
+
+@games_bp.route('/ninja-boy-game')
+def open_ninja_boy():
+    if 'email' in session:
+        return render_template('games/HTML/ninja_boy.html')
+    return render_template('/dashboard')
+
+@games_bp.route('/car-game')
+def open_car_game():
+    if 'email' in session:
+        return render_template('games/CPP/car_game.html')
+    return render_template('/dashboard')
+
+@games_bp.route('/cssgame2')
+def open_cssgame2():
+    if 'email' in session:
+        return render_template('games/CSS/cssgame2.html')
+    return render_template('/dashboard')
+
 @games_bp.route("/execute-hangman", methods=["POST"])
 def execute_hangman():
     data = request.json

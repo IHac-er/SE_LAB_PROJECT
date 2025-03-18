@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML SVG</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #6600cc; /* Deep Purple */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ffff; /* Cyan Text for Code */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #6600cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #440088;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #6600cc; /* Dark Purple Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>HTML SVG</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='HTML', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='HTML', topic='graphics') }}">Previous: HTML Graphics</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='HTML', topic='canvas') }}">Next: HTML Canvas</a></li>
+                        </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What is SVG?</h2>
+        <p>SVG (Scalable Vector Graphics) is an XML-based format for vector graphics.</p>
+    </section>
+
+    <section>
+        <h2>Basic SVG Example</h2>
+        <p>SVG allows you to create vector-based graphics with shapes like circles, rectangles, and paths.</p>
+        <pre><code>&lt;svg width="200" height="200"&gt;
+    &lt;circle cx="100" cy="100" r="50" stroke="black" stroke-width="3" fill="blue" /&gt;
+&lt;/svg&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>SVG Elements</h2>
+        <ul>
+            <li><code>&lt;circle&gt;</code> - Draws a circle.</li>
+            <li><code>&lt;rect&gt;</code> - Draws a rectangle.</li>
+            <li><code>&lt;line&gt;</code> - Draws a straight line.</li>
+            <li><code>&lt;polygon&gt;</code> - Draws a polygon.</li>
+            <li><code>&lt;path&gt;</code> - Defines custom paths.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Rectangle and Line</h2>
+        <pre><code>&lt;svg width="300" height="200"&gt;
+    &lt;rect width="200" height="100" x="50" y="50" fill="green" stroke="black" stroke-width="3"/&gt;
+    &lt;line x1="50" y1="50" x2="250" y2="150" stroke="red" stroke-width="3"/&gt;
+&lt;/svg&gt;</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn HTML. All rights reserved.</p>
+    </footer>
+</body>
+</html>

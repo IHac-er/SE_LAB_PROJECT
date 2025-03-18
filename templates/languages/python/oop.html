@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python OOP</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Pure Black Background */
+  color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #6600cc; /* Deep Purple */
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  margin: 20px;
+  background: #121212; /* Very Dark Gray for Depth */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+  background: #181818; /* Dark Gray Code Block */
+  color: #00ffff; /* Cyan Text for Code */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #6600cc; /* Matching table border with theme */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #440088;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #6600cc; /* Dark Purple Footer */
+  color: white;
+}
+
+</style>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{{ url_for('languages.load_topic', language='py', topic='index') }}">Home</a></li>
+            <li><a href="{{ url_for('languages.load_topic', language='py', topic='functions') }}">Previous: Functions</a></li>
+            <li><a href="{{ url_for('languages.load_topic', language='py', topic='modules') }}">Next: Modules</a></li>
+              </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Python Object-Oriented Programming (OOP)</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>What is OOP?</h2>
+            <p>
+                Object-Oriented Programming (OOP) is a programming paradigm that focuses on **objects** 
+                and **classes**. It helps in organizing and structuring code for better reusability, 
+                scalability, and maintainability.
+            </p>
+            <p>Key OOP principles:</p>
+            <ul>
+                <li><strong>Encapsulation</strong> - Restricting access to data.</li>
+                <li><strong>Inheritance</strong> - Reusing existing class functionality.</li>
+                <li><strong>Polymorphism</strong> - Using the same method name in different classes.</li>
+                <li><strong>Abstraction</strong> - Hiding unnecessary implementation details.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>1. Classes and Objects</h2>
+            <p>A **class** is a blueprint for creating objects, and an **object** is an instance of a class.</p>
+            <pre><code>
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def display_info(self):
+        print(f"Car: {self.brand} {self.model}")
+
+# Creating an object
+car1 = Car("Toyota", "Corolla")
+car1.display_info()  # Output: Car: Toyota Corolla
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Constructors (__init__ Method)</h2>
+            <p>The <code>__init__</code> method is called automatically when an object is created.</p>
+            <pre><code>
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+
+# Creating an object
+p1 = Person("Alice", 25)
+p1.greet()  
+# Output: Hello, my name is Alice and I am 25 years old.
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Inheritance</h2>
+            <p>
+                **Inheritance** allows a class to **reuse methods and attributes** from another class.
+            </p>
+            <pre><code>
+class Animal:
+    def speak(self):
+        print("Animal makes a sound")
+
+# Dog class inherits from Animal
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks")
+
+dog = Dog()
+dog.speak()  # Output: Dog barks
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>4. Polymorphism</h2>
+            <p>
+                **Polymorphism** allows the same method name to behave differently in different classes.
+            </p>
+            <pre><code>
+class Cat:
+    def speak(self):
+        return "Meow"
+
+class Dog:
+    def speak(self):
+        return "Bark"
+
+# Using polymorphism
+animals = [Cat(), Dog()]
+for animal in animals:
+    print(animal.speak())
+
+# Output:
+# Meow
+# Bark
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>5. Encapsulation</h2>
+            <p>
+                **Encapsulation** restricts direct access to an object's data using **private variables**.
+            </p>
+            <pre><code>
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # Private variable
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+# Creating an object
+account = BankAccount(1000)
+account.deposit(500)
+print(account.get_balance())  # Output: 1500
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>6. Abstraction</h2>
+            <p>
+                **Abstraction** hides unnecessary details and provides only relevant information 
+                using **abstract classes**.
+            </p>
+            <pre><code>
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+
+# Concrete class implementing the abstract method
+class Car(Vehicle):
+    def start(self):
+        print("Car engine starting...")
+
+c = Car()
+c.start()  # Output: Car engine starting...
+            </code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learn Python. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

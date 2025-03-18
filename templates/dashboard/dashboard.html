@@ -15,6 +15,17 @@
             font-size: x-large;
             color: #ff4d4d;
         }
+        
+        .card p {
+            font-family: 'Press Start 2P';
+            text-decoration: none;
+        }
+
+        .pratice-section h2, .explore-section h2 {
+            font-family: 'Press Start 2P';
+            color: red;
+        }
+
     </style>
 </head>
 
@@ -142,29 +153,29 @@
             </a>
 
             <!-- C Cards -->
-            <a href="#" class="card" data-category="c">
-                <img src="{{ url_for('static', filename='images/c1.png') }}" alt="C Card 1">
-                <p>Demo</p>
+            <a href="/puzzle-c-game" class="card" data-category="c">
+                <img src="{{ url_for('static', filename='images/puzzle_c_game.jpg') }}" alt="C Card 1">
+                <p>Puzzle Game</p>
             </a>
-            <a href="#" class="card" data-category="c">
-                <img src="{{ url_for('static', filename='images/c2.png') }}" alt="C Card 2">
-                <p>Demo</p>
+            <a href="/debugger-c-game" class="card" data-category="c">
+                <img src="{{ url_for('static', filename='images/debug_c_game.jpg') }}" alt="C Card 2">
+                <p>Debugging Game</p>
             </a>
 
             <!-- C++ Cards -->
-            <a href="#" class="card" data-category="cpp">
-                <img src="{{ url_for('static', filename='images/cpp1.png') }}" alt="C++ Card 1">
-                <p>Demo</p>
+            <a href="/debugger-cpp-game" class="card" data-category="cpp">
+                <img src="{{ url_for('static', filename='images/debug_cpp_game.jpg') }}" alt="C++ Card 1">
+                <p>Bug Hunt</p>
             </a>
-            <a href="#" class="card" data-category="cpp">
-                <img src="{{ url_for('static', filename='images/cpp2.png') }}" alt="C++ Card 2">
-                <p>Demo</p>
+            <a href="/car-game" class="card" data-category="cpp">
+                <img src="{{ url_for('static', filename='images/car_game.jpg') }}" alt="C++ Card 2">
+                <p>Car Quiz</p>
             </a>
 
             <!-- HTML Cards -->
-            <a href="#" class="card" data-category="html">
-                <img src="{{ url_for('static', filename='images/html1.png') }}" alt="HTML Card 1">
-                <p>Demo</p>
+            <a href="/ninja-boy-game" class="card" data-category="html">
+                <img src="{{ url_for('static', filename='images/HTML_GAME/leonardo.png.png') }}" alt="HTML Card 1">
+                <p>Leonardo HTML Journey</p>
             </a>
             <a href="#" class="card" data-category="html">
                 <img src="{{ url_for('static', filename='images/html2.png') }}" alt="HTML Card 2">
@@ -172,13 +183,13 @@
             </a>
 
             <!-- CSS Cards -->
-            <a href="#" class="card" data-category="css">
-                <img src="{{ url_for('static', filename='images/css1.png') }}" alt="CSS Card 1">
-                <p>Demo</p>
+            <a href="/cssgame1" class="card" data-category="css">
+                <img src="{{ url_for('static', filename='images/cssgame1.png') }}" alt="CSS Card 1">
+                <p>Design Your Box!</p>
             </a>
-            <a href="#" class="card" data-category="css">
-                <img src="{{ url_for('static', filename='images/css2.png') }}" alt="CSS Card 2">
-                <p>Demo</p>
+            <a href="/cssgame2" class="card" data-category="css">
+                <img src="{{ url_for('static', filename='images/cssgame2.png') }}" alt="CSS Card 2">
+                <p>Carrot Hunt</p>
             </a>
         </div>
     </section>
@@ -188,9 +199,8 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Company</h3>
-                <a href="/404">About</a>
-                <a href="/404">Help Center</a>
-                <a href="/404">Contact Us</a>
+                <a href="/about">About</a>
+                <a href="/help">Help Center</a>
 
             </div>
             <div class="footer-section">

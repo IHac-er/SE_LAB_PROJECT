@@ -33,12 +33,7 @@ function login() {
         if (data.success) {
             window.location.href = "/dashboard";  // Successful login
         } else {
-            // Show error message and highlight fields
-            document.getElementById("error-message").innerText = data.message;
-            document.getElementById("error-message").style.display = "block";
-
-            document.getElementById("email").style.border = "2px solid red";
-            document.getElementById("password").style.border = "2px solid red";
+            alert("Invalid Credentials! Try Again")
         }
     })
     .catch(error => console.error("Error:", error));

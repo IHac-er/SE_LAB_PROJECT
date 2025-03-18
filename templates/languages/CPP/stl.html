@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Standard Template Library (STL)</title>
+    
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Standard Template Library (STL)</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='templates') }}">Previous: Templates</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='file_handling') }}">Next: File Handling</a></li>
+                     </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding the Standard Template Library (STL) in C++</h2>
+        <p>The STL provides reusable, efficient template classes and functions for data structures and algorithms.</p>
+    </section>
+
+    <section>
+        <h2>Components of STL</h2>
+        <ul>
+            <li><strong>Containers:</strong> Data structures like vectors, lists, and maps.</li>
+            <li><strong>Algorithms:</strong> Sorting, searching, etc.</li>
+            <li><strong>Iterators:</strong> Provide a way to access elements in a container.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Vectors in STL</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+    v.push_back(6); // Add element
+
+    for (int num : v) {
+        cout << num << " ";
+    }
+    return 0;
+}
+        </pre>
+        <p><strong>Explanation:</strong> The vector dynamically resizes itself and provides easy insertion/deletion.</p>
+    </section>
+
+    <section>
+        <h2>Lists in STL</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;list&gt;
+using namespace std;
+
+int main() {
+    list&lt;int&gt; l = {10, 20, 30};
+    l.push_front(5);
+    l.push_back(40);
+
+    for (int num : l) {
+        cout << num << " ";
+    }
+    return 0;
+}
+        </pre>
+        <p><strong>Explanation:</strong> The list container allows bidirectional traversal and efficient insertions/deletions.</p>
+    </section>
+
+    <section>
+        <h2>Maps in STL</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+using namespace std;
+
+int main() {
+    map&lt;string, int&gt; age;
+    age["Alice"] = 25;
+    age["Bob"] = 30;
+
+    for (auto pair : age) {
+        cout << pair.first << " - " << pair.second << endl;
+    }
+    return 0;
+}
+        </pre>
+        <p><strong>Explanation:</strong> The map stores key-value pairs and sorts them by key.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

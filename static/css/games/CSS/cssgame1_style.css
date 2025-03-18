@@ -1,0 +1,52 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(120deg, #f78ca0, #a64ca6); /* Pink to Purple Gradient */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+#box {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    margin: 20px auto;
+    border: 2px solid black;
+}
+textarea {
+    width: 80%;
+    height: 50px;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 5px;
+}
+.btn {
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.btn:hover {
+    background: #ff4f41;
+}
+.next-btn {
+    margin-top: 10px;
+    background: #4caf50;
+}
+.next-btn:hover {
+    background: #388e3c;
+}

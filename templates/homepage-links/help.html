@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage-links/help_style.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="{{ url_for('static', filename='images/codeodyssey.png') }}" alt="Company Logo" class="logo">
+        <a href="/" class="home-btn">← Back to Home</a>
+    </nav>
+
+    <!-- Help Center Section -->
+    <section class="help-center">
+        <h1>Help Center</h1>
+        <p>If you have any questions, check our FAQs below.</p>
+
+        <div class="faq-container">
+            <div class="faq">
+                <h3 class="faq-question">How do I reset my password? <span>+</span></h3>
+                <p class="faq-answer">To reset your password, go to your profile, click on 'Settings', then 'Reset Password', and follow the steps.</p>
+            </div>
+
+            <div class="faq">
+                <h3 class="faq-question">How can I delete my account? <span>+</span></h3>
+                <p class="faq-answer">To delete your account, navigate to Settings and click on 'Delete Account'.</p>
+            </div>
+
+            <div class="faq">
+                <h3 class="faq-question">How do I contact support? <span>+</span></h3>
+                <p class="faq-answer">You can reach us via email provided below, or through our social handles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for FAQ Toggle -->
+    <script>
+        document.querySelectorAll(".faq-question").forEach(question => {
+            question.addEventListener("click", () => {
+                question.parentElement.classList.toggle("open");
+            });
+        });
+    </script>
+
+</body>
+</html>

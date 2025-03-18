@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Introduction</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Introduction</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='classes_objects') }}">Previous: Classes & Objects</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='functions') }}">Next: Functions</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding C++</h2>
+        <p>C++ is a powerful, high-performance programming language that provides object-oriented features.</p>
+    </section>
+
+    <section>
+        <h2>What is C++?</h2>
+        <p>C++ is an extension of the C programming language, with additional features such as classes and objects. It was designed by Bjarne Stroustrup in the early 1980s and has since become one of the most popular programming languages for system and application development.</p>
+    </section>
+
+    <section>
+        <h2>Features of C++</h2>
+        <ul>
+            <li><strong>Object-Oriented Programming (OOP):</strong> Supports classes, objects, inheritance, polymorphism, abstraction, and encapsulation.</li>
+            <li><strong>Efficiency:</strong> Allows direct memory manipulation and high-performance code.</li>
+            <li><strong>Portability:</strong> Code written in C++ can run on different systems with minimal modification.</li>
+            <li><strong>Rich Standard Library:</strong> Includes extensive libraries for input/output operations, data structures, and algorithms.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>How C++ Works</h2>
+        <p>C++ is a compiled language. It requires a compiler to convert the human-readable code into machine code that the computer can execute. Once compiled, the program can be run on a specific platform.</p>
+    </section>
+
+    <section>
+        <h2>Example: Basic C++ Program</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> This simple C++ program prints "Hello, World!" to the console. The `main()` function is the entry point of any C++ program.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

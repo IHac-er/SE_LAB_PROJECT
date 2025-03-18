@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transitions & Animations</title>
+ 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Learning Hub</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='z-index') }}">Previous: Z-Index</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='transitions-animations') }}">Next: Transitions & Animations</a></li>
+                        </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Transitions & Animations</h2>
+        <p>Transitions and animations bring life to web pages by adding smooth effects and movements.</p>
+    </section>
+
+    <main>
+        <section>
+            <h3>CSS Transitions</h3>
+            <p>CSS transitions allow elements to change property values smoothly over a specified duration.</p>
+            <pre><code>/* Example: Smooth background color change */
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.box:hover {
+    background-color: blue;
+}</code></pre>
+        </section>
+
+        <section>
+            <h3>CSS Animations</h3>
+            <p>Unlike transitions, CSS animations allow more control over movement with keyframes.</p>
+            <pre><code>/* Example: Bouncing box animation */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.animated-box {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    animation: bounce 1s infinite;
+}</code></pre>
+        </section>
+
+        <section>
+            <h3>Keyframes in CSS</h3>
+            <p>Keyframes define intermediate steps of an animation.</p>
+            <pre><code>@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fading-box {
+    animation: fadeIn 2s ease-in;
+}</code></pre>
+        </section>
+
+        <section>
+            <h3>Difference Between Transitions & Animations</h3>
+            <table border="1">
+                <tr>
+                    <th>Feature</th>
+                    <th>Transitions</th>
+                    <th>Animations</th>
+                </tr>
+                <tr>
+                    <td>Trigger</td>
+                    <td>User interaction (hover, click, etc.)</td>
+                    <td>Runs automatically</td>
+                </tr>
+                <tr>
+                    <td>Control</td>
+                    <td>Limited control</td>
+                    <td>Fully controlled with keyframes</td>
+                </tr>
+                <tr>
+                    <td>Looping</td>
+                    <td>No</td>
+                    <td>Yes (can be infinite)</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

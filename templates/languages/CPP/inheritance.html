@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Inheritance</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Inheritance</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='encapsulation') }}">Previous: Encapsulation</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='polymorphism') }}">Next: Polymorphism</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Inheritance in C++</h2>
+        <p>Inheritance is one of the fundamental concepts of Object-Oriented Programming. It allows a class (child class) to inherit properties and behaviors from another class (parent class).</p>
+    </section>
+
+    <section>
+        <h2>What is Inheritance?</h2>
+        <p>Inheritance is a mechanism in C++ that allows one class to acquire the properties (fields and methods) of another class. It helps in code reuse and establishes a relationship between classes.</p>
+    </section>
+
+    <section>
+        <h2>Types of Inheritance in C++</h2>
+        <ul>
+            <li><strong>Single Inheritance:</strong> A child class inherits from one parent class.</li>
+            <li><strong>Multiple Inheritance:</strong> A child class inherits from multiple parent classes.</li>
+            <li><strong>Multilevel Inheritance:</strong> A child class inherits from another child class.</li>
+            <li><strong>Hierarchical Inheritance:</strong> Multiple child classes inherit from a single parent class.</li>
+            <li><strong>Hybrid Inheritance:</strong> A combination of multiple inheritance types.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Single Inheritance</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void makeSound() {
+        cout << "Some generic animal sound" << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "Woof! Woof!" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.makeSound();  // Inherited method
+    myDog.bark();       // Child class method
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Multiple Inheritance</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+// Parent class 1
+class A {
+public:
+    void showA() {
+        cout << "Class A method" << endl;
+    }
+};
+
+// Parent class 2
+class B {
+public:
+    void showB() {
+        cout << "Class B method" << endl;
+    }
+};
+
+// Child class inheriting from both A and B
+class C : public A, public B {
+public:
+    void showC() {
+        cout << "Class C method" << endl;
+    }
+};
+
+int main() {
+    C obj;
+    obj.showA();
+    obj.showB();
+    obj.showC();
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Access Specifiers in Inheritance</h2>
+        <ul>
+            <li><strong>Public Inheritance:</strong> Public members of the base class remain public in the derived class.</li>
+            <li><strong>Protected Inheritance:</strong> Public members of the base class become protected in the derived class.</li>
+            <li><strong>Private Inheritance:</strong> Public and protected members of the base class become private in the derived class.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Multilevel Inheritance</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+// Base class
+class Grandparent {
+public:
+    void showGrandparent() {
+        cout << "Grandparent class" << endl;
+    }
+};
+
+// Intermediate class
+class Parent : public Grandparent {
+public:
+    void showParent() {
+        cout << "Parent class" << endl;
+    }
+};
+
+// Derived class
+class Child : public Parent {
+public:
+    void showChild() {
+        cout << "Child class" << endl;
+    }
+};
+
+int main() {
+    Child obj;
+    obj.showGrandparent();
+    obj.showParent();
+    obj.showChild();
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Hierarchical Inheritance</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+// Base class
+class Vehicle {
+public:
+    void start() {
+        cout << "Vehicle starting..." << endl;
+    }
+};
+
+// Derived class 1
+class Car : public Vehicle {
+public:
+    void drive() {
+        cout << "Car is driving" << endl;
+    }
+};
+
+// Derived class 2
+class Bike : public Vehicle {
+public:
+    void ride() {
+        cout << "Bike is riding" << endl;
+    }
+};
+
+int main() {
+    Car myCar;
+    Bike myBike;
+
+    myCar.start();
+    myCar.drive();
+
+    myBike.start();
+    myBike.ride();
+
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The `Car` and `Bike` classes inherit from `Vehicle`, demonstrating hierarchical inheritance.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

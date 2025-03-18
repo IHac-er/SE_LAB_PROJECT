@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transforms</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>CSS Learning Hub</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='transitions-animations') }}">Previous: Transitions & Animations</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='transforms') }}">Next: CSS Transforms</a></li>
+                     </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Transforms</h2>
+        <p>CSS Transforms allow elements to be rotated, scaled, skewed, and translated in 2D or 3D space.</p>
+    </section>
+
+    <main>
+        <section>
+            <h3>2D Transforms</h3>
+            <p>2D transforms allow modifying an element’s appearance in a two-dimensional space.</p>
+            
+            <h4>Translate</h4>
+            <p>The `translate(x, y)` function moves an element from its current position.</p>
+            <pre><code>.box {
+    transform: translate(50px, 20px);
+}</code></pre>
+
+            <h4>Rotate</h4>
+            <p>The `rotate(deg)` function rotates an element by a specified degree.</p>
+            <pre><code>.box {
+    transform: rotate(45deg);
+}</code></pre>
+
+            <h4>Scale</h4>
+            <p>The `scale(x, y)` function resizes an element.</p>
+            <pre><code>.box {
+    transform: scale(1.5, 1.5);
+}</code></pre>
+
+            <h4>Skew</h4>
+            <p>The `skew(x, y)` function skews an element along the X and Y axes.</p>
+            <pre><code>.box {
+    transform: skew(20deg, 10deg);
+}</code></pre>
+        </section>
+
+        <section>
+            <h3>3D Transforms</h3>
+            <p>3D transforms add depth to elements by modifying their position in a three-dimensional space.</p>
+
+            <h4>RotateX, RotateY, RotateZ</h4>
+            <p>These functions rotate an element along different axes.</p>
+            <pre><code>.box {
+    transform: rotateX(45deg);
+}</code></pre>
+
+            <h4>Perspective</h4>
+            <p>The `perspective(value)` function adds depth by determining how far an object appears.</p>
+            <pre><code>.container {
+    perspective: 500px;
+}
+
+.box {
+    transform: rotateY(45deg);
+}</code></pre>
+        </section>
+
+        <section>
+            <h3>Combining Multiple Transformations</h3>
+            <p>Multiple transformations can be applied in one `transform` property.</p>
+            <pre><code>.box {
+    transform: rotate(45deg) scale(1.2) translate(20px, 30px);
+}</code></pre>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

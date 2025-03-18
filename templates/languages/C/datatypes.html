@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types in C</title>
+</head>
+
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+    
+<body>
+    <header class="navbar">
+        <h1>Data Types in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='syntax') }}">Previous: C Syntax</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='operators') }}">Next: Operators</a></li>
+                          </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What are Data Types in C?</h2>
+        <p>Data types in C define the type of data that a variable can store.</p>
+    </section>
+
+    <section>
+        <h2>Types of Data Types in C</h2>
+        <ul>
+            <li><strong>Primary Data Types:</strong> int, char, float, double.</li>
+            <li><strong>Derived Data Types:</strong> Arrays, Pointers, Structures, Unions.</li>
+            <li><strong>User-Defined Data Types:</strong> typedef, enum.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Size of Data Types</h2>
+        <ul>
+            <li><strong>int:</strong> Typically 4 bytes.</li>
+            <li><strong>char:</strong> 1 byte.</li>
+            <li><strong>float:</strong> 4 bytes.</li>
+            <li><strong>double:</strong> 8 bytes.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Declaring Data Types</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 10;
+    char letter = 'A';
+    float pi = 3.14;
+    double largeDecimal = 3.1415926535;
+
+    printf("Integer: %d\n", num);
+    printf("Character: %c\n", letter);
+    printf("Float: %f\n", pi);
+    printf("Double: %lf\n", largeDecimal);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Signed and Unsigned Data Types</h2>
+        <ul>
+            <li><strong>Signed int:</strong> Can store both positive and negative values.</li>
+            <li><strong>Unsigned int:</strong> Can store only positive values, but with a higher range.</li>
+            <li><strong>Signed char:</strong> Can store both negative and positive characters.</li>
+            <li><strong>Unsigned char:</strong> Can store only positive characters.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Signed vs Unsigned</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    signed int a = -5;
+    unsigned int b = 5;
+
+    printf("Signed int: %d\n", a);
+    printf("Unsigned int: %u\n", b);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Derived Data Types</h2>
+        <ul>
+            <li><strong>Arrays:</strong> Collection of elements of the same data type.</li>
+            <li><strong>Pointers:</strong> Stores the memory address of another variable.</li>
+            <li><strong>Structures:</strong> Groups related variables of different data types.</li>
+            <li><strong>Unions:</strong> Similar to structures but shares memory among members.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Using Arrays</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int numbers[5] = {1, 2, 3, 4, 5};
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", numbers[i]);
+    }
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>User-Defined Data Types</h2>
+        <ul>
+            <li><strong>typedef:</strong> Used to define a new data type.</li>
+            <li><strong>enum:</strong> Used to define a set of named integer constants.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Using typedef</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+typedef unsigned int uint;
+
+int main() {
+    uint age = 25;
+    printf("Age: %u\n", age);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Using enum</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+enum Weekday {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
+
+int main() {
+    enum Weekday today = Wednesday;
+    printf("Today is day number: %d\n", today);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

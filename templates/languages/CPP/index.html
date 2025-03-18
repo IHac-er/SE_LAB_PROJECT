@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Learning Home</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>Welcome to C++ Learning</h1>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='introduction') }}">Introduction</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='syntax') }}">Syntax</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='datatypes') }}">Data Types</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='operators') }}">Operators</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='control_flow') }}">Control Flow</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='functions') }}">Functions</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='pointers') }}">Pointers</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='classes_objects') }}">Classes & Objects</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='encapsulation') }}">Encapsulation</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='inheritance') }}">Inheritance</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='polymorphism') }}">Polymorphism</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='abstraction') }}">Abstraction</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='templates') }}">Templates</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='exception_handling') }}">Exception Handling</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='file_handling') }}">File Handling</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='memory_management') }}">Memory Management</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='stl') }}">Standard Template Library (STL)</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='multithreading') }}">Multithreading</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='lambda_functions') }}">Lambda Functions</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='smart_pointers') }}">Smart Pointers</a></li>
+
+        </ul>
+    </header>
+
+    <section class="hero-section">
+        <h2>Learn C++ Programming</h2>
+        <p>Your complete guide to mastering C++ with structured lessons and examples.</p>
+    </section>
+
+    <section>
+        <h2>Why Learn C++?</h2>
+        <p>C++ is a powerful, high-performance programming language used in game development, operating systems, embedded systems, and more.</p>
+    </section>
+
+    <section>
+        <h2>Topics Covered</h2>
+        <ul>
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="syntax.html">Syntax</a></li>
+            <li><a href="datatypes.html">Data Types</a></li>
+            <li><a href="operators.html">Operators</a></li>
+            <li><a href="control_flow.html">Control Flow</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="pointers.html">Pointers</a></li>
+            <li><a href="classes_objects.html">Classes & Objects</a></li>
+            <li><a href="encapsulation.html">Encapsulation</a></li>
+            <li><a href="inheritance.html">Inheritance</a></li>
+            <li><a href="polymorphism.html">Polymorphism</a></li>
+            <li><a href="abstraction.html">Abstraction</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="exception_handling.html">Exception Handling</a></li>
+            <li><a href="file_handling.html">File Handling</a></li>
+            <li><a href="memory_management.html">Memory Management</a></li>
+            <li><a href="stl.html">Standard Template Library (STL)</a></li>
+            <li><a href="multithreading.html">Multithreading</a></li>
+            <li><a href="lambda_functions.html">Lambda Functions</a></li>
+            <li><a href="smart_pointers.html">Smart Pointers</a></li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

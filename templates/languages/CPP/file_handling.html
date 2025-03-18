@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ File Handling</title> 
+    
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ File Handling</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='exception_handling') }}">Previous: Exception Handling</a></li>
+<li><a href="{{ url_for('languages.load_topic', language='cpp', topic='memory_management') }}">Next: Memory Management</a></li>
+</ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding File Handling in C++</h2>
+        <p>File handling in C++ allows reading from and writing to files using streams.</p>
+    </section>
+
+    <section>
+        <h2>What is File Handling?</h2>
+        <p>File handling enables data storage and retrieval from files. C++ provides the <code>fstream</code> library for this purpose.</p>
+        <p>File operations include:</p>
+        <ul>
+            <li>Opening a file</li>
+            <li>Reading from a file</li>
+            <li>Writing to a file</li>
+            <li>Closing a file</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Including the fstream Library</h2>
+        <p>To perform file operations, include the <code>fstream</code> header:</p>
+        <pre><code>#include &lt;fstream&gt;
+using namespace std;</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Writing to a File</h2>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main() {
+    ofstream file("example.txt"); // Create and open file
+    file << "Hello, this is a file write operation in C++!";
+    file.close(); // Close the file
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The <code>ofstream</code> object creates and writes to a file named <code>example.txt</code>.</p>
+    </section>
+
+    <section>
+        <h2>Example: Reading from a File</h2>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main() {
+    ifstream file("example.txt"); // Open file for reading
+    string line;
+    while (getline(file, line)) {
+        cout << line << endl;
+    }
+    file.close(); // Close the file
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> The <code>ifstream</code> object reads from <code>example.txt</code> line by line.</p>
+    </section>
+
+    <section>
+        <h2>Appending to a File</h2>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main() {
+    ofstream file("example.txt", ios::app); // Open file in append mode
+    file << "\nAppending new data to the file.";
+    file.close();
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> This example demonstrates how to append text to an existing file.</p>
+    </section>
+
+    <section>
+        <h2>File Modes in C++</h2>
+        <p>When opening a file, different modes can be used:</p>
+        <ul>
+            <li><code>ios::in</code> → Read mode</li>
+            <li><code>ios::out</code> → Write mode</li>
+            <li><code>ios::app</code> → Append mode</li>
+            <li><code>ios::binary</code> → Binary mode</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Binary File Handling</h2>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main() {
+    ofstream outFile("data.bin", ios::binary); 
+    int num = 42;
+    outFile.write(reinterpret_cast<char*>(&num), sizeof(num));
+    outFile.close();
+
+    ifstream inFile("data.bin", ios::binary);
+    int readNum;
+    inFile.read(reinterpret_cast<char*>(&readNum), sizeof(readNum));
+    inFile.close();
+
+    cout << "Number read from file: " << readNum << endl;
+    return 0;
+}</code></pre>
+        <p><strong>Explanation:</strong> This example demonstrates writing and reading binary data to and from a file.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

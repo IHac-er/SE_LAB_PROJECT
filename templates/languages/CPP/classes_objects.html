@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Classes and Objects</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+    <header class="navbar">
+        <h1>C++ Classes and Objects</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='introduction') }}">Previous: Introduction</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='cpp', topic='encapsulation') }}">Next: Encapsulation</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Understanding Classes and Objects in C++</h2>
+        <p>C++ is an object-oriented programming language, and classes and objects are its core components.</p>
+    </section>
+
+    <section>
+        <h2>Defining a Class</h2>
+        <p>A class is a blueprint for creating objects. It contains variables (data members) and functions (member functions).</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Car {
+public:
+    string brand;
+    int year;
+
+    void display() {
+        cout << "Brand: " << brand << ", Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car car1;  // Creating an object
+    car1.brand = "Toyota";
+    car1.year = 2022;
+    car1.display();
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Constructors in Classes</h2>
+        <p>Constructors are special functions that initialize objects automatically when they are created.</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Car {
+public:
+    string brand;
+    int year;
+
+    // Constructor
+    Car(string b, int y) {
+        brand = b;
+        year = y;
+    }
+
+    void display() {
+        cout << "Brand: " << brand << ", Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car car1("Ford", 2020);
+    car1.display();
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Encapsulation (Using Private Members)</h2>
+        <p>Encapsulation ensures that data is hidden from the outside world and can only be accessed through public methods.</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class BankAccount {
+private:
+    double balance;
+
+public:
+    BankAccount(double b) {
+        balance = b;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+    }
+
+    void displayBalance() {
+        cout << "Balance: $" << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount account(1000);
+    account.deposit(500);
+    account.displayBalance();
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Inheritance in C++</h2>
+        <p>Inheritance allows one class to derive the properties and behavior of another.</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void makeSound() {
+        cout << "Animal makes a sound." << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "Dog barks!" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.makeSound();
+    myDog.bark();
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Polymorphism in C++</h2>
+        <p>Polymorphism allows functions to be used in different ways based on the object type.</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Animal {
+public:
+    virtual void makeSound() {
+        cout << "Animal makes a sound." << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void makeSound() override {
+        cout << "Dog barks!" << endl;
+    }
+};
+
+int main() {
+    Animal* a;
+    Dog d;
+    a = &d;
+    a->makeSound();  // Calls the derived class function due to polymorphism
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C++. All rights reserved.</p>
+    </footer>
+</body>
+</html>

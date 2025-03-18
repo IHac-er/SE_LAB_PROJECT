@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Regular Expressions</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Pure Black Background */
+  color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #6600cc; /* Deep Purple */
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 50px;
+  background-color: #5500aa; /* Dark Purple */
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+  margin: 20px;
+  background: #121212; /* Very Dark Gray for Depth */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+  background: #181818; /* Dark Gray Code Block */
+  color: #00ffff; /* Cyan Text for Code */
+  padding: 15px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #6600cc; /* Matching table border with theme */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #440088;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #6600cc; /* Dark Purple Footer */
+  color: white;
+}
+
+</style>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='index') }}">Home</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='multithreading') }}">Previous: Multithreading</a></li>
+          <li><a href="{{ url_for('languages.load_topic', language='py', topic='applications') }}">Next: Applications</a></li>
+            </ul>
+    </nav>
+
+    <header>
+        <h1>Python Regular Expressions</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>What are Regular Expressions?</h2>
+            <p>
+                Regular expressions (regex) are powerful tools for **searching, matching, and manipulating** text patterns.
+                Python provides the <code>re</code> module to handle regex efficiently.
+            </p>
+        </section>
+
+        <section>
+            <h2>1. Importing the <code>re</code> Module</h2>
+            <p>To use regular expressions, first import the <code>re</code> module:</p>
+            <pre><code>import re</code></pre>
+        </section>
+
+        <section>
+            <h2>2. Basic Regex Functions</h2>
+
+            <h3>🔹 <code>re.search()</code> – Search for a pattern in a string</h3>
+            <p>Returns the first occurrence of the pattern.</p>
+            <pre><code>
+import re
+
+text = "My phone number is 123-456-7890"
+pattern = r"\d{3}-\d{3}-\d{4}"  # Matches a phone number format
+
+match = re.search(pattern, text)
+if match:
+    print("Found:", match.group())  # Output: 123-456-7890
+            </code></pre>
+
+            <h3>🔹 <code>re.match()</code> – Match at the start of a string</h3>
+            <p>Only returns a match if the pattern appears at the **beginning** of the string.</p>
+            <pre><code>
+text = "Hello World"
+pattern = r"Hello"
+
+if re.match(pattern, text):
+    print("Pattern found at the beginning!")  # Output: Pattern found at the beginning!
+            </code></pre>
+
+            <h3>🔹 <code>re.findall()</code> – Find all matches in a string</h3>
+            <p>Returns a list of all occurrences of the pattern.</p>
+            <pre><code>
+text = "The numbers are 42, 101, and 56."
+pattern = r"\d+"  # Matches one or more digits
+
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['42', '101', '56']
+            </code></pre>
+
+            <h3>🔹 <code>re.sub()</code> – Replace text using regex</h3>
+            <p>Replaces all occurrences of a pattern with a new string.</p>
+            <pre><code>
+text = "The sky is blue."
+pattern = r"blue"
+
+new_text = re.sub(pattern, "red", text)
+print(new_text)  # Output: The sky is red.
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Common Regex Metacharacters</h2>
+            <p>The following metacharacters are commonly used in regex patterns:</p>
+            <table border="1">
+                <tr>
+                    <th>Metacharacter</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>.</code></td>
+                    <td>Matches any character except a newline</td>
+                    <td><code>r"a.b"</code> matches "acb", "a1b"</td>
+                </tr>
+                <tr>
+                    <td><code>\d</code></td>
+                    <td>Matches any digit (0-9)</td>
+                    <td><code>r"\d+"</code> finds "123", "456"</td>
+                </tr>
+                <tr>
+                    <td><code>\w</code></td>
+                    <td>Matches any word character (A-Z, a-z, 0-9, _)</td>
+                    <td><code>r"\w+"</code> finds "Hello", "World"</td>
+                </tr>
+                <tr>
+                    <td><code>\s</code></td>
+                    <td>Matches any whitespace (space, tab, newline)</td>
+                    <td><code>r"\s+"</code> matches spaces</td>
+                </tr>
+                <tr>
+                    <td><code>^</code></td>
+                    <td>Matches the start of a string</td>
+                    <td><code>r"^Hello"</code> matches "Hello World"</td>
+                </tr>
+                <tr>
+                    <td><code>$</code></td>
+                    <td>Matches the end of a string</td>
+                    <td><code>r"end$"</code> matches "this is the end"</td>
+                </tr>
+                <tr>
+                    <td><code>[]</code></td>
+                    <td>Character set, matches any one of the included characters</td>
+                    <td><code>r"[aeiou]"</code> matches vowels</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>4. Practical Examples</h2>
+            
+            <h3>✅ Extract Emails from Text</h3>
+            <pre><code>
+import re
+
+text = "Contact us at support@example.com or sales@example.com"
+pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
+
+emails = re.findall(pattern, text)
+print(emails)  # Output: ['support@example.com', 'sales@example.com']
+            </code></pre>
+
+            <h3>✅ Validate a Phone Number</h3>
+            <pre><code>
+import re
+
+def is_valid_phone(phone):
+    pattern = r"^\d{3}-\d{3}-\d{4}$"  # Matches 123-456-7890 format
+    return bool(re.match(pattern, phone))
+
+print(is_valid_phone("123-456-7890"))  # True
+print(is_valid_phone("1234567890"))    # False
+            </code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learn Python. All rights reserved.</p>
+    </footer>
+</body>
+</html>

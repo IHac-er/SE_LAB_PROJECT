@@ -1,93 +1,373 @@
 body {
-    background-color: #121212;
+    background-color: black;
     color: white;
     font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
     display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left */
+    background-color: #111;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    gap: 20px; /* Adds spacing between navbar items */
+}
+
+.navbar #edit-profile-btn {
+    margin-right: left; /* Pushes the button to the left */
+}
+
+.navbar img {
+    height: 50px;
+}
+
+.profile-container, .edit-profile-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 70px; /* Adjust for navbar */
+}
+
+.banner img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* Profile section */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
+}
+
+/* Fix: Avatar container should be above User ID */
+.avatar-container {
+    text-align: center;
+}
+
+.avatar-container, .avatar-edit-container {
+    position: relative;
+    text-align: center;
+    margin-top: -50px;
+}
+
+#profile-pic, #edit-profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+/* Fix: User ID now directly below profile picture */
+.user-id {
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
+    margin-top: -15px;
+    color: white; /* Ensure it's visible */
+}
+
+#user-email {
+    font-size: 20px;
+    color: gray;
+    margin-top: -10px;
+}
+
+.bio-section, .education-section, .skills-section, .social-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgb(197, 192, 192);
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bio-section h3, .education-section h3, .skills-section h3, .social-section h3 {
+    font-size: 20px;
+    color: rgba(255, 0, 0, 0.773);
+}
+
+.bio-section p, .education-section p, .skills-section p, .social-section p {
+    font-size: 16px;
+    color: rgb(15, 1, 1);
+}
+
+.bio-level{
+    margin-top: -10px;
+}
+
+.stats-section {
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.stats-section h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.stats-section h3::before, .stats-section h3::after {
+    content: "";
+    flex: 1;
+    height: 3px;
+    background-color: white;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    width: 100%;
 }
 
-.profile-container {
+.stats-box {
     display: flex;
-    justify-content: space-between;
-    width: 60%;
-    background-color: #1e1e1e;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.stats-box p {
+    background: #ff0000d5;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#edit-profile-btn {
+    background-color: red; /* Red background */
+    color: white; /* White text */
+    padding: 10px 15px; /* Proper padding */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Make text bold */
+    border-radius: 5px; /* Rounded corners */
+    transition: 0.3s; /* Smooth hover effect */
+    margin-left: 60%; 
+}
+
+#edit-profile-btn:hover {
+    background-color: darkred; /* Darker red on hover */
+}
+
+.back-btn {
+    background-color: red; /* Red background */
+    color: white; /* White text */
+    padding: 10px 15px; /* Proper padding */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Make text bold */
+    border-radius: 5px; /* Rounded corners */
+    transition: 0.3s; /* Smooth hover effect */
+}
+
+.back-btn:hover {
+    background-color: darkred; /* Darker red on hover */
+}
+
+/* Style the avatar selection modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px red;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+    width: 300px;
 }
 
-/* Left Box (Form) */
-.profile-form {
-    flex: 1;
-    padding: 20px;
+/* Ensure avatars appear in small size */
+.avatar-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.profile-form h2 {
-    color: red;
+.avatar-options img {
+    width: 50px; /* Set avatar size */
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: 0.3s;
 }
 
-label {
-    display: block;
+.avatar-options img:hover {
+    transform: scale(1.1);
+    border-color: red;
+}
+
+/* Style the close button */
+.modal-content button {
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
     margin-top: 10px;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid red;
-    background-color: black;
+
+/* Footer Container */
+.footer {
+    background-color: #1c1c1c;
+    width: 60%; /* Reduce width to make it smaller */
+    margin: 40px auto; /* Center it horizontally */
+    padding: 30px 5%;
+    border-radius: 12px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Footer Layout */
+  .footer-container {
+    display: flex;
+    justify-content: left; /* Centers content horizontally */
+    gap: 5rem; /* Adjust spacing between sections */
+  }
+  
+  /* Footer Sections */
+  .footer-section {
+    text-align: left; /* Aligns text properly */
+  }
+  
+  .footer-section h3 {
+    color: red;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .footer-section a {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 5px 0;
+  }
+  
+  .footer-section a:hover {
+    color: #ff4d4d;
+  }
+  
+  .contact {
     color: white;
+    text-align: right; /* Aligns text to the right */
+    margin-top: -170px; /* Moves it upward */
+  }
+  
+  /* Footer Social Media */
+  .footer-social {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .footer-logo {
+    max-width: 230px; /* Increase the logo size */
+    margin-bottom: 10px;
+  }
+  
+  .social-icons a {
+    margin: 0 8px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .social-icons a:hover {
+    color: #ff4d4d;
+  }
+  
+  /* Footer Copyright */
+  .footer-copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+  }
+
+  /* Edit Profile Modal */
+#edit-profile-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7);
+}
+
+/* Modal Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Input Fields */
+#edit-profile-modal input, 
+#edit-profile-modal textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
     border-radius: 5px;
+    background-color: #333;
+    color: white;
 }
 
-textarea {
-    height: 80px;
-    resize: none;
+/* Make Email Read-Only */
+#edit-profile-modal input[readonly] {
+    background-color: #444;
+    cursor: not-allowed;
 }
 
-button {
+/* Submit Button */
+.submit-btn {
     background-color: red;
     color: white;
     border: none;
-    padding: 10px;
-    margin-top: 15px;
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
     width: 100%;
+    margin-top: 10px;
 }
 
-button:hover {
+.submit-btn:hover {
     background-color: darkred;
 }
 
-/* Right Box (Profile Card) */
-.profile-card {
-    flex: 1;
-    text-align: center;
-    padding: 20px;
-    background-color: #282828;
-    border-radius: 10px;
-    box-shadow: 0 0 10px red;
-    margin-left: 20%;
-}
-
-.profile-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid red;
-}
-
-.profile-card h3 {
-    margin-top: 10px;
-    font-size: 1.5em;
-}
-
-.profile-card p {
-    font-size: 1em;
-    color: lightgray;
-}

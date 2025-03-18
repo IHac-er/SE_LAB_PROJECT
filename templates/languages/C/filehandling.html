@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling in C</title>
+</head>
+
+<style> 
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-links a:hover {
+        color: #00ffcc;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        text-align: center;
+        padding: 50px;
+        background-color: #0059b3;
+      }
+      
+      .hero-section h2 {
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      
+      /* Sections */
+      section {
+        padding: 20px;
+        margin: 20px;
+        background: #262626;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      }
+      
+      section h2 {
+        color: #00ffcc;
+      }
+      
+      section p {
+        font-size: 1.1rem;
+      }
+      
+      /* Syntax Block */
+      pre {
+        background: #000000;
+        color: #00ffcc;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      
+      code {
+        font-family: monospace;
+        color: #00ffcc;
+      }
+      
+      /* Buttons */
+      .button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #004080;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      .button:hover {
+        background-color: #0073e6;
+      }
+      
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #004080;
+        color: white;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-links {
+          flex-direction: column;
+          padding: 10px 0;
+        }
+        .nav-links li {
+          margin: 10px 0;
+        }
+      }
+      
+    </style>
+
+
+<body>
+    <header class="navbar">
+        <h1>File Handling in C</h1>
+        <nav>
+            <ul class="nav-links">
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='index') }}">Home</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='structures_unions') }}">Previous: Structures & Unions</a></li>
+              <li><a href="{{ url_for('languages.load_topic', language='c', topic='memorymanagement') }}">Next: Memory Management</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>What is File Handling?</h2>
+        <p>File handling in C allows performing operations like reading, writing, and modifying files.</p>
+    </section>
+
+    <section>
+        <h2>Why Use File Handling?</h2>
+        <ul>
+            <li>Data can be permanently stored and retrieved.</li>
+            <li>Programs can process large amounts of information.</li>
+            <li>It allows reading and writing from external files.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>File Operations in C</h2>
+        <ul>
+            <li><strong>Creating a File</strong></li>
+            <li><strong>Opening a File</strong></li>
+            <li><strong>Reading from a File</strong></li>
+            <li><strong>Writing to a File</strong></li>
+            <li><strong>Appending Data to a File</strong></li>
+            <li><strong>Closing a File</strong></li>
+            <li><strong>Deleting a File</strong></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>File Handling Functions</h2>
+        <ul>
+            <li><code>fopen()</code> - Opens a file.</li>
+            <li><code>fclose()</code> - Closes a file.</li>
+            <li><code>fgetc()</code> - Reads a single character from a file.</li>
+            <li><code>fgets()</code> - Reads a line from a file.</li>
+            <li><code>fputc()</code> - Writes a single character to a file.</li>
+            <li><code>fputs()</code> - Writes a string to a file.</li>
+            <li><code>fprintf()</code> - Writes formatted output to a file.</li>
+            <li><code>fscanf()</code> - Reads formatted input from a file.</li>
+            <li><code>remove()</code> - Deletes a file.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>File Opening Modes</h2>
+        <ul>
+            <li><code>r</code> - Open for reading (file must exist).</li>
+            <li><code>w</code> - Open for writing (creates or overwrites file).</li>
+            <li><code>a</code> - Open for appending (creates if missing).</li>
+            <li><code>r+</code> - Open for reading and writing (must exist).</li>
+            <li><code>w+</code> - Open for reading and writing (creates or overwrites file).</li>
+            <li><code>a+</code> - Open for reading and appending.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example: Writing to a File</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file = fopen("example.txt", "w");
+    
+    if (file == NULL) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    fprintf(file, "Hello, this is a file handling example!\n");
+    fclose(file);
+    
+    printf("Data written to file successfully.\n");
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Reading from a File</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file = fopen("example.txt", "r");
+    char line[100];
+
+    if (file == NULL) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    while (fgets(line, sizeof(line), file)) {
+        printf("%s", line);
+    }
+
+    fclose(file);
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Appending to a File</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file = fopen("example.txt", "a");
+
+    if (file == NULL) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    fprintf(file, "This is an appended line.\n");
+    fclose(file);
+    
+    printf("Data appended successfully.\n");
+    return 0;
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Example: Deleting a File</h2>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    if (remove("example.txt") == 0) {
+        printf("File deleted successfully.\n");
+    } else {
+        printf("Error deleting file.\n");
+    }
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Learn C Programming. All rights reserved.</p>
+    </footer>
+</body>
+</html>

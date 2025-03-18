@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title> 
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Pure Black Background */
+    color: #e0e0e0; /* Light gray text for readability */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0066cc; /* Deep Blue */
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #004499; /* Dark Blue */
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: #121212; /* Very Dark Gray for Depth */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Syntax Block */
+pre {
+    background: #181818; /* Dark Gray Code Block */
+    color: #00ff99; /* Neon Green for Code Syntax */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #0066cc; /* Matching table border with theme */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0066cc; /* Deep Blue Footer */
+    color: white;
+}
+
+</style>
+<body>
+
+    <header class="navbar">
+        <h1>CSS Grid</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='index') }}">Home</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='flexbox') }}">Previous: Flexbox</a></li>
+                <li><a href="{{ url_for('languages.load_topic', language='css', topic='animations') }}">Next: Animations</a></li>
+                    </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>CSS Grid</h2>
+        <p>CSS Grid is a two-dimensional layout system that allows precise control over rows and columns.</p>
+    </section>
+
+    <section>
+        <h3>What is CSS Grid?</h3>
+        <p>CSS Grid is a powerful layout system that allows web developers to create complex layouts using rows and columns easily.</p>
+    </section>
+
+    <section>
+        <h3>Basic Grid Properties</h3>
+        <ul>
+            <li><code>display: grid;</code> - Enables grid layout.</li>
+            <li><code>grid-template-columns</code> - Defines column structure.</li>
+            <li><code>grid-template-rows</code> - Defines row structure.</li>
+            <li><code>grid-gap</code> - Adds space between grid items.</li>
+            <li><code>justify-items</code> - Aligns items horizontally.</li>
+            <li><code>align-items</code> - Aligns items vertically.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Example: Creating a Grid Layout</h3>
+        <pre><code>
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+    background-color: #333;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: #ffcc00;
+    text-align: center;
+    line-height: 100px;
+    color: black;
+    font-weight: bold;
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>Grid Example in HTML</h3>
+        <pre><code>
+&lt;div class="grid-container"&gt;
+    &lt;div class="grid-item"&gt;1&lt;/div&gt;
+    &lt;div class="grid-item"&gt;2&lt;/div&gt;
+    &lt;div class="grid-item"&gt;3&lt;/div&gt;
+    &lt;div class="grid-item"&gt;4&lt;/div&gt;
+    &lt;div class="grid-item"&gt;5&lt;/div&gt;
+    &lt;div class="grid-item"&gt;6&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 CSS Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
