@@ -46,22 +46,22 @@
                 <span class="close-btn">&times;</span>
                 <h2>Edit User</h2>
                 <form id="editUserForm">
-                    <label>Email:</label>
-                    <input type="text" id="editEmail" disabled>
+                    <label for="editEmail">Email</label>
+                    <input type="email" id="editEmail" readonly>
 
-                    <label>Name:</label>
-                    <input type="text" id="editName">
+                    <label for="editName">Name</label>
+                    <input type="text" id="editName" placeholder="Enter new name">
 
-                    <label>New Password:</label>
-                    <input type="password" id="editPassword">
+                    <label for="editNewEmail">New Email</label>
+                    <input type="email" id="editNewEmail" placeholder="Enter new email">
 
-                    <label>Confirm New Email:</label>
-                    <input type="email" id="editNewEmail">
+                    <label for="editPassword">New Password</label>
+                    <input type="password" id="editPassword" placeholder="Enter new password">
 
-                    <button type="submit" class="save-btn">Save Changes</button>
-                    <button type="button" class="reset-btn" id="resetAccount">Reset Account Progress</button>
-                    <button type="button" class="delete-btn" id="deleteAccount">Delete Account</button>
+                    <button type="submit" class="modal-btn save-btn">Save Changes</button>
                 </form>
+                <button id="resetAccount" class="modal-btn reset-btn">Reset Progress</button>
+                <button id="deleteAccount" class="modal-btn delete-btn">Delete Account</button>
             </div>
         </div>
 
