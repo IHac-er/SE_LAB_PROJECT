@@ -50,6 +50,31 @@ h1 {
     color: #333;
 }
 
+.stats-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.stat-box {
+    background: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 150px;
+}
+
+.stat-box h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.stat-box p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
 #manage-users table {
     width: 100%;
     border-collapse: collapse;
@@ -206,3 +231,25 @@ form label {
     }
 }
 
+#addUserForm label {
+    color: black;
+}
+
+.status-container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 10px;
+    width: 370px;
+    margin: right;
+}
+
+.status-container h2 {
+    color: white;
+}
+
+#server-status p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: white;
+}

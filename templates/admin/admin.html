@@ -12,7 +12,6 @@
         <ul>
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Manage Users</a></li>
-            <li><a href="#">Settings</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
     </div>
@@ -20,8 +19,43 @@
     <div class="main-content">
         <div id="dashboard" class="content-section">
             <h1>Welcome, {{ session['name'] }}</h1>
-            <p>This is your admin panel where you can manage users, view statistics, and configure settings.</p>
-            <p>More dashboard features will be added here...</p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Total Users</h3>
+                    <p id="totalUsers">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Active Users</h3>
+                    <p id="activeUsers">0</p>
+                </div>
+            </div>
+
+            <div id="addUserSection">
+                <h3>Add New User</h3>
+                <form id="addUserForm">
+                    <label for="newName">Name:</label>
+                    <input type="text" id="newName" required>
+            
+                    <label for="newEmail">Email:</label>
+                    <input type="email" id="newEmail" required>
+            
+                    <label for="newPassword">Password:</label>
+                    <input type="password" id="newPassword" required>
+            
+                    <button type="submit">Add User</button>
+                </form>
+                <p id="addUserMessage"></p>
+            </div> 
+
+            <div class="status-container">
+                <h2>System Health & Server Status</h2>
+                <div id="server-status">
+                    <p><strong>CPU Usage:</strong> <span id="cpu">Loading...</span>%</p>
+                    <p><strong>Memory Usage:</strong> <span id="memory">Loading...</span>%</p>
+                    <p><strong>Disk Space Usage:</strong> <span id="disk">Loading...</span>%</p>
+                </div>
+            </div>
         </div>
     
         <div id="manage-users" class="content-section" style="display: none;">
@@ -63,11 +97,6 @@
                 <button id="resetAccount" class="modal-btn reset-btn">Reset Progress</button>
                 <button id="deleteAccount" class="modal-btn delete-btn">Delete Account</button>
             </div>
-        </div>
-
-        <div id="settings" class="content-section" style="display: none;">
-            <h2>Settings</h2>
-            <p>Settings section content will go here...</p>
         </div>
     </div>
      

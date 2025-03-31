@@ -17,21 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle sidebar clicks
     document.querySelector(".sidebar").addEventListener("click", function (event) {
         if (event.target.tagName === "A") {
-            event.preventDefault(); // Prevent default link behavior
-            const text = event.target.textContent.trim();
+            event.preventDefault();
+            const sectionText = event.target.innerText.trim(); // Fixed for better accuracy
 
             // Remove 'active' class from all sidebar items
             sidebarLinks.forEach(li => li.classList.remove("active"));
             event.target.parentElement.classList.add("active");
 
-            if (text === "Dashboard") {
+            if (sectionText === "Dashboard") {
                 showSection("dashboard");
-            } else if (text === "Manage Users") {
+            } else if (sectionText === "Manage Users") {
                 showSection("manage-users");
                 fetchUsers(); // Fetch users dynamically
-            } else if (text === "Settings") {
+            } else if (sectionText === "Settings") {
                 showSection("settings");
-            } else if (text === "Logout") {
+            } else if (sectionText === "Logout") {
                 logoutUser();
             }
         }
@@ -74,9 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function logoutUser() {
-        fetch('/logout')
-            .then(() => window.location.href = "/logout") // Redirect after logout
-            .catch(error => console.error("Logout failed:", error));
+        window.location.href = "/logout"; // Redirect directly after logout
     }
 
     function showModal(userEmail, userName) {
@@ -143,4 +141,59 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Error:", error));
         }
     });
+
+    function fetchDashboardStats() {
+        fetch('/dashboard-stats')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("totalUsers").textContent = data.total_users;
+                document.getElementById("activeUsers").textContent = data.active_users;
+            })
+            .catch(error => console.error("Error fetching dashboard stats:", error));
+    }
+
+    function fetchServerStatus() {
+        fetch('/server-status')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('cpu').textContent = data['CPU Usage'];
+                document.getElementById('memory').textContent = data['Memory Usage'];
+                document.getElementById('disk').textContent = data['Disk Usage'];
+            })
+            .catch(error => console.error('Error fetching server status:', error));
+    }
+    
+    // Periodically update active user tracking
+    setInterval(() => {
+        fetch('/track-activity', { method: "POST" });
+    }, 300000); // Every 5 minutes
+
+    // Fetch dashboard stats on page load
+    fetchDashboardStats();
+
+    setInterval(fetchServerStatus, 1000);
+    fetchServerStatus();
 });
+
+document.getElementById("addUserForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("newName").value;
+    const email = document.getElementById("newEmail").value;
+    const password = document.getElementById("newPassword").value;
+
+    fetch("/add-user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("addUserMessage").textContent = data.message;
+        if (data.success) {
+            document.getElementById("addUserForm").reset(); // Clear form
+        }
+    })
+    .catch(error => console.error("Error adding user:", error));
+});
+
