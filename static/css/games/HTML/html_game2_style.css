@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #121212;
+    color: white;
+    transition: background 1s ease-in-out;
+}
+
+.game-container {
+    width: 60%;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+.orb {
+    font-size: 50px;
+    padding: 20px;
+    border-radius: 50%;
+    background: #ffcc00;
+    display: inline-block;
+    transition: background 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.challenge-container {
+    background: #292929;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    transition: transform 0.3s ease-in-out, background 0.5s ease-in-out;
+}
+
+button {
+    background: #6200ea;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background: #3700b3;
+    transform: scale(1.05);
+}
+
+/* Swapping Animation */
+.fade {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Orb Reactions */
+.happy { background: #00c853; transform: scale(1.1); }
+.sad { background: #d32f2f; transform: scale(0.9); }
+.waiting { background: #ffcc00; }

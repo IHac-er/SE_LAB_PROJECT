@@ -48,6 +48,12 @@ def open_car_game():
         return render_template('games/CPP/car_game.html')
     return render_template('/dashboard')
 
+@games_bp.route('/html_game2')
+def open_html2_game():
+    if 'email' in session:
+        return render_template('games/HTML/html_game2.html')
+    return render_template('/dashabord')
+
 @games_bp.route('/cssgame2')
 def open_cssgame2():
     if 'email' in session:

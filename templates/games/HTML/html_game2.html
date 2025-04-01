@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Coding AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/games/HTML/html_game2_style.css')}}">
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>🤖 Virtual Coding AI 🤖</h1>
+        <p>Solve coding challenges to keep the AI happy!</p>
+
+        <div id="ai-orb" class="orb">🙂</div>
+
+        <div class="challenge-container">
+            <p id="question" class="fade">Solve this: What is 2 + 2?</p>
+            <input type="text" id="answer" placeholder="Your answer...">
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
+
+        <p id="timer">⏳ Time left: 10s</p>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/games/HTML/html_game2_script.js')}}"></script>
+</body>
+</html>
